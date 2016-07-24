@@ -6,13 +6,13 @@ if(!defined('InEmpireBak'))
 
 //Database
 $phome_db_ver="";
-$phome_db_server="localhost";
-$phome_db_port="";
+$phome_db_server="10.211.55.8";
+$phome_db_port="3306";
 $phome_db_username="root";
-$phome_db_password="";
-$phome_db_dbname="";
+$phome_db_password="123456";
+$phome_db_dbname="simcms_lv";
 $baktbpre="";
-$phome_db_char="";
+$phome_db_char="utf8";
 
 //USER
 $set_username="admin";
