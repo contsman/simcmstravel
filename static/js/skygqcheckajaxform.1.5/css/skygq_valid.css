@@ -1,0 +1,5 @@
+/*表单提示样式*/
+.Correct,.Wrong,.Exp{margin:5px 0;height:20px;line-height:19px;padding:2px 5px 2px 23px;font-size:12px}
+.Correct{background:url(../images/register.png) 5px 3px no-repeat;color:#008800;}
+.Wrong{background:url(../images/register.png) 5px -78px no-repeat;color:#8b2b34;}
+.Exp{background:url(../images/register.png) 5px -133px no-repeat;color:#006699;}

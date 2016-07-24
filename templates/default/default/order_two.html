@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$page.p_title}> - <{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>"  name="keywords"/>
+		<meta content="<{$setting.description}>" name="description"/>
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_page.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+		<script type="text/javascript">
+				var base_url="";
+				$(function(){
+					var items_array = [
+						{ name:"turename",type:"",simple:"真实姓名",focusMsg:'请填写真实姓名'},
+						{ name:"tel",type:"telephone",simple:"手机",focusMsg:'请填写手机'}
+					];
+					$("#upinfoform").skygqCheckAjaxForm({
+						items			: items_array
+					});
+				});
+		</script>
+	</head>
+	<body>
+		<!--内容-->
+		<{include file="default/`$setting.templates`/head.html"}>
+		<div class="main mt10 clearfix">
+			<div class="commonbox">
+				<h3>在线订购</h3>
+				<div class="aboutbox">
+					<p class="ordertitle">您的订单详情为：</p>
+					<form name="form1" id="upinfoform" method="post" action="index.php?mod=order">
+						<table cellspacing="0" cellpadding="0" border="0" class="ordertable">
+							<tr>
+								<th>线路编码：</th>
+								<td><{$line.p_no}><input type="hidden" name="id" value="<{$line.p_id}>"></td>
+							</tr>
+							<tr>
+								<th>线路名称：</th>
+								<td><{$line.p_title}></td>
+							</tr>
+							<tr>
+								<th>出发日期：</th>
+								<td>
+									<{$departure_date.departure_date}>
+									<input type="hidden" name="departure_date" value="<{$departure_date.departure_date}>">
+								</td>
+							</tr>
+							<tr>
+								<th>人数：</th>
+								<td>成人：<span class="orange01"><{$adult_nums}></span> + 儿童：<span class="orange01"><{$children_nums}></span> = 总人数：<span class="orange01"><{$all_nums}></span>
+								<input type="hidden" name="adult_nums" value="<{$adult_nums}>">
+								<input type="hidden" name="children_nums" value="<{$children_nums}>">
+								</td>
+							</tr>
+							<tr>
+								<th>价格：</th>
+								<td>成人：<span class="orange01">￥<{$adult_price}>元</span> + 儿童：<span class="orange01">￥<{$children_price}>元</span> = 总价格：<span class="orange01">￥<{$all_price}>元</span>
+								<input type="hidden" name="price" value="<{$all_price}>">
+								</td>
+							</tr>
+							<tr>
+								<th><span class="red">*</span> 真实姓名：</th>
+								<td>
+								<input type="text" name="turename" value="<{$turename}>" size="30">
+								</td>
+							</tr>
+							<tr>
+								<th><span class="red">*</span> 手机号：</th>
+								<td>
+								<input type="text" name="tel" value="<{$tel}>" size="30">
+								</td>
+							</tr>
+							<tr>
+								<th></td>
+								<td><input type="submit" value="" class="orderbut"/>
+								<input type="button" value="" class="close" onclick="javascript:window.close();"/>
+								<input type="hidden" name="action" value="order"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--版权-->
+		<{include file="default/`$setting.templates`/block_service.html" }>
+		<{include file="default/`$setting.templates`/foot.html"}>
+	</body>
+</html>

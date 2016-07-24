@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$page.p_title}> - <{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>"  name="keywords"/>
+		<meta content="<{$setting.description}>" name="description"/>
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_page.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<!--内容-->
+		<{include file="default/`$setting.templates`/head.html"}>
+		<div class="main mt10 clearfix">
+			<div class="commonbox">
+				<h3>在线订购</h3>
+				<div class="aboutbox">
+					<form name="form1" id="upinfoform" method="post" action="index.php?mod=order">
+						<table cellspacing="0" cellpadding="0" border="0" class="ordertable">
+							<tr>
+								<th>线路编码：</th>
+								<td><{$line.p_no}><input type="hidden" name="id" value="<{$line.p_id}>"></td>
+							</tr>
+							<tr>
+								<th>线路名称：</th>
+								<td><{$line.p_title}></td>
+							</tr>
+							<tr>
+								<th>出发日期：</th>
+								<td>
+									<select name="departure_date">
+										<{$select_departure_date}>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>人数：</th>
+								<td><span>成人：<span>
+									<span>
+										<select name="adult_nums">
+											<option value="1" <{if $adult_nums==1}>selected<{/if}>>1</option>
+											<option value="2" <{if $adult_nums==2}>selected<{/if}>>2</option>
+											<option value="3" <{if $adult_nums==3}>selected<{/if}>>3</option>
+											<option value="4" <{if $adult_nums==4}>selected<{/if}>>4</option>
+											<option value="5" <{if $adult_nums==5}>selected<{/if}>>5</option>
+											<option value="6" <{if $adult_nums==6}>selected<{/if}>>6</option>
+											<option value="7" <{if $adult_nums==7}>selected<{/if}>>7</option>
+											<option value="8" <{if $adult_nums==8}>selected<{/if}>>8</option>
+											<option value="9" <{if $adult_nums==9}>selected<{/if}>>9</option>
+											<option value="10" <{if $adult_nums==10}>selected<{/if}>>10</option>
+										</select>
+									</span>
+									<span>儿童：</span>
+									<span>
+										<select name="children_nums">
+											<option value="0" <{if $children_nums==0}>selected<{/if}>>0</option>
+											<option value="1" <{if $children_nums==1}>selected<{/if}>>1</option>
+											<option value="2" <{if $children_nums==2}>selected<{/if}>>2</option>
+											<option value="3" <{if $children_nums==3}>selected<{/if}>>3</option>
+											<option value="4" <{if $children_nums==4}>selected<{/if}>>4</option>
+											<option value="5" <{if $children_nums==5}>selected<{/if}>>5</option>
+											<option value="6" <{if $children_nums==6}>selected<{/if}>>6</option>
+											<option value="7" <{if $children_nums==7}>selected<{/if}>>7</option>
+											<option value="8" <{if $children_nums==8}>selected<{/if}>>8</option>
+											<option value="9" <{if $children_nums==9}>selected<{/if}>>9</option>
+											<option value="10" <{if $children_nums==10}>selected<{/if}>>10</option>
+										</select>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th></td>
+								<td><input type="submit" value="" class="orderbut"/>
+								<input type="button" value="" class="close"  onclick="javascript:window.close();"/>
+								<input type="hidden" name="ac" value="order"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--版权-->
+		<{include file="default/`$setting.templates`/block_service.html" }>
+		<{include file="default/`$setting.templates`/foot.html"}>
+	</body>
+</html>

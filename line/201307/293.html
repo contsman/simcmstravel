@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li><美国加拿大14日赏枫观鲸之旅></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：XZMMH</span><美国加拿大14日赏枫观鲸之旅></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+										<li><img src="/static/pic/nopic.jpg" /></li>
+									</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="/index.php?mod=calendar&id=293" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide">起价说明
+</div>
+		<div class="helpbox help02 hide"><p>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 16px; ">我们大力推广&ldquo;</span><strong style="font-size: 16px; ">网订优惠</strong><span style="font-size: 16px; ">&rdquo;政策，通过网站预订您不但可以享受到和线下预定一样的优惠，还可能享受到某些产品在线预订的&ldquo;</span><strong style="font-size: 16px; ">专享</strong><span style="font-size: 16px; ">&rdquo;优惠。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您只需留下您的&ldquo;<strong>手机+座机+邮箱</strong>&rdquo;的联系方式，并注明您心仪的<strong>线路</strong>和出行<strong>时间</strong>及出行<strong>人数</strong>，我们的客服将在第一时间联系您。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您也可以下单后直接拨打我们24小时免费电话4006 365 001联系我们的客服，或在上班时间9:00-18:00致电我们的客服人员为您服务。</span></p>
+</div>
+		<p class="price01">市场价：<span class="fb f16 pr10">25800元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10">23800元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01">100</span></li>
+				<li>出发城市：</li>
+				<li>行程天数：14天</li>
+				<li class="li01">往返交通：飞机</li>
+				<li class="li01">住宿标准：当地星级酒店</li>
+			</ul>
+		</div>
+		<form method="get" action="/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+											</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="293">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+										<li><img src="/upload/common/1381154961.jpg"></li>
+										<li><img src="/upload/common/1381934825.png"></li>
+										<li><img src="/upload/common/1368626684.jpg"></li>
+									</ul>
+			</div>
+			<div class="tel adviserbox">
+									<div >
+					<p>洪艳楠(资深旅游顾问)</p>
+					<p>业务范围：云南，四川</p>
+					</div>
+									<div class="hide">
+					<p>张燕(资深旅游顾问)</p>
+					<p>业务范围：青岛，大连</p>
+					</div>
+									<div class="hide">
+					<p>王乐乐(资深旅游顾问)</p>
+					<p>业务范围：北京周边</p>
+					</div>
+							</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<p>
+	●精选加拿大著名城市：尼亚加拉大瀑布、多伦多、温哥华、维多利亚市；<br />
+	●精选美国著名城市：纽约、华盛顿、洛杉矶、拉斯维加斯；<br />
+	●搭乘AC加拿大航空公司客机【往返直飞】助您轻松游览、尽情购物；<br />
+	●行程合理：东海岸进，西海岸出，有效降低旅途疲惫感；<br />
+	●特别前往美国东部最大的Woodbury Outlets奥特莱斯购物，220家商店打造美国&ldquo;自由&rdquo;购物文化；<br />
+	●巴斯托小镇感受奥特莱斯的&ldquo;最实惠&rdquo;；<br />
+	●邀您一起见证纽约这座国际都市的魅力【特别赠送自由女神游船】；<br />
+	●特别赠送&quot;洛杉矶的娱乐首都&quot;&mdash;好莱坞环球影城游览：参观电影的制作过程，回顾经典影片片断；<br />
+	金刚(King Kong)360度3-D体验之旅，最新建成的变形金刚(Transformers)3-D之旅一定是您不能错过的项目<br />
+	●可自费乘游船，全方位欣赏世界大三瀑布之美加边境的【尼亚加拉大瀑布】；<br />
+	&nbsp;</p>
+
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+											</ul>
+					<div class="tripbox">
+											</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<p>
+	1、酒店：全程三星级酒店双人标准间；（由于美国国内没有统一的酒店星级评定标准，酒店房间设施与国内同级酒店基本相同）<br />
+	2、用车：全程空调旅行车；（最终车型以实际安排为准）<br />
+	3、用餐：早餐（酒店内美式大陆早餐，拉斯维加斯中式简早套餐送入房间）；<br />
+	早餐是所预定酒店提供的一项不另外收取费用的服务，如果因为境外某段航班起飞时间较早，酒店不一定能够打包早餐，也希望客人能够谅解我们无法退还该早餐费用；<br />
+	午餐、晚餐&lt;中式桌餐10人/桌6~7菜1汤或中式自助餐&gt;；<br />
+	注：全程餐的安排以出团通知里的行程中关于餐的标明为准；<br />
+	4、导服：华语导游服务；<br />
+	7-20座车配司机兼导游单人服务；<br />
+	25座车以上（包含25座车）配司机和导游双人服务；<br />
+	5、领队：服务费；<br />
+	6、全程机票费用及相关燃油附加费（因国际油价不断变化，我社保留因燃油附加税提升而追加相应费用的权利）；<br />
+	7、门票及特色内容：纽约：自由女神游船，伍德柏瑞奥特莱斯长途车费，洛杉矶：环球影城，温哥华和维多利亚市往返渡轮、布查特花园和观鲸之旅；<br />
+	8、出境旅游人身意外险；</p>
+
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<p>
+	个人资料：<br />
+	护照原件（有效期在9个月以上，包括已过期和作废的护照）冲洗照片两张<br />
+	身份证、全家户口本、结婚证（如结婚证丢失，请补办或开据相关丢失证明）<br />
+	工作资料：<br />
+	名片两张、营业执照或组织机构代码证（原件或复印件盖章）、单位简介（彩色装订版）<br />
+	在职证明（可以提供空白盖章单位信笺纸两张，由旅行社代做）<br />
+	退休人员提供：退休证<br />
+	在校学生提供：学生证,准假证明<br />
+	财产资料：<br />
+	自己或配偶名下的存折或存单（存折存单尽量使用存入期较长的，活期和定期均可，数额<br />
+	不限越多越好，如使用银行储蓄卡请将流水单及余额打出来让银行盖章）<br />
+	房产证（如房产证尚在办理中，请提供购房合同、购房发票）<br />
+	照片资料：<br />
+	全家福照片数张（夫妻、一家三口或四口、大家庭的都可以）</p>
+
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<p>
+	1、参加旅游团的客人取消用餐、酒店住宿、景点参观、旅游用车等，费用恕不退还；<br />
+	2、酒店位置：北美城市地广人稀，很多市区酒店周围并无繁华的街道和社区；大部分城市即使在市中心，晚19-20点后商业区亦停止营业，并非像中国城市一样晚间热闹；<br />
+	3、酒店星级：绝大部分海外国家无类似于中国的酒店星级评定制度，我方提供的酒店星级是相当于国内该星级的酒店标准；<br />
+	4、酒店入住：国际通行酒店入住时间是下午15点之后，退房时间是中午12点之前，有的酒店在入住时还会要求客人交房间押金，退房时再退给客人；<br />
+	5、导游可根据团队在境外旅游目的地的实际情况，在不减少参观景点的前提下调整景点参观先后顺序；<br />
+	6、根据国际航班团队搭乘要求，团队通常须提前3-3.5小时到达机场办理登机手续，故国际段航班在当地下午15点前（含15点），晚间21点前（含21点）起飞的，行程均不含午餐或晚餐。<br />
+	7、国际航班游客须提前3-4小时到机场，美国内陆航班游客须提前2个小时到机场，集体办理登机手续，如因自身原因未按约定时间及地点集合，错过起飞时间，产生的一切损失及相关费用由客人承担。<br />
+	8、延时服务：国外导游和司机以每日工作10小时计算，如团员要求或团员原因引起工作时间超时，则需收加班费；<br />
+	9、退票处理：团队机票一旦出票，费用不可退还。<br />
+	10、美国东岸比北京时间慢13小时，4月至9月美国实行夏令时，期间则慢12小时。西岸比北京时间慢16小时，4月至9月美国实行夏令时，期间慢15小时。抵达美国后请校对手表，以免误时而影响行程。</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<p>
+	如何预定</p>
+
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<p>
+	付款方式</p>
+
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+									<li><span class="price">￥20800元</span><a href="http://demo.52jscn.com/line/201307/320.html" target="_blank" class="title1"><美国加拿大14日 含大瀑布></a><a href="http://demo.52jscn.com/line/201307/320.html" target="_blank" class="title2">常规游</a></li>
+									<li><span class="price">￥25800元</span><a href="http://demo.52jscn.com/line/201307/307.html" target="_blank" class="title1"><美国加拿大14日 含夏威夷 四星品.</a><a href="http://demo.52jscn.com/line/201307/307.html" target="_blank" class="title2">品质游</a></li>
+									<li><span class="price">￥20500元</span><a href="http://demo.52jscn.com/line/201307/299.html" target="_blank" class="title1"><美国西部12日德州牛仔欢乐购物.</a><a href="http://demo.52jscn.com/line/201307/299.html" target="_blank" class="title2">主题游</a></li>
+									<li><span class="price">￥18900元</span><a href="http://demo.52jscn.com/line/201307/289.html" target="_blank" class="title1"><加拿大东海岸9天枫糖蜜语品质之.</a><a href="http://demo.52jscn.com/line/201307/289.html" target="_blank" class="title2">特别安排住宿北美最有韵味城市.</a></li>
+									<li><span class="price">￥24500元</span><a href="http://demo.52jscn.com/line/201307/287.html" target="_blank" class="title1"><美国加拿大东西海岸十四日></a><a href="http://demo.52jscn.com/line/201307/287.html" target="_blank" class="title2">HU团期可配全国联运！</a></li>
+									<li><span class="price">￥28500元</span><a href="http://demo.52jscn.com/line/201307/247.html" target="_blank" class="title1"><加拿大12日天使之旅></a><a href="http://demo.52jscn.com/line/201307/247.html" target="_blank" class="title2">★精选加拿大自然景观：尼亚加.</a></li>
+									<li><span class="price">￥24800元</span><a href="http://demo.52jscn.com/line/201307/201.html" target="_blank" class="title1"><加拿大落基山 温哥华 惠斯勒10日.</a><a href="http://demo.52jscn.com/line/201307/201.html" target="_blank" class="title2">赏落基山脉美景！</a></li>
+									<li><span class="price">￥27800元</span><a href="http://demo.52jscn.com/line/201307/197.html" target="_blank" class="title1"><加拿大东西岸全景之旅10日></a><a href="http://demo.52jscn.com/line/201307/197.html" target="_blank" class="title2">加拿大东西海岸全景深度之旅！</a></li>
+								</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

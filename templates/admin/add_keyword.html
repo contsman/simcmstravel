@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="tablenav"><span class="title">您现在的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form1" method="post" enctype="multipart/form-data" action="<{$adminpage}>?mod=keyword">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>类型：</th>
+<td>
+<select name="k_type">
+<{foreach from=$k_type key=Key item=ktype}>
+<{if $keyword && $keyword.k_type==$Key}>
+<option value="<{$Key}>" selected><{$ktype}></option>
+<{else}>
+<option value="<{$Key}>"><{$ktype}></option>
+<{/if}>
+<{/foreach}>
+</select>
+</td>
+</tr>
+<tr>
+<th>关键字：</th>
+<td><textarea style="width:500px; height:200px" name="k_keyword" class="textarea01"><{$keyword.k_keyword}></textarea>
+<p class="help">请用“|”把关键字隔开</p></td>
+</tr>
+<th></th>
+<td>
+	<div class="buttons"><input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="k_id" value="<{$keyword.k_id}>">
+	<input type="reset" name="thevaluereset" value="重置">
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+ </body>
+</html>

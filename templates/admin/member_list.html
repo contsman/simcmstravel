@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/common.js"></script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> >> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colormember01">
+<div class="search clearfix">
+	<div class="searchL">
+		<a href="<{$adminpage}>?mod=member&ac=add" class="combutton">+添加会员</a>
+	</div>
+	<div class="searchR">
+		<form action="<{$adminpage}>" method="get" name="form2">
+		<table cellspacing="0" cellpadding="0" class="toptable">
+			<tr>
+				<td>
+					 <input type="text" name="keywords" id="searchkey" value="" class="inp01"> &nbsp;<input type="submit" name="filtersubmit" value="查询" class="combutton02"><input type="hidden" name="mod" value="member">
+					<input type="hidden" name="ac" value="list">
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</div>
+<form action="index.php" method="post" name="form">
+<table cellspacing="0" cellpadding="0" width="100%"  class="listtable">
+<tr><th>选择</th><th>ID</th><th align="left">用户名</th><th>真实姓名</th><th>手机号</th><th>注册时间</th><th>最后登陆时间</th><th>状态</th><th align="right">操作</th></tr>
+<{foreach from=$memberlist item=memberlist}>
+<tr>
+<td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$memberlist.id}>"></td>
+<td align="center" width="30"><{$memberlist.id}></td>
+<td align="left"><{$memberlist.email}></td>
+<td align="center"><{$memberlist.turename}></td>
+<td align="center"><{$memberlist.tel}></td>
+<td align="center"><{$memberlist.regtime}></td>
+<td align="center"><{$memberlist.last_login_time}></td>
+<td align="center"><{if $memberlist.status==1}>正常<{else}><span class="red">锁定</span><{/if}></td>
+<td align="right" width="130"><{if $memberlist.status==1}>[<a href="<{$adminpage}>?mod=member&ac=lock&id=<{$memberlist.id}>">锁定</a>]<{else}>[<a href="<{$adminpage}>?mod=member&ac=unlock&id=<{$memberlist.id}>">解锁</a>]<{/if}> [<a href="<{$adminpage}>?mod=member&ac=edit&id=<{$memberlist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=member&ac=del&id=<{$memberlist.id}>'">删除</a>]
+</td>
+</tr>
+<{/foreach}>
+<tr>
+	<td align="center">
+	<input type="checkbox" onclick="javascript:selectAll();">
+	</td>
+	<td colspan="7" class="buttontd">
+	<a href="javascript:submitForm('<{$adminpage}>?mod=member&ac=bulkdel','删除');" title="请选择后操作">删除</a>
+	</td>
+</tr>
+</table>
+</form>
+<div class="listpage"><{$button_basic}><{$button_select}></div>
+</div>
+</body>
+</html>

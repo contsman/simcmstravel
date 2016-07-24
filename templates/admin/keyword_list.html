@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/common.js"></script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<div class="search clearfix">
+	<div class="searchL">
+		<a href="<{$adminpage}>?mod=keyword&ac=add" class="combutton">+添加关键字</a>
+	</div>
+</div>
+<form action="<{$adminpage}>?mod=keyword" method="post" name="form">
+<table cellspacing="0" cellpadding="0" width="100%"  class="listtable">
+<tr><th>选择</th><th>ID</th><th>关键字</th><th>所属类型</th><th>操作</th></tr>
+<{foreach from=$keyword key=Key item=keyword}>
+<tr>
+<td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$keyword.k_id}>"></td>
+<td align="center" width="50"><{$keyword.k_id}></td>
+<td align="center"><{$keyword.k_keyword}></td>
+<td align="center"><{$k_type[$keyword.k_type]}></td>
+<td align="center" width="80">[<a href="<{$adminpage}>?mod=keyword&ac=edit&id=<{$keyword.k_id}>">编辑</a>][<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=keyword&ac=del&id=<{$keyword.k_id}>'">删除</a>]
+</td>
+</tr>
+<{/foreach}>
+<tr>
+	<td align="center">
+	<input type="checkbox" onclick="javascript:selectAll();">
+	</td>
+	<td colspan="4" class="buttontd">
+	<a href="javascript:submitForm('<{$adminpage}>?mod=keyword&ac=bulkdel','删除');" title="请选择后操作">删除</a>
+	</td>
+</tr>
+</table>
+</form>
+<div class="listpage"><{$button_basic}><{$button_select}></div>
+</div>
+</body>
+</html>

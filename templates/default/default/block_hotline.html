@@ -1,0 +1,32 @@
+<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+			<{foreach from=$common_cache.hotline02 item=hotline02}>
+			<li><span class="fr orange01">￥<{$hotline02.p_price}>起</span><a href="<{$hotline02.p_url}>"><{$hotline02.p_title}></a></li>
+			<{/foreach}>
+		</ul>
+		<ul class="ranklist hide">
+			<{foreach from=$common_cache.hotline01 item=hotline01}>
+			<li><span class="fr orange01">￥<{$hotline01.p_price}>起</span><a href="<{$hotline01.p_url}>"><{$hotline01.p_title}></a></li>
+			<{/foreach}>
+		</ul>
+	</div>
+</div>

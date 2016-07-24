@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$setting.keywords}>-<{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>" name="keywords" />
+		<meta content="<{$setting.description}>" name="description" />
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/templates/default/<{$setting.templates}>/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<{include file="default/`$setting.templates`/head.html"}>
+<div class="nav">
+	<ul class="clearfix">
+		<li><a href="<{$weburl}>">首页</a></li>
+		<li class="li01">>></li>
+		<li><{$line.p_title}></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：<{$line.p_no}></span><{$line.p_title}></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+					<{foreach from=$piclist item=pic}>
+					<li><{if $pic<>''}><img src="<{$weburl}>/<{$pic}>"/><{else}><img src="<{$weburl}>/static/pic/nopic.jpg" /><{/if}></li>
+					<{/foreach}>
+				</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="<{$weburl}>/index.php?mod=calendar&id=<{$line.p_id}>" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide"><{$helplist.84.p_info}></div>
+		<div class="helpbox help02 hide"><{$helplist.85.p_info}></div>
+		<p class="price01">市场价：<span class="fb f16 pr10"><{$line.p_market_price}>元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10"><{$line.p_price}>元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01"><{$line.p_hot}></span></li>
+				<li>出发城市：<{$line.city}></li>
+				<li>行程天数：<{$line.p_travel_days}>天</li>
+				<li class="li01">往返交通：<{$line.p_transport}></li>
+				<li class="li01">住宿标准：<{$line.p_stay}></li>
+			</ul>
+		</div>
+		<form method="get" action="<{$weburl}>/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+						<{foreach from=$datelist item=date_list}>
+						<option value="<{$date_list.id}>"><{$date_list.departure_date}>&nbsp;&nbsp;<{$date_list.week}>&nbsp;&nbsp;<{$date_list.price}>元</option>
+						<{/foreach}>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="<{$weburl}>/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="<{$line.p_id}>">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+					<{foreach from=$consultantlist item=consultantpic}>
+					<li><img src="<{$weburl}>/upload/common/<{$consultantpic.pic}>"></li>
+					<{/foreach}>
+				</ul>
+			</div>
+			<div class="tel adviserbox">
+				<{foreach from=$consultantlist key=skey item=consultant_list}>
+					<div <{if $skey<>0}>class="hide"<{/if}>>
+					<p><{$consultant_list.name}>(<{$consultant_list.zhicheng}>)</p>
+					<p>业务范围：<{$consultant_list.scope}></p>
+					</div>
+				<{/foreach}>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<{$line.p_characteristic}>
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+						<{foreach from=$triplist key=key item=trip}>
+							<li><a href="#day<{$key+1}>">第<{$key+1}>天</a></li>
+						<{/foreach}>
+					</ul>
+					<div class="tripbox">
+						<{foreach from=$triplist key=key item=trip_list}>
+						<div class="commonday mt20" id="day<{$key+1}>">
+							<div class="title">
+								<span class="f14 white">第<{$key+1}>天</span>
+								<span class="pl20"><{$trip_list.title}></span>
+							</div>
+							<div class="box">
+								<{$trip_list.info}>
+							</div>
+							<{if $trip_list.scenictitle<>''}>
+							<div class="todaytrip mt20">
+								今日游览景点：<{$trip_list.scenictitle}>
+							</div>
+							<{/if}>
+							<div class="box">
+							<{foreach from=$trip_list.viewpoint item=viewpointlist}>
+								<div class="viewpoint mt10">
+									<div class="viewpointtitle"><{$viewpointlist.title}></div>
+									<div class="clearfix mt10">
+										<{if $viewpointlist.pic01<>''}><div class="fl viewpointpic"><img src="<{$weburl}>/<{$viewpointlist.pic01}>" width="435"><p><{$viewpointlist.info01}></p></div><{/if}>
+										<{if $viewpointlist.pic02<>''}><div class="fl pl10 viewpointpic"><img src="<{$weburl}>/<{$viewpointlist.pic02}>" width="435"><p><{$viewpointlist.info02}></p></div><{/if}>
+									</div>
+								</div>
+							<{/foreach}>
+							</div>
+							<!-- <div class="box">
+								<{$trip_list.scenicinfo}>
+							</div> -->
+						</div>
+						<{/foreach}>
+					</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<{$line.p_fees}>
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<{$line.p_visa}>
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<{$line.p_tips}>
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<{$helplist.86.p_info}>
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<{$helplist.87.p_info}>
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+				<{foreach from=$aboutlinelist item=aboutlist}>
+					<li><span class="price">￥<{$aboutlist.p_price}>元</span><a href="<{$aboutlist.p_url}>" target="_blank" class="title1"><{$aboutlist.p_short_title}></a><a href="<{$aboutlist.p_url}>" target="_blank" class="title2"><{$aboutlist.p_short_title2}></a></li>
+				<{/foreach}>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="default/`$setting.templates`/block_service.html" }>
+<{include file="default/`$setting.templates`/foot.html" }>
+</body>
+</html>

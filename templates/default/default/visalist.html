@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>各国签证 - <{$page.p_title}> - <{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>"  name="keywords"/>
+		<meta content="<{$setting.description}>" name="description"/>
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_page.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<!--内容-->
+		<{include file="default/`$setting.templates`/head.html"}>
+		<div class="nav">
+			<ul class="clearfix">
+				<li><a href="<{$weburl}>">首页</a></li>
+				<li class="li01">>></li>
+				<li><a href="<{$weburl}>/visa/">各国签证</a></li>
+				<li class="li01">>></li>
+				<li><{$continentname}>签证</li>
+			</ul>
+		</div>
+		<div class="main clearfix">
+			<div class="main_left">
+				<{include file="default/`$setting.templates`/block_promise.html" }>
+				<{include file="default/`$setting.templates`/block_hotline.html"}>
+				<{include file="default/`$setting.templates`/block_news.html" }>
+			</div>
+			<div class="main_right">
+				<{foreach from=$visalist key=key item=visa_list}>
+				<div class="commonbox3 <{if $key<>0}>mt10<{/if}>">
+					<h3><span class="title"><a href="<{$weburl}>/visa/<{$visa_list.id}>.html"><{$visa_list.title}></a></span></h3>
+					<div>
+						<ul class="visalist clearfix">
+							<li><span class="fb gray02">签证类型：</span><{$visa_list.catname}></li>
+							<li><span class="fb gray02">签证费用：</span><span class="orange01 fb">￥<{$visa_list.price}>元/人</span></li>
+							<li><span class="fb gray02">受理时间：</span><{$visa_list.processtime}></li>
+							<li><span class="fb gray02">费用说明：</span><{$visa_list.fee}></li>
+							<li><span class="fb gray02">受理人群：</span><{$visa_list.crowd}></li>
+							<li></li>
+							<li></li>
+							<li class="tr"><a href="<{$weburl}>/visa/<{$visa_list.id}>.html" target="_blank">查看<{$visa_list.title}>办理资料</a></li>
+						</ul>
+					</div>
+				</div>
+				<{/foreach}>
+			</div>
+		</div>
+		<!--版权-->
+		<{include file="default/`$setting.templates`/block_service.html" }>
+		<{include file="default/`$setting.templates`/foot.html"}>
+	</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>百度对SEO相关词的搜索置顶提示 - travelcms</title>
+<meta content=",travelcms" name="keywords" />
+<meta content="百度对SEO相关词的搜索置顶提示,travelcms" name="description" />
+<link href="/cms/code/simcms_travel/templates/default/default/css/page_page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/cms/code/simcms_travel/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/cms/code/simcms_travel/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/cms/code/simcms_travel/"><img src="/cms/code/simcms_travel/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headcenter">
+		<div class="topsearch">
+			<form method="get" action="/cms/code/simcms_travel/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+	<div class="headright">
+		<img src="/cms/code/simcms_travel/templates/default/default/img/tel.jpg"/>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+				<li>
+		<a href="/cms/code/simcms_travel/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/outbound.html" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/domestic.html" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/cruise.html" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/sunset.html" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/students.html" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/visa" title="各国签证"  >各国签证</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end -->	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="/cms/code/simcms_travel">首页</a></li>
+			<li class="li01">>></li>
+			<li>旅游资讯</li>
+		</ul>
+	</div>
+	<div class="main clearfix">
+		<div class="main_left">
+			<div class="commonbox">
+	<h3>中国旅行社郑重承诺</h3>
+	<div class="box">
+		<div class="manager"></div>
+		<ul class="promiselist mt10">
+			<li class="li01">提前说明进店次数</li>
+			<li class="li02">全程质量监督</li>
+			<li class="li03">行程透明无强制消费</li>
+			<li class="li04">价格真实准确</li>
+		</ul>
+	</div>
+</div>			<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+						<li><span class="fr orange01">￥5380起</span><a href="http://localhost/cms/code/simcms_travel/line/201209/189.html">海口非2蓝梦之.</a></li>
+					</ul>
+		<ul class="ranklist hide">
+					</ul>
+	</div>
+</div>			<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/218.html" target="_blank">传亚马逊中国总裁王汉华离.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/178.html" target="_blank">详谈Global.asa清除及百度快照.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/179.html" target="_blank">隐藏淘宝客网站链接的3种形.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/180.html" target="_blank">深度分析网站收录大幅度下.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/181.html" target="_blank">百度大面积k站 到底是站长问.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/182.html" target="_blank">外链资源积累要注意什么？</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/183.html" target="_blank">SEO站内篇 “内力”强劲招数.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/184.html" target="_blank">实战分享：我是如何一周内.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/185.html" target="_blank">浅析京东商城的SEO、用户体.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/186.html" target="_blank">实例告诉你关于内容更新的.</a></li>
+					</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+					<li><a href="http://localhost/cms/code/simcms_travel/news/201210/197.html" target="_blank">中小企业电商网站应该如何.</a></li>
+				</ul>
+	</div>
+</div>		</div>
+		<div class="main_right">
+			<div class="commonbox">
+				<h3>旅游资讯</h3>
+				<div class="newsbox">
+					<h2 class="tc f14 fb mb10"> 百度对SEO相关词的搜索置顶提示 </h2>
+					<p class="tc"> 添加时间：
+					2012-10-11 &nbsp;&nbsp;&nbsp;点击：<span class="red"><script src="/cms/code/simcms_travel/index.php?mod=hit&id=160"></script></span> </p>
+					<div class="detail mt10 mb10">  </div>
+					<div class="pb20"> 
+                <p style="text-align:center;"><a href="http://mytool.chinaz.com/baidusort.aspx" target="_blank">百度权重查询</a> <a href="http://jy.chinaz.com/" target="_blank">站长交易</a> <a href="http://jy.chinaz.com/" target="_blank">友情链接交换</a> <a href="http://www.313.com" target="_blank">网站建设</a>,<a href="http://www.313.com/" target="_blank">网站设计</a>,<a href="http://www.313.com" target="_blank">企业建站</a>就找<a href="http://www.313.com" target="_blank">313</a></p>
+                <p>百度其实在今年2月份就对SEO关键词的搜索给与了提示，那时候这个所谓的百度提示一出来就引起了很多SEO的不淡定，不过那时候还只是以普通文字的形式显示，而且只是在自然搜索结果的顶部显示，并不容易引起注意，但是这两天百度针对这项提示功能做了调整，改为了置顶显示，而且用了一个警告的小图标让这条文字内容格外的醒目，这似乎也代表了百度对SEO的看法。</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0918/1347953495901.png" border="0" width="500" alt="百度提示您：SEO是一项非常重要的工作，请参考百度关于SEO的建议" height="259" /></p>
+<p>之前的百度提示主要目的也许是为了让更多人了解百度搜索引擎优化指南，毕竟那时候这个指南推出不久，当时搜索主要的SEO相关词比如SEO、城市SEO等词都有出现提示，提示内容如下：</p>
+<blockquote>
+<p>百度提示您：不要轻信seo公司的说辞和案例，不正当的seo可能会给您的站点造成风险。建议广大站长对站点进行seo之前，参考阅读百度的官方指南。其中官方指南的链接是指向百度文库中的百度搜索引擎优化指南文档。</p>
+</blockquote>
+<p>而如今的提示如上图所示，百度提示您：SEO是一项非常重要的工作，请参考百度关于SEO的建议。而打开建议页面也无不表明了百度对SEO的看法，不否认SEO的作用，但对SEOer不予看好的：</p>
+<blockquote>
+<p>SEO是一项重要且复杂的工作，聘请正规的白帽SEO顾问或者SEO公司可以帮助更好的优化您的网站。但是，有一些不道德的SEO会采用一些夸大的宣传欺骗站长，或者使用黑帽SEO手段获取流量，最终导致优化达不到预期效果甚至因为黑帽SEO而带来负面影响。SEO可以帮你将网站中的高质量内容更好的呈现给搜索引擎，获取更多流量，但没有人可以保证你的网站排在第一位。</p>
+</blockquote>
+<p>这还不止，从上图中可以看到红色线框标记的部分，SEO新利器选百度推广，这似乎是在说，一般的SEO是不管用的，百度推广才是你的推广选择。</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0918/1347953495460.png" border="0" width="387" alt="微博SEO、新浪SEO等词都出现了百度提示" height="488" /></p>
+<p>大概搜索了下，几乎所有SEO相关词都有这个提示，比如SEO培训、SEO优化以及地方城市SEO等常见的词，连SEO博客、谷歌SEO也出现了，甚者，连新浪SEO、搜狐SEO、微博SEO等极少搜索的词也有，估计是百度对SEO核心词做了一个完全匹配了，反正和SEO有关的词都被提示了。</p>
+<p>网友蔡海涛说到，SEO对谷歌来说是技术活，只要了解优化思想和良性的优化技术，排名上升是可预见的。但对百度来说猜测构成了所有百度SEO的技术指标。这也许是百度高明之处，任何认为可行的方法都有不可行的失败案例，任何认为不可行的方法都有可行的成功案例，为何？没有规则便是规则。</p>
+<p>我觉得这个就是目前的事实，同时百度尝试淡化链接等量化指标，加入用户行为的考量，但是用户行为本身没有一个比较客观的衡量指标，于是在不断调整，不断复杂化的过程中让排名出现了很大程度的不可预测。</p>
+<p>文章来源：<a href="http://xiaojunseo.com/seo-watch/254.html" target="_blank">肖俊博客</a>，转载请以链接形式注明出处，谢谢。</p>        	
+                   		 </div>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>相关新闻</h3>
+				<div class="box">
+					<ul class="clearfix aboutnewslist">
+												<li><a href="">企业网站推广有那几种常见问题？</a></li>
+												<li><a href="">浅谈医疗类网站的优化重心</a></li>
+												<li><a href="">浅谈医疗类网站的优化重心</a></li>
+																		<li><a href="">以三大目标为导向推动网站内容营销</a></li>
+												<li><a href="">外链优化：有点入的外链才是优秀的外链</a></li>
+												<li><a href="">医疗行业百度竞价统计管理流程</a></li>
+											</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--版权--> 
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/cms/code/simcms_travel/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/cms/code/simcms_travel/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/cms/code/simcms_travel/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+	<div class="main clearfix mt10">
+		<div class="foottop">
+			<a href="/cms/code/simcms_travel/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/cms/code/simcms_travel/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2012 travelcms 版权所有. travelcms&nbsp;&nbsp;技术支持：<a href="http://www.simcms.net" target="_blank" class="green01 unl">simcms</a></p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+	</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

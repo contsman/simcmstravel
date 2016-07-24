@@ -1,0 +1,128 @@
+@import url(base.css);
+@import url(common.css);
+@charset "utf-8";
+/*全站链接样式*/
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#ff6600; text-decoration:none;} 
+.blank{height:10px;}
+body{ color:#333; font-size:12px;}
+.blank{ height:10px;}
+
+body{font-weight:normal;font:12px "微软雅黑",verdana,lucida,helvetica,arial,sans-serif;}
+
+
+/**/
+.lineno{float:right;padding:2px 5px;border:1px solid #ccc;background:#fff;font-size:14px;color:#ff6600;}
+.linetitle{padding:10px 20px;margin-left:auto;margin-right:auto;width:958px;border:1px solid #ebebeb;background:#f7f7f7;font-size:16px;border-bottom:none;color:#339933;font-weight:bold;}
+.linebox{padding:20px;margin-left:auto;margin-right:auto;width:958px;border:1px solid #ebebeb;background:#fbfbfb;}
+.linebox_left{float:left;width:520px;}
+.linebox_right{float:right;width:420px;font-size:14px;position:relative;}
+.linebox_right .helpbox{padding:10px;border:1px solid #fed4d4;background:#fff0f0;font-size:12px;line-height:22px;}
+.linebox_right .help01{position:absolute;top:10px;left:180px;}
+.linebox_right .help02{position:absolute;top:42px;left:180px;}
+.linebox_right p.price01{padding:5px 0}
+.linebox_right p.price02{padding:5px 0}
+.but01{background:#339933;color:#fff;font-size:12px;font-family:"宋体";padding:2px;cursor:pointer;}
+.but02{background:#ff6600;color:#fff;font-size:12px;font-family:"宋体";padding:2px;cursor:pointer;}
+
+.detail01{padding:10px 20px;background:#fff;border:1px solid #d8d8d8;}
+.detail01 li{float:left;width:170px;line-height:25px;color:#666;}
+.detail01 li.li01{width:360px;}
+.detail02{padding:10px;background:#fff;border:1px solid #d8d8d8;}
+.detail02 p{padding:5px 0;}
+.detail02 p select{padding:2px;border:1px solid #ccc;}
+
+/*图片展示*/
+.linepicbox{width:510px;position:relative;}
+.linepic{width:510px;height:300px;background:#fff;}
+.linepic li{padding:0;}
+.linepic li img{width:510px;height:300px;}
+.linepicbox .premenu a{display:block;width:40px;height:82px;position:absolute;top:140px;left:0px;cursor:pointer;background:url(../img/menu.png) no-repeat 0 0;z-index:100}.linepicbox .nextmenu a{display:block;width:40px;height:82px;position:absolute;top:140px;right:0px;cursor:pointer;background:url(../img/menu.png) no-repeat -40px 0;z-index:200}
+
+/*订购按钮*/
+.orderbut{width:187px;height:56px;background:url(../img/order.jpg) no-repeat 0 0;border:none;}
+
+/*旅游顾问*/
+.adviser{border:1px solid #ebebeb;}
+.adviser h3{height:30px;line-height:30px;padding:0 10px;color:#333;font-weight:bold;background:#f7f7f7;}
+.adviser .box{padding:10px;background:#fff;}
+.adviser .tel{padding:10px;color:#21c5ed;background:#f7f7f7;}
+.adviserlist li{float:left;padding:5px;}
+.adviserlist li img{width:55px;height:55px;}
+
+/*电话*/
+.linetel{height:105px;background:url(../img/linetel.jpg) no-repeat 0 0;}
+
+/*vip小包团*/
+.vip{border:1px solid #ebebeb;}
+.vip h3{height:30px;line-height:30px;padding:0 10px;color:#333;font-weight:bold;background:#f7f7f7;border-bottom:1px solid #ebebeb;}
+.vip h3 .tel{color:#e10e0e;}
+.vip .box{padding:10px;background:#fff;color:#666;}
+.viplist{background:url(../img/vip.gif) no-repeat 0 4px;padding-left:23px;}
+.viplist li{height:25px;line-height:25px;}
+
+/*行程特色*/
+.featurebox{margin-left:auto;margin-right:auto;width:998px;border:1px solid #fed4d4;}
+.featurebox h3{height:45px;line-height:45px;padding:0 10px;color:#e10e0e;font-size:18px;font-weight:bold;background:#fff0f0;}
+.featurebox .box{padding:0 20px 10px 20px;background:#fff0f0;color:#666;line-height:25px;font-size:14px;}
+
+/*详细介绍*/
+.detail{width:1000px;margin-left:auto;margin-right:auto;}
+.detail h3{height:37px;background:#fff url(../img/point.gif) repeat-x 0 bottom;position:relative;} 
+.detail_title_tab{width:1000px;}
+.detail_title_tab li{float:left;width:115px;height:35px;line-height:35px;font-size:16px;border:1px solid #ebebeb;background:#fbfbfb;text-align:center;display:inline;margin-right:5px;cursor:pointer;}
+.detail_title_tab li.here{border-top:2px solid #339933;height:34px;line-height:34px;border-bottom:1px solid #fff;background:#fff;}
+
+.detailbox{margin-left:auto;margin-right:auto;width:998px;border:1px solid #ebebeb;border-top:none;}
+
+/*打印行程*/
+.printmenu{position:absolute;top:0;right:0;width:146px;height:38px;background:url(../img/print.gif) no-repeat 0 0;cursor:pointer;}
+
+
+/*详细行程*/
+.tripbox{padding:10px;background:url(../img/point.gif) repeat-y 40px 0;}
+.daylist{height:35px;line-height:35px;border-bottom:1px solid #eee;}
+.daylist li{float:left;padding:0 11px;font-size:14px;}
+
+.oneday .title{height:59px;line-height:58px;text-align:left;background:url(../img/sprite_trip.gif) no-repeat 0 0;font-size:18px;padding-left:10px;color:#339933;}
+.oneday .box{padding-left:75px;font-size:14px;line-height:25px;}
+.oneday .todaytrip{height:45px;line-height:45px;padding-left:75px;font-size:16px;background:url(../img/sprite_trip.gif) no-repeat 0 -165px;}
+
+.commonday .title{height:59px;line-height:58px;text-align:left;background:url(../img/sprite_trip.gif) no-repeat 0 0;font-size:18px;padding-left:11px;color:#339933;}
+.commonday .box{padding-left:75px;font-size:14px;line-height:25px;}
+.commonday .todaytrip{height:45px;line-height:45px;padding-left:75px;font-size:16px;background:url(../img/sprite_trip.gif) no-repeat 0 -165px;}
+
+.viewpoint{}
+.viewpoint .viewpointtitle{background:#f5f5f5;padding:5px 10px;font-weight:bold;font-size:14px;color:#339933;text-align:center;}
+.viewpoint .viewpointpic p{padding:10px;background:#f5f5f5;font-size:12px;color:#666;}
+
+
+/*费用说明类*/
+.feesbox{border:1px solid #E6E6E6;}
+.feesbox h3{height:35px;line-height:35px;font-size:16px;font-weight:bold;background:#fafafa;padding-left:10px;border-bottom:1px solid #E6E6E6;}
+.feesbox .box{padding:20px;line-height:25px;font-size:14px;}
+
+/*相关线路*/
+.correlativeline{margin-left:auto;margin-right:auto;width:998px;border:1px solid #ebebeb;}
+.correlativeline h3{height:35px;padding:5px 10px 0 10px;border-bottom:1px solid #ebebeb;background:#fbfbfb;}
+.correlativeline h3 .title{display:block;width:100px;text-align:center;height:35px;line-height:35px;background:#339933;color:#fff;font-size:16px;}
+.correlativeline .box{padding:10px;}
+.correlativeline li{float:left;height:30px;line-height:30px;width:460px;padding-right:20px;}
+.correlativeline li .title1{color:#0066cc;}
+.correlativeline li .title2{color:#009900;}
+.correlativeline li span.price{float:right;color:#ff6600;font-weight:bold;}
+
+/*日历*/
+.calTable{border-top:1px solid #eeeeee;border-left:1px solid #eeeeee;background:#fff;}
+.calTable td{border-bottom:1px solid #eeeeee;border-right:1px solid #eeeeee;}
+.calTable td{font-size:14px;font-family:"微软雅黑";}
+.weekTd{width:72px;height:30px;background:#f9f9f9;}
+.calTd{text-align:left;height:70px;padding:5px;}
+img{border:0px;}
+.calHeader{font-size:16px;height:35px;background:url(../img/sprite_calendar.gif) repeat-x;position:relative;}
+.premonth{display:block;width:18px;height:17px;position:absolute;top:8px;left:10px;background:url(../img/sprite_calendar.gif) no-repeat 0 -62px;}
+.nextmonth{display:block;width:18px;height:17px;position:absolute;top:8px;right:10px;background:url(../img/sprite_calendar.gif) no-repeat 0 -40px;}
+.caltdOver{cursor:hand;cursor:pointer;width:60px;text-align:left;height:70px;padding:5px;}
+.today{color:green;font-weight:bold;font-size:15px;}
+.sunday{color:red;}
+.calTd{width:30px;}

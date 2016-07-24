@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>深度分析网站收录大幅度下降原因 - travelcms</title>
+<meta content=",travelcms" name="keywords" />
+<meta content="深度分析网站收录大幅度下降原因,travelcms" name="description" />
+<link href="/cms/code/simcms_travel/templates/default/default/css/page_page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/cms/code/simcms_travel/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/cms/code/simcms_travel/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/cms/code/simcms_travel/"><img src="/cms/code/simcms_travel/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headcenter">
+		<div class="topsearch">
+			<form method="get" action="/cms/code/simcms_travel/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+	<div class="headright">
+		<img src="/cms/code/simcms_travel/templates/default/default/img/tel.jpg"/>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+				<li>
+		<a href="/cms/code/simcms_travel/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/outbound.html" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/domestic.html" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/cruise.html" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/sunset.html" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/students.html" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/visa" title="各国签证"  >各国签证</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end -->	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="/cms/code/simcms_travel">首页</a></li>
+			<li class="li01">>></li>
+			<li>旅游资讯</li>
+		</ul>
+	</div>
+	<div class="main clearfix">
+		<div class="main_left">
+			<div class="commonbox">
+	<h3>中国旅行社郑重承诺</h3>
+	<div class="box">
+		<div class="manager"></div>
+		<ul class="promiselist mt10">
+			<li class="li01">提前说明进店次数</li>
+			<li class="li02">全程质量监督</li>
+			<li class="li03">行程透明无强制消费</li>
+			<li class="li04">价格真实准确</li>
+		</ul>
+	</div>
+</div>			<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+						<li><span class="fr orange01">￥5380起</span><a href="http://localhost/cms/code/simcms_travel/line/201209/189.html">海口非2蓝梦之.</a></li>
+					</ul>
+		<ul class="ranklist hide">
+					</ul>
+	</div>
+</div>			<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/218.html" target="_blank">传亚马逊中国总裁王汉华离.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/178.html" target="_blank">详谈Global.asa清除及百度快照.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/179.html" target="_blank">隐藏淘宝客网站链接的3种形.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/180.html" target="_blank">深度分析网站收录大幅度下.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/181.html" target="_blank">百度大面积k站 到底是站长问.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/182.html" target="_blank">外链资源积累要注意什么？</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/183.html" target="_blank">SEO站内篇 “内力”强劲招数.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/184.html" target="_blank">实战分享：我是如何一周内.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/185.html" target="_blank">浅析京东商城的SEO、用户体.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/186.html" target="_blank">实例告诉你关于内容更新的.</a></li>
+					</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+					<li><a href="http://localhost/cms/code/simcms_travel/news/201210/197.html" target="_blank">中小企业电商网站应该如何.</a></li>
+				</ul>
+	</div>
+</div>		</div>
+		<div class="main_right">
+			<div class="commonbox">
+				<h3>旅游资讯</h3>
+				<div class="newsbox">
+					<h2 class="tc f14 fb mb10"> 深度分析网站收录大幅度下降原因 </h2>
+					<p class="tc"> 添加时间：
+					2012-10-11 &nbsp;&nbsp;&nbsp;点击：<span class="red"><script src="/cms/code/simcms_travel/index.php?mod=hit&id=180"></script></span> </p>
+					<div class="detail mt10 mb10">  </div>
+					<div class="pb20"> 
+                <p style="text-align:center;"><a href="http://mytool.chinaz.com/baidusort.aspx" target="_blank">百度权重查询</a> <a href="http://jy.chinaz.com/" target="_blank">站长交易</a> <a href="http://jy.chinaz.com/" target="_blank">友情链接交换</a> <a href="http://www.313.com" target="_blank">网站建设</a>,<a href="http://www.313.com/" target="_blank">网站设计</a>,<a href="http://www.313.com" target="_blank">企业建站</a>就找<a href="http://www.313.com" target="_blank">313</a></p>
+                <p>经营一个网络营销的网站，产品或者服务在搜索结果中排列在竞争对手的前面是非常重要的，尤其是和竞争对手在销售一模一样的产品。应该作为网站优化的一员你注意到，你的网站有的页面被搜索引擎收录了，但是之后又消失。导致这种的情况有很多，下面跟大家分享一下经验：</p>
+<p><strong>一、网站的改版</strong></p>
+<p>网站改版的原因主要是因为随着公司的发展，原有的网站已不能适应公司的发展，而进行改版;在网站建设的初期，没有进行认真的策划，简易的将网站建好了，在使用的过程中发现网站的设计过于俗气,功能不够全面，不符合自身的品牌形象。网站的大幅度改版也会令文章页收录下降，造成的主要原因是在改版的过程中造成链接错误，造成大量的死链，挽救的办法有网站管理员可登录百度站长平台，直接向百度提交死链列表，降低死链对网站造成的负面影响。还有进行301重定向是最好的解决办法之一，当用户访问了已被删除的网站内容时，301重定向会将客户引导到其它相关页面，这样一来不仅提升了客户体验度，而且可以将原有的权重重架到其它页面，避免了权重的流失，这样的做法在很多大型网站上都可以看得到。</p>
+<p><strong>二、服务器不稳定</strong></p>
+<p>网站运营就是依靠服务器和空间，网站服务器是否稳定对于网站排名和蜘蛛爬行网站的作用影响非常大，比如说当蜘蛛爬行到网站门口时，发现网站进不去或者是当蜘蛛爬行到网站一半的时候突 然出现当机，这样就很容易给蜘蛛产生一种网站不利于爬行的心态。而且服务器不稳定不但造成蜘蛛爬行不顺畅，对于用户访问网站时，突然出现网站打不开，自然 再忠诚的用户也会远走他站的。所以，网站出现了收录量下降，服务器是最基本的一步检查源头，况且搜索引挚每次大更新，都会顺道清理一下数据库中一些无效链接，如果自己的网站在搜索引挚大更新时访问不了，自然很容易就被搜索引挚清理掉的。</p>
+<p><strong>三、优化过度</strong></p>
+<p>有些网站为了短时间提高网站的排名，所以文章页有些地方采取关键词堆砌。甚至文章页有隐藏文字，这样导致网页收录下降，甚至导致网站降权。</p>
+<p><strong>四、内容质量不高</strong></p>
+<p>4.1、乱采集内容，内容不通</p>
+<p>有些网站为了提高工作的速度，常使用采集工具。有些工具并不完善，采集的文章出现于网站的主题和内容不相关，甚至页面内容出现乱码。</p>
+<p>4.2、网站内容大部分都是复制或者采集其他网站</p>
+<p>这个是大部分站长经常做的事情，为了节省时间就直接复制粘贴，有些只是改一下文章出现的公司名称，网站很少出现原创文章。</p>
+<p>4.3、网站的主题和文章的主题不相关</p>
+<p>有些的网站是提供深圳网站建设服务的，但是网站出现饮食的内容，这种明显和网站关键词或者文章与主题不相关的文章也是影响收录下降一个重要的原因。</p>
+<p>4.4、title和meta标签中声明不真实</p>
+<p>比如有些网站的title是卖女装的，但是他的meta标签写着是男装。</p>
+<p><strong>五、违法或者是欺骗信息</strong></p>
+<p>如果网站是存在违法或者是欺骗信息，无论是现在的收录页面是多高，但是如果给百度搜索引擎察觉的话，网站就马上步入万丈深渊。</p>
+<p><strong>六、外链缺失</strong></p>
+<p>有些站长为了发布外链为目的，就到一些论坛里面纯粹以灌水的行为去发外链，导致论坛管理员发现后限制账号，然后删除该账号所发布的一切信息，所以会导致外链下降；还有一种就是站长的文章质量度高，引发用户自行地转载，转载的过程中含有公司网站的链接。但是由于最近百度在整顿，有些转载文章的网站权重不高，导致收录转载的文章后来给删除。在删除转载文章的过程中，网站的外链也会相应的减少。</p>
+<p>文章来源：http://www.netpai.com/news/service2/20120923/2255.html，转载请注明出处。</p>                   		 </div>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>相关新闻</h3>
+				<div class="box">
+					<ul class="clearfix aboutnewslist">
+												<li><a href="">隐藏淘宝客网站链接的3种形式</a></li>
+												<li><a href="">详谈Global.asa清除及百度快照的更新</a></li>
+												<li><a href="">从百度降权到恢复百度权重 做好内容才是关键</a></li>
+																		<li><a href="">百度大面积k站 到底是站长问题还是度娘身体不适</a></li>
+												<li><a href="">外链资源积累要注意什么？</a></li>
+												<li><a href="">SEO站内篇 “内力”强劲招数的威力才会更大</a></li>
+											</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--版权--> 
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/cms/code/simcms_travel/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/cms/code/simcms_travel/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/cms/code/simcms_travel/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+	<div class="main clearfix mt10">
+		<div class="foottop">
+			<a href="/cms/code/simcms_travel/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/cms/code/simcms_travel/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2012 travelcms 版权所有. travelcms&nbsp;&nbsp;技术支持：<a href="http://www.simcms.net" target="_blank" class="green01 unl">simcms</a></p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+	</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

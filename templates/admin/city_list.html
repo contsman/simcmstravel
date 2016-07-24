@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/common.js"></script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<div class="search clearfix">
+	<div class="searchL">
+		<a href="<{$adminpage}>?mod=city&ac=add" class="combutton">+添加城市</a>
+	</div>
+</div>
+<form action="friendlink.php" method="post" name="form">
+<table cellspacing="0" cellpadding="0" width="100%"  class="listtable">
+<tr><th>选择</th><th>排序</th><th align="left">名称</th><th>操作</th></tr>
+<{foreach from=$citylist item=citylist}>
+<tr>
+<td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$citylist.id}>"></td>
+<td align="center" width="50"><input type="text" size="5" name="orderid[<{$citylist.id}>]" value="<{$citylist.orderid}>" class="ip01"/></td>
+<td align="left"><{$citylist.name}></td>
+<td align="center" width="80">[<a href="<{$adminpage}>?mod=city&ac=edit&id=<{$citylist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=city&ac=del&id=<{$citylist.id}>'">删除</a>]
+</td>
+</tr>
+<{/foreach}>
+<tr>
+	<td align="center">
+	<input type="checkbox" onclick="javascript:selectAll();">
+	</td>
+	<td colspan="7" class="buttontd">
+	<a href="javascript:submitForm('<{$adminpage}>?mod=city&ac=bulkdel','删除');" title="请选择后操作">删除</a> <a href="javascript:submitForm('<{$adminpage}>?mod=city&ac=bulksort','更新排序');" title="请选择后操作">更新排序</a>
+	</td>
+</tr>
+</table>
+</form>
+<div class="listpage"><{$button_basic}><{$button_select}></div>
+</div>
+</body>
+</html>

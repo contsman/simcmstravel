@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="admin/editor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//国家选择
+		$("#zid").click(function(){
+			$.get("index.php?mod=page&ajax=1", { 
+				zid :  $("#zid").val() 
+			}, function (data, textStatus){
+				$("#cid").html(data); // 把返回的数据添加到页面上
+				}
+			);
+		});
+	});
+</script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form1" id="visaform"  enctype="multipart/form-data" method="post" action="<{$adminpage}>?mod=visa">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>国家：</th>
+<td><select name="zid" id="zid">
+	<{$selectcontinent}>
+</select> <select name="cid" id="cid">
+	<{$selectcountry}>
+</select></td>
+</tr>
+<tr>
+<th>分类：</th>
+<td><select name="catid">
+	<{$selectvisacategory}>
+</select></td>
+</tr>
+<tr>
+<th>签证名称：</th>
+<td><input name="title" type="text"  size="30" value="<{$visa.title}>" /></td>
+</tr>
+<tr>
+<th>原始价格：</th>
+<td><input name="oldprice" type="text"  size="10" value="<{$visa.oldprice}>" /> 元</td>
+</tr>
+<tr>
+<th>优惠价格：</th>
+<td><input name="price" type="text"  size="10" value="<{$visa.price}>" /> 元</td>
+</tr>
+<tr>
+<th>费用说明：</th>
+<td><input name="fee" type="text"  size="30" value="<{$visa.fee}>" /></td>
+</tr>
+<tr>
+<th>受理时间：</th>
+<td><input name="processtime" type="text"  size="30" value="<{$visa.processtime}>" /></td>
+</tr>
+<tr>
+<th>受理人群：</th>
+<td><input name="crowd" type="text"  size="30" value="<{$visa.crowd}>" /></td>
+</tr>
+<tr>
+<th>推荐：</th>
+<td><input type="checkbox" name="ishome" value="1" <{if $visa.ishome==1}>checked<{/if}>> 首页推荐 
+</td>
+</tr>
+<tr>
+<th></th>
+<td><{if $visa.pic<>''}><img src="upload/common/<{$visa.pic}>"/><{/if}>
+</td>
+</tr>
+<tr>
+<th>图例：</th>
+<td><input name="upload" type="file"/>
+</td>
+</tr>
+<tr>
+<th>描述：</th>
+<td><textarea class="ckeditor" cols="80" id="editor1" name="info" rows="20"><{$visa.info}></textarea></td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons"><input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="id" value="<{$visa.id}>">
+	<input type="reset" name="thevaluereset" value="重置">
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+ </body>
+</html>

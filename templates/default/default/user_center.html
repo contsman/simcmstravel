@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><{$setting.keywords}>-<{$setting.sitename}></title>
+<meta content="<{$setting.keywords}>" name="keywords" />
+<meta content="<{$setting.description}>" name="description" />
+<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_user.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<{$weburl}>/static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+</head>
+<body>
+<!--网站顶部--> 
+<{include file="default/`$setting.templates`/head.html"}>
+<div class="main mt10 clearfix">
+	<div class="userleft">
+		<div class="user_menu">
+			<ul>
+				<li> <a href="index.php?mod=user" <{if $ac=="index"}>class="user_menu_a"<{/if}>>会员中心</a>
+				</li>
+				<li> <a href="index.php?mod=user&ac=upinfo" <{if $ac=="upinfo"}>class="user_menu_a"<{/if}>>修改资料</a>
+				</li>
+				<li> <a href="index.php?mod=user&ac=uppwd" <{if $ac=="uppwd"}>class="user_menu_a"<{/if}>>修改密码</a>
+				</li>
+				<li> <a href="index.php?mod=user&ac=orderlist" <{if $ac=="orderlist"}>class="user_menu_a"<{/if}>>我的订单</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="userright"> 
+		<{if $ac == "index"}>
+			<div class="user_cen_top">
+				<h2><{$user.email}>，你好，欢迎来到<{$setting.sitename}></h2>
+				<p> 你上次登录时间为：<{$user.last_login_time}> </p>
+			</div>
+			<div class="commonbox mt10">
+				<h3>国内游热门线路</h3>
+				<div class="box">
+					<ul>
+						<{foreach from=$common_cache.hotline01 item=hotline01}>
+						<li><a href="<{$hotline01.p_url}>"><{$hotline01.p_title}></a></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>出境游热门线路</h3>
+				<div class="box">
+					<ul>
+						<{foreach from=$common_cache.hotline02 item=hotline02}>
+						<li><a href="<{$hotline02.p_url}>"><{$hotline02.p_title}></a></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+		<{/if}>
+		<{if $ac=="upinfo"}>
+			<h3>修改资料</h3>
+			<form name="form1" id="upinfoform" method="post" action="index.php?mod=user">
+				<table cellspacing="0" cellpadding="0" border="0" class="fromtable">
+					<tr>
+						<th><span class="red">*</span>邮箱:</th>
+						<td><{$user.email}></td>
+					</tr>
+					<tr>
+						<th><span class="red">*</span>真实姓名:</th>
+						<td><input type="text" name="turename" class="input_180" value="<{$user.turename}>"></td>
+					</tr>
+					<tr>
+						<th><span class="red">*</span>手机:</th>
+						<td><input type="text" name="tel" class="input_180" value="<{$user.tel}>"></td>
+					</tr>
+					<tr>
+						<th></td>
+						<td><input type="submit" value="提 交" class="submitbut"/>
+							<input type="hidden" name="ac" value="<{$ac}>"/>
+							<input type="hidden" name="uid" value="<{$user.id}>"/></td>
+					</tr>
+				</table>
+			</form>
+			<script>
+				var base_url = "";
+				$(function() {
+					var items_array = [
+						{ name:"turename",type:"",simple:"真实姓名",focusMsg:'请输入真实姓名'},
+						{ name:"tel",type:'telephone',simple:"手机",focusMsg:'请输入手机号码'}
+					];
+					$("#upinfoform").skygqCheckAjaxForm({
+						items : items_array
+					});
+				});
+			</script> 
+		<{/if}>
+		<{if $ac=="uppwd"}>
+			<h3>修改密码</h3>
+			<form name="form1" id="pwdform" method="post" action="index.php?mod=user">
+				<table cellspacing="0" cellpadding="0" border="0" class="fromtable">
+					<tr>
+						<th><span class="red">*</span>原始密码:</th>
+						<td><input type="password" name="oldpassword" value="" class="input_180"/></td>
+					</tr>
+					<tr>
+						<th><span class="red">*</span>新密码:</th>
+						<td><input type="password" name="password" value="" class="input_180"/></td>
+					</tr>
+					<tr>
+						<th><span class="red">*</span>确认密码:</th>
+						<td><input type="password" name="repassword" value="" class="input_180"/></td>
+					</tr>
+					<tr>
+						<th></td>
+						<td><input type="submit" value="提 交" class="submitbut"/>
+							<input type="hidden" name="ac" value="<{$ac}>"/>
+							<input type="hidden" name="uid" value="<{$user.id}>"/></td>
+					</tr>
+				</table>
+			</form>
+			<script>
+						var base_url;
+						base_url = "";
+						$(function() {
+							var items_array = [{
+								name : "oldpassword",
+								type : "password",
+								simple : "原始密码",
+								message : "请输入您的原始密码",
+								focusMsg : '只能为数字和英文及下划线的组合，6-20个字符',
+								ajax : {
+									method : 'get',
+									url : base_url + 'index.php?mod=user&ajax=1',
+									success_msg : '输入正确',
+									failure_msg : '您输入的原始密码不正确'
+								}
+							}, {
+								name : "password",
+								type : 'password',
+								simple : "密码",
+								focusMsg : '只能为数字和英文及下划线的组合，6-20个字符'
+							}, {
+								name : "repassword",
+								type : 'eq',
+								to : 'password',
+								simple : "确认密码",
+								focusMsg : '请再输入一遍您上面填写的密码'
+							}];
+							$("#pwdform").skygqCheckAjaxForm({
+								items : items_array
+							});
+						});
+
+					</script> 
+		<{/if}>
+		<{if $ac=="orderlist"}>
+			<h3>我的订单</h3>
+			<table cellspacing="0" cellpadding="0" border="0" class="listtable mt10" width="100%">
+				<tr>
+					<th>订单号</th>
+					<th align="left">线路</th>
+					<th>提交时间</th>
+					<th width="80">操作</th>
+				</tr>
+				<{foreach from=$orderlist item=order}>
+				<tr>
+					<td align="center"><{$order.id}></td>
+					<td><a href="<{$order.p_url}>" target="_blank"><{$order.p_title}></a></td>
+					<td align="center"><{$order.addtime}></td>
+					<td align="center"><a href="index.php?mod=user&ac=detail&id=<{$order.id}>">[查看详细]</a></td>
+				</tr>
+				<{/foreach}>
+			</table>
+			<div class="p10 tc f14 gray"><{if $orderlist|@count==0}>暂无订单<{/if}></div>
+			<div class="tr pt10"> <{$button_basic}><{$button_select}> </div>
+		<{/if}>
+		<{if $ac=="detail"}>
+			<h3>订单详情</h3>
+			<div class="commonbox orderdetail mt10">
+				<h3><span class="fr fn pr10 f12 gray"><{$order.addtime}></span>订单号：<{$order.id}></h3>
+				<div class="p20">
+					<table cellspacing="0" cellpadding="0" border="0" class="fromtable">
+						<tr>
+							<th class="fb">线路：</th>
+							<td><a href="<{$order.p_url}>" target="_blank"><{$order.p_title}></a></td>
+						</tr>
+						<tr>
+							<th class="fb">出游人数：</th>
+							<td>成人：<{$order.adult_nums}>&nbsp;&nbsp;儿童：<{$order.children_nums}></td>
+						</tr>
+						<tr>
+							<th class="fb">价格：</th>
+							<td class="red">￥<{$order.price}>元</td>
+						</tr>
+						<tr>
+							<th class="fb">出发日期：</th>
+							<td><{$order.departure_date}></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		<{/if}>
+	</div>
+</div>
+<!--版权--> 
+<{include file="default/`$setting.templates`/block_service.html"}>
+<{include file="default/`$setting.templates`/foot.html"}>
+</body>
+</html>

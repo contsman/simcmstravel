@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<{$weburl}>/static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+		<script type="text/javascript">
+				var base_url="";
+				$(function(){
+					var items_array = [
+						{ name:"email",type:"mail",simple:"email",message:"请填写邮箱",focusMsg:'请填写正确的邮箱！',ajax:{method:'get',url: base_url+'<{$adminpage}>?mod=member&ajax=1&id=<{$member.id}>',success_msg:'恭喜！邮箱可用',failure_msg:'邮箱已被注册！'}},
+						{ name:"turename",type:"",simple:"真实姓名",focusMsg:'请填写真实姓名'},
+						{ name:"tel",type:"telephone",simple:"手机",focusMsg:'请填写手机'},
+						{ name : "password",type : 'password',simple : "密码",focusMsg : '只能为数字和英文及下划线的组合，6-20个字符',require : "false"}
+					];
+					$("#memberform").skygqCheckAjaxForm({
+						items			: items_array
+					});
+				});
+				</script>
+	</head>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colormember01">
+<form name="form1" id="memberform" method="post" action="<{$adminpage}>?mod=member">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>邮箱：</th>
+<td><input name="email" type="text"  size="30" value="<{$member.email}>" /></td>
+</tr>
+<tr>
+<th>密码：</th>
+<td><input name="password" type="password"  size="30" value="" /></td>
+</tr>
+<tr>
+<th>真实姓名：</th>
+<td><input type="text" name="turename" value="<{$member.turename}>"></td>
+</tr>
+<tr>
+<th>手机号：</th>
+<td><input type="text" name="tel" value="<{$member.tel}>"></td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons"><input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="id" value="<{$member.id}>">
+	<input type="reset" name="thevaluereset" value="重置">
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+ </body>
+</html>

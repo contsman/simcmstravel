@@ -1,0 +1,30 @@
+<script language="JavaScript">
+$(function(){
+	$("#login").load("<{$weburl}>/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="<{$weburl}>/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="<{$weburl}>/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="<{$weburl}>/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>

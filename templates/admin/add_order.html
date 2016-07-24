@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>订单编号：</th>
+<td><{$order.adult_nums}></td>
+</tr>
+<tr>
+<th>线路编码：</th>
+<td><{$order.p_no}></td>
+</tr>
+<tr>
+<th>线路名称：</th>
+<td><{$order.p_title}></td>
+</tr>
+<tr>
+<th>人数：</th>
+<td>成人：<{$order.adult_nums}> + 儿童：<{$order.children_nums}> = 总人数：<{$order.all_nums}> </td>
+</tr>
+<tr>
+<th>价格：</th>
+<td class="fb orange01"><{$order.price}>元</td>
+</tr>
+<tr>
+<th>订购会员：</th>
+<td><{$order.email}> ( <{$order.turename}> )</td>
+</tr>
+<tr>
+<th>联系电话：</th>
+<td><{$order.tel}></td>
+</tr>
+</table>
+</div>
+ </body>
+</html>

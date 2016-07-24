@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/common.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.7.1.min.js"></script>
+<script language="JavaScript">
+$(function() {
+	$('#listhtml').click(function() {
+		var listurl = $("input[name='url']").val();
+		window.location.href="<{$adminpage}>?mod=collect&ac=select&listurl="+listurl;
+	})
+})
+</script>
+</head>
+<body>
+<div class="tablenav">
+	<span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span>
+	<span class="refresh"><a href="javascript:location.reload() ">刷新</a></span>
+</div>
+<div class="colorarea01">
+<form name="form1" id="channelform" method="post" action="<{$adminpage}>?mod=node" onsubmit="return chksubmit();">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<td colspan="2" class="fb">节点基本信息：</td>
+</tr>
+<tr>
+<th>节点名称：</th>
+<td><input name="name" type="text"  size="30" value="<{$node.name}>" /></td>
+</tr>
+<tr>
+<td colspan="2" class="fb">列表页规则设置：</td>
+</tr>
+<tr>
+<th>地址：</th>
+<td>
+	<p><input name="url" type="text"  size="80" value="<{$node.url}>" /> <!-- <a href="#" id="listhtml">浏览</a> --></p>
+	<p class="gray mt5">如 http://news.iresearch.cn/List200-p(*)/</p>
+</td>
+</tr>
+<tr>
+<th>页码：</th>
+<td><input name="startpage"  type="text"  size="5" value="<{$node.startpage}>" /> 到 <input name="endpage"  type="text"  size="5" value="<{$node.endpage}>" /> 页 <span class="gray">(页码或规律数字)</span></td>
+</tr>
+<tr>
+<th>文章列表外部标签：</th>
+<td><input name="list_list_tagname"  type="text"  size="5" value="<{$node.list_list_tagname}>" /> <span class="gray02">Class属性值：</span><input name="list_list_classname"  type="text"  size="15" value="<{$node.list_list_classname}>" /> <span class="gray02">ID属性值：</span><input name="list_list_idname"  type="text"  size="15" value="<{$node.list_list_idname}>" /> <span class="gray01">(Class属性值和ID属性值可选择一项填写)</span></td>
+</tr>
+<tr>
+<th>文章标题外部标签：</th>
+<td><input name="list_title_tagname"  type="text"  size="5" value="<{$node.list_title_tagname}>" /> <span class="gray02">Class属性值：</span><input name="list_title_classname"  type="text"  size="15" value="<{$node.list_title_classname}>" /> <span class="gray01">(如果没有可以不填)</span></td>
+</tr>
+<tr>
+<td colspan="2" class="fb">文章页规则设置：</td>
+</tr>
+<tr>
+<th>文章整体外部标签：</th>
+<td><input name="news_news_tagname"  type="text"  size="5" value="<{$node.news_news_tagname}>" /> <span class="gray02">Class属性值：</span><input name="news_news_classname"  type="text"  size="15" value="<{$node.news_news_classname}>" /> <span class="gray02">ID属性值：</span><input name="news_news_idname"  type="text"  size="15" value="<{$node.news_news_idname}>" /> <span class="gray01">(Class属性值和ID属性值可选择一项填写)</span></td>
+</tr>
+<tr>
+<th>文章标题外部标签：</th>
+<td><input name="news_title_tagname"  type="text"  size="5" value="<{$node.news_title_tagname}>" /> <span class="gray02">Class属性值：</span><input name="news_title_classname"  type="text"  size="15" value="<{$node.news_title_classname}>" /> <span class="gray02">ID属性值：</span><input name="news_title_idname"  type="text"  size="15" value="<{$node.news_title_idname}>" /> <span class="gray01">(Class属性值和ID属性值可选择一项填写)</span></td>
+</tr>
+<tr>
+<th>文章标题需要过滤的文字：</th>
+<td><input name="title_filter"  type="text"  size="35" value="<{$node.title_filter}>" /></td>
+</tr>
+<tr>
+<th>文章内容外部标签：</th>
+<td><input name="news_content_tagname"  type="text"  size="5" value="<{$node.news_content_tagname}>" /> <span class="gray02">Class属性值：</span><input name="news_content_classname"  type="text"  size="15" value="<{$node.news_content_classname}>" /> <span class="gray02">ID属性值：</span><input name="news_content_idname"  type="text"  size="15" value="<{$node.news_content_idname}>" /> <span class="gray01">(Class属性值和ID属性值可选择一项填写)</span></td>
+</tr>
+<tr>
+<th>文章内容需要过滤的文字：</th>
+<td><input name="content_filter"  type="text"  size="85" value="<{$node.content_filter}>" /></td>
+</tr>
+<tr>
+<th>是否采集图片到本地：</th>
+<td><input type="radio" name="ispic" value="1" <{if $node.ispic==1}>checked<{/if}>> 是 <input type="radio" name="ispic" value="0" <{if $node.ispic==0 or $ac=="add"}>checked<{/if}>> 否</td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons">
+		<input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+		<input type="hidden" name="ac" value="<{$ac}>">
+		<input type="hidden" name="id" value="<{$node.id}>">
+		<input type="reset" name="thevaluereset" value="重置">
+	</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+ </body>
+</html>

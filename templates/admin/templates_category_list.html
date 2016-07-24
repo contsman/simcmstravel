@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="static/js/common.js"></script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<div class="search clearfix">
+	<div class="searchL">
+		<a href="<{$adminpage}>?mod=templates_category&ac=add" class="combutton">+添加风格</a>
+	</div>
+</div>
+<form action="<{$adminpage}>?mod=templates_category" method="post" name="form">
+<table cellspacing="0" cellpadding="0" width="100%"  class="listtable">
+<tr><th>ID</th><th>风格标识</th><th>风格中文名</th><th>状态</th><th  width='100'>操作</th></tr>
+<{foreach from=$templates_category_list key=key item=templates_category}>
+<tr>
+<td align="center" width="80"><{$key}></td>
+<td align="center"><{$templates_category.dirname}></td>
+<td align="center"><input type="text" name="name" value="<{$templates_category.name}>"></td>
+<td align="center"><{if $templates_category.disable==1}>启用<{else}>未启用<{/if}></td>
+<td align="center"><a href="<{$adminpage}>?mod=templates_category&ac=edit&catid=<{$key}>">启用</a> | <a href="<{$adminpage}>?mod=templates&ac=list&dir=<{$templates_category.dirname}>">模版列表</a>
+</td>
+</tr>
+<{/foreach}>
+<tr>
+	<td colspan="4" class="buttontd">
+	<a href="javascript:submitForm('<{$adminpage}>?mod=templates_category&ac=bulkdel','删除');" title="请选择后操作">删除</a>
+	</td>
+</tr>
+</table>
+</form>
+<div class="listpage"><{$button_basic}><{$button_select}></div>
+</div>
+</body>
+</html>

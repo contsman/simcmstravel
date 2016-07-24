@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var items_array = [
+			{ name:"c_name",type:"",simple:"栏目名称",focusMsg:'请填写栏目名称'},
+			{ name:"c_ename",type:"",simple:"栏目英文名称",focusMsg:'请填写栏目英文名称'},
+			{ name:"c_url",type:"",simple:"url地址",focusMsg:'请填写url地址'},
+			{ name:"c_eurl",type:"",simple:"英文url地址",focusMsg:'请填写英文url地址'}
+		];
+		$("#channelform").skygqCheckAjaxForm({
+			items			: items_array
+		});
+	});
+</script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form1" id="channelform" method="post" action="<{$adminpage}>?mod=channel">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>栏目名称：</th>
+<td><input name="c_name" type="text"  size="30" value="<{$channel.c_name}>" /></td>
+</tr>
+<tr>
+<tr>
+<th>url地址：</th>
+<td><input name="c_url" type="text"  size="80" value="<{$channel.c_url}>" /></td>
+</tr>
+<tr>
+<th>弹出方式：</th>
+<td><input type="radio" name="c_target" value="1" <{if $channel.c_target==1 or $channel.c_target==0}>checked<{/if}>/> 本页面 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="c_target" value="2" <{if $channel.c_target==2}>checked<{/if}>/> 新窗口</td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons">
+	<input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="id" value="<{$channel.c_id}>">
+	<input type="reset" name="thevaluereset" value="重置">
+	</div>
+</td>
+</tr>
+</table>
+</div>
+</form>
+ </body>
+</html>

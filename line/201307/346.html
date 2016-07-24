@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li><南欧风情-西班牙葡萄牙10日></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：XZMLX</span><南欧风情-西班牙葡萄牙10日></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+										<li><img src="/static/pic/nopic.jpg" /></li>
+									</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="/index.php?mod=calendar&id=346" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide">起价说明
+</div>
+		<div class="helpbox help02 hide"><p>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 16px; ">我们大力推广&ldquo;</span><strong style="font-size: 16px; ">网订优惠</strong><span style="font-size: 16px; ">&rdquo;政策，通过网站预订您不但可以享受到和线下预定一样的优惠，还可能享受到某些产品在线预订的&ldquo;</span><strong style="font-size: 16px; ">专享</strong><span style="font-size: 16px; ">&rdquo;优惠。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您只需留下您的&ldquo;<strong>手机+座机+邮箱</strong>&rdquo;的联系方式，并注明您心仪的<strong>线路</strong>和出行<strong>时间</strong>及出行<strong>人数</strong>，我们的客服将在第一时间联系您。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您也可以下单后直接拨打我们24小时免费电话4006 365 001联系我们的客服，或在上班时间9:00-18:00致电我们的客服人员为您服务。</span></p>
+</div>
+		<p class="price01">市场价：<span class="fb f16 pr10">20300元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10">19300元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01">474</span></li>
+				<li>出发城市：</li>
+				<li>行程天数：10天</li>
+				<li class="li01">往返交通：飞机</li>
+				<li class="li01">住宿标准：全程当地三-四星酒店</li>
+			</ul>
+		</div>
+		<form method="get" action="/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+											</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="346">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+										<li><img src="/upload/common/1381154961.jpg"></li>
+										<li><img src="/upload/common/1381934825.png"></li>
+										<li><img src="/upload/common/1368626684.jpg"></li>
+									</ul>
+			</div>
+			<div class="tel adviserbox">
+									<div >
+					<p>洪艳楠(资深旅游顾问)</p>
+					<p>业务范围：云南，四川</p>
+					</div>
+									<div class="hide">
+					<p>张燕(资深旅游顾问)</p>
+					<p>业务范围：青岛，大连</p>
+					</div>
+									<div class="hide">
+					<p>王乐乐(资深旅游顾问)</p>
+					<p>业务范围：北京周边</p>
+					</div>
+							</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<p>
+	&nbsp;</p>
+<p align="left" style="margin-left:18pt;">
+	1. &nbsp; &nbsp;&nbsp;<strong>西班牙深度之旅：</strong><strong>塞维利亚、米哈斯、格拉纳达、科尔多瓦、托雷多、马德里、巴塞罗那一网打尽；</strong></p>
+<p align="left" style="margin-left:18pt;">
+	2. &nbsp; &nbsp;&nbsp;<strong>最大的海港城市：</strong><strong>葡萄牙首都里斯本，欣赏海港独特的天然景致；</strong></p>
+<p style="margin-left:18.0pt;">
+	3. &nbsp; &nbsp;&nbsp;<strong>高迪建筑：</strong><strong>圣家大教堂、米拉之家、巴约公寓给您震撼的视觉盛宴；</strong></p>
+<p style="margin-left:18.0pt;">
+	4. &nbsp; &nbsp;&nbsp;<strong>特别安排：</strong><strong>马德里Las Rozas时尚精品购物村，带您体验奢侈品平价血拼的乐趣；</strong></p>
+<p align="left" style="margin-left:18pt;">
+	5. &nbsp; &nbsp;&nbsp;<strong>世界文化遗产古城：</strong><strong>三文化名城&mdash;&mdash;托莱多，带您解读西班牙黄金时代的建筑和文化；</strong></p>
+<p align="left" style="margin-left:18pt;">
+	6. &nbsp; &nbsp;&nbsp;<strong>一生必看：</strong><strong>仅次于凡尔赛宫和维也纳皇宫的欧洲第三大皇宫&mdash;马德里皇宫（赠送官方讲解）；</strong></p>
+<p style="margin-left:18.0pt;">
+	7. &nbsp; &nbsp;&nbsp;<strong>世界上保护最完整的穆斯林皇家园林：</strong><strong>阿尔罕布拉宫</strong></p>
+<p style="margin-left:18.0pt;">
+	8. &nbsp; &nbsp;&nbsp;<strong>温馨餐食：</strong><strong>全程6菜1汤，特别赠送西班牙海鲜饭，充分满足您的味蕾；</strong></p>
+<p align="left" style="margin-left:18pt;">
+	9. &nbsp; &nbsp;&nbsp;<strong>优化住宿：</strong><strong>全程四星级酒店，提高团队住宿品质；</strong></p>
+<p align="left" style="margin-left:18pt;">
+	10. &nbsp; &nbsp;&nbsp;<strong>专享小团组：</strong><strong>限定参团人数20人左右，享受更加贴心周到的导游服务；(黄金周及大假期30人左右)</strong></p>
+<p style="margin-left:18.0pt;">
+	&nbsp;</p>
+
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+											</ul>
+					<div class="tripbox">
+											</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<p>
+	&nbsp;</p>
+<p>
+	<strong>报价包含：</strong></p>
+<p style="margin-left:27.0pt;">
+	1、&nbsp;&nbsp;&nbsp; 往返国际机票(经济舱)及机场税</p>
+<p style="margin-left:27.0pt;">
+	2、&nbsp;&nbsp;&nbsp; 行程中所需要申根ADS签证费用</p>
+<p style="margin-left:27.0pt;">
+	3、&nbsp;&nbsp;&nbsp; 行程中所标明的欧洲星级标准酒店双人间住房</p>
+<p style="margin-left:27.0pt;">
+	4、&nbsp;&nbsp;&nbsp; 每日用餐：酒店内早餐，午、晚餐以中式为主（标准为6菜1汤+水果+茶），10人一桌</p>
+<p style="margin-left:27.0pt;">
+	5、&nbsp;&nbsp;&nbsp; 全程旅游巴士，专业司机</p>
+<p style="margin-left:27.0pt;">
+	6、&nbsp;&nbsp;&nbsp; 全程中文导游</p>
+<p style="margin-left:27.0pt;">
+	7、&nbsp;&nbsp;&nbsp; 旅游意外伤害保险</p>
+<p style="margin-left:27.0pt;">
+	8、&nbsp;&nbsp;&nbsp; 行程中注明（★）的入内参观景点均含首道门票</p>
+<p style="margin-left:27.0pt;">
+	9、&nbsp;&nbsp;&nbsp; 旅行社责任险。</p>
+<p style="margin-left:27.1pt;">
+	<strong>报价不含以下内容：</strong></p>
+<p style="margin-left:27.0pt;">
+	1、&nbsp;&nbsp;&nbsp; 护照办理费用</p>
+<p style="margin-left:27.0pt;">
+	2、&nbsp;&nbsp;&nbsp; 小费<strong>（8欧元*10天=80欧）</strong></p>
+<p style="margin-left:27.0pt;">
+	3、&nbsp;&nbsp;&nbsp; 签证相关资料费用如认证费、公证费等</p>
+<p style="margin-left:27.0pt;">
+	4、&nbsp;&nbsp;&nbsp; 洗衣、理发、电话、饮料、烟酒、付费电视、行李搬运等私人费用</p>
+<p style="margin-left:27.0pt;">
+	5、&nbsp;&nbsp;&nbsp; 出入境的行李海关课税，超重行李的托运费、管理费等</p>
+<p style="margin-left:27.0pt;">
+	6、&nbsp;&nbsp;&nbsp; 行程中未提到的其它费用：如特殊门票、游船，邮轮、缆车、地铁票等费用</p>
+<p style="margin-left:27.0pt;">
+	7、&nbsp;&nbsp;&nbsp; 转机/火车时用餐(用餐时间在飞机上或船上以机船时间为准不再另退餐费)</p>
+<p style="margin-left:27.0pt;">
+	8、 因不可抗拒的客观原因和非我公司原因(如天灾、战争、罢工等)或航空公司航班延误或取消、领馆签证延误、报名人数不足等特殊情况，我公司有权取消或变更行程，一切超出费用（如在外延期签证费、住、食及交通费、国家航空运价调整等）我公司有权追加差价</p>
+<p style="margin-left:27.0pt;">
+	9、旅游费用不包括旅游者因违约、自身过错、自由活动期间内行为或自身疾病引起的人身和财产损失</p>
+
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<p>
+	&nbsp;</p>
+<p>
+	1、&nbsp; 按照欧洲各使馆现行规定，会抽查团队部分或全部出团客人回国后面试销签。使馆会在团队出团后予以通知，抽查到的客人必须按照使馆通知时间本人前往使馆。建议客人将返程机票订在回国当天下午或第二天；如遇回国抵达当天为周五、周六或周日，请订下周一下午或晚上的航班，以避免使馆通知面试而耽误航班（各使馆周五下午不对外办公）；</p>
+<p>
+	2、&nbsp; 部分使馆通常会待客人回国几天后才通知面试消签，此种情况较难理解，但实属使馆现行做法。且所有面试费用由客人自理，请各位客人做好被通知面试销签准备；</p>
+<p>
+	3、&nbsp; 欧洲使馆规定，凡在旅行社参团办理团队签证的客人须在回国抵达首都机场时将护照、全程登机牌交回使馆销签，同时，护照销签时间取决于各使馆的工作进度，由于旅游旺季或有大型活动等原因，使馆的工作量很大，销签的时间会长些，请客人予以理解并做好这个准备。届时会有专人向您收取，谢谢您的配合！</p>
+<p>
+	4、&nbsp; 请务必保管好全程登机牌，并核对姓名拼写，发生姓名错误请及时告知导游，及时补救。若因客人自身原因丢失、缺损登机牌证明或姓名不正确，请抵达中国后配合旅行社第一时间前往使馆面试销签；如果不能当即销签，使馆将会通知面试核销签证，由此产生的所有费用由客人承担！！！</p>
+
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<p>
+	&nbsp;</p>
+<p>
+	<strong>1</strong><strong>．当地的气候如何？应该如何准备衣物？</strong></p>
+<p align="center">
+	欧洲各国之平均气候资料表（摄氏度）</p>
+<table border="0" cellpadding="0" cellspacing="0" style="width:672px;" width="672">
+	<tbody>
+		<tr>
+			<td style="width:73px;height:19px;">
+				<p>
+					城市名称</p>
+			</td>
+			<td style="width:42px;height:19px;">
+				<p>
+					1月</p>
+			</td>
+			<td style="width:42px;height:19px;">
+				<p>
+					2月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					3月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					4月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					5月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					6月</p>
+			</td>
+			<td style="width:55px;height:19px;">
+				<p>
+					7月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					8月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					9月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					10月</p>
+			</td>
+			<td style="width:50px;height:19px;">
+				<p>
+					11月</p>
+			</td>
+			<td style="width:57px;height:19px;">
+				<p>
+					12月</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:73px;height:11px;">
+				<p>
+					里斯本</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					15-8</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					16-9</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					18-10</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					19-11</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					22-13</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					25-16</p>
+			</td>
+			<td style="width:55px;height:11px;">
+				<p>
+					27-17</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					28-18</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					26-17</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					22-15</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					18-11</p>
+			</td>
+			<td style="width:57px;height:11px;">
+				<p>
+					15-9</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:73px;height:11px;">
+				<p>
+					塞维利亚</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					16-6</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					17-7</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					21-8</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					22-10</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					26-13</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					30-17</p>
+			</td>
+			<td style="width:55px;height:11px;">
+				<p>
+					35-19</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					35-19</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					32-18</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					26-13</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					21-9</p>
+			</td>
+			<td style="width:57px;height:11px;">
+				<p>
+					17-7</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:73px;height:11px;">
+				<p>
+					马德里</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					10-0</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					12-2</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					17-3</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					17-6</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					22-9</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					28-13</p>
+			</td>
+			<td style="width:55px;height:11px;">
+				<p>
+					32-16</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					32-16</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					28-13</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					22-8</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					14-4</p>
+			</td>
+			<td style="width:57px;height:11px;">
+				<p>
+					11-2</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:73px;height:11px;">
+				<p>
+					巴塞罗那</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					13-5</p>
+			</td>
+			<td style="width:42px;height:11px;">
+				<p>
+					14-5</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					16-7</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					17-8</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					20-12</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					24-16</p>
+			</td>
+			<td style="width:55px;height:11px;">
+				<p>
+					27-19</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					28-19</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					26-17</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					21-12</p>
+			</td>
+			<td style="width:50px;height:11px;">
+				<p>
+					17-8</p>
+			</td>
+			<td style="width:57px;height:11px;">
+				<p>
+					13-6</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;&nbsp;&nbsp; 衣着：由于欧洲天气情况属于大陆性气候，夏季午间气温较热，早晚天气较凉，请备秋用外衣。此外，由于欧洲天气较为干燥，应自备一些护肤用品；同时请准备雨具和太阳镜，以便不时之需；而冬季气温较寒冷，故需带足够的厚衣。总体来说着装应以舒适轻便为主，除歌剧院、赌场需要正式着装外，其它场合无特殊要求。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>2</strong><strong>．当地和国内的时间多少？</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp; 西欧夏季比中国慢6个小时，冬季比中国慢7个小时。(夏季为：3月份的最后一个周日开始， 到10月份的最后一个周日结束)</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>3</strong><strong>．在当地应如何拨打电话？手机是否漫游？如何收费？</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp; 在欧洲用固定电话拨打国内电话的拨号顺序为：0086+区号(去掉第一个0)+电话号码。如拨打北京电话为：0086 10 12345678。用手机拨打电话需要国际漫游费，每分钟的收费为20元左右。建议用中国移动提供的主叫回播业务，具体方法为**139*86 电话号码# 挂机等待回播。如拨打北京电话为：**139*86 10 12345678(或手机号)#，挂机，等待回播。使用此业务收费降为每分钟6元左右。在法国，瑞士和意大利给国内手机发送短信收费为每条2元左右。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>4</strong><strong>．是否需要转换插座？应该准备那一种？</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp; 需要准备转换插头。 西葡的插头和插座是欧洲标准。 请咨询国内的电器商店，说明要欧洲标准的转换插头，通常德标可通用。 如果国内没有，则请在当地购买欧洲标准插头的转换器(adapter)， 价格从4-9欧元不等。 或者到酒店租用转换器。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>5</strong><strong>．当地用什么种类的货币？如何兑换？在当地信用卡如何使用？</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp; 西葡都是欧元区，通用欧元。信用卡的使用和国内相同。 建议在出国前到银行兑换欧元。 欧洲的大多数商业单位都备有刷卡机， 建议您尽量使用信用卡，避免携带大量现金的安全问题。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>6</strong><strong>．当地制安情况好吗？有什么危险吗？</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp; 总体来说，西班牙的治安在欧洲国家中属于较差的，出行时需要特别注意自身财物的安全，游览时听从领队和导游安排，集体行动，相对比较安全。携带大量现金和携带名贵显眼的箱包是危险的，特别是在乘坐火车或其他交通工具时。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>7</strong><strong>．行程中是否安排有自由活动的时间以及自由购物的时间？</strong></p>
+<p>
+	&nbsp; &nbsp;&nbsp;有。 我们会安排在马德里和巴塞罗那两个著名旅游购物城市自由活动购物。 在其他城市有特色的当地步行街我们也留出购买纪念品时间。 如购物时遇到语言问题， 请咨询领队和导游， 协助购买。</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>8</strong><strong>．是否可以升级到公务舱或者头等舱，是否可以升级到单间？</strong></p>
+<p>
+	&nbsp; &nbsp;&nbsp;可以，如果升级到单间需要补单间差，如果升级到公务舱，需要补差价，建议您最好在报名前就说明此类特殊要求。因为如果距离出发日期太近才提出升舱的话很有可能会面临高舱位高价格或舱位已满无法升级的问题，特别是旺季或者黄金周期间。</p>
+<p>
+	&nbsp;</p>
+
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<p>
+	如何预定</p>
+
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<p>
+	付款方式</p>
+
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+									<li><span class="price">￥18800元</span><a href="http://demo.52jscn.com/line/201307/357.html" target="_blank" class="title1"><西班牙、葡萄牙11日阳光休闲之.</a><a href="http://demo.52jscn.com/line/201307/357.html" target="_blank" class="title2"></a></li>
+								</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

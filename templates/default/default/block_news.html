@@ -1,0 +1,20 @@
+<div class="commonbox mt10">
+	<h3><a href="<{$weburl}>/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+			<{foreach from=$common_cache.newslist01 item=news01}>
+				<li><a href="<{$news01.n_url}>" target="_blank"><{$news01.shorttitle}></a></li>
+			<{/foreach}>
+		</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="<{$weburl}>/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+		<{foreach from=$common_cache.newslist02 item=news02}>
+			<li><a href="<{$news02.n_url}>" target="_blank"><{$news02.shorttitle}></a></li>
+		<{/foreach}>
+		</ul>
+	</div>
+</div>

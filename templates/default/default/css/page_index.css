@@ -1,0 +1,86 @@
+@import url(base.css);
+@import url(common.css);
+@charset "utf-8";
+/*全站链接样式*/
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#fa8d00; text-decoration:none;} 
+.blank{height:10px;}
+body{ color:#333; font-size:12px;}
+.blank{ height:10px;}
+
+body{font-weight:normal;font-family:"宋体",verdana,lucida,helvetica,arial,sans-serif;font-size:12px;}
+
+/*左侧分类*/
+.leftmenu{width:196px;background:#fff;border:2px solid #5abb1f;border-top:none;}
+.leftmenu .leftmenubox{padding:5px 10px;border-top:1px solid #eee;background:#fff url(../img/dot3.gif) no-repeat 175px 10px;}
+.leftmenu .leftmenubox_hover{width:230px;background:#fff;color:#339933;border-top:1px solid #339933;border-bottom:1px solid #339933;border-left:1px solid #339933;position:relative;z-index:1000;}
+.leftmenu .leftmenubox h3{font-size:14px;height:25px;}
+.leftmenu .leftmenubox .com a{color:#666;}
+.leftmenu .leftmenubox_hover .com a{color:#339933;}
+.leftmenu .leftmenubigbox{width:500px;position:absolute;top:-1px;left:197px;padding:10px 30px;border:1px solid #339933;border-left:none;background:#fff;color:#999;z-index:900;background:#fff url(../img/leftmenu.gif) no-repeat left top;}
+.leftmenu .leftmenubigbox .subleftmenu{border-bottom:1px dashed #eee;padding:5px 0;line-height:22px;}
+.leftmenu .leftmenubigbox .subleftmenu h4{float:left;width:80px;font-size:14px;color:#0066cc;}
+.leftmenu .leftmenubigbox .subleftmenu div{float:right;width:420px;}
+.leftmenu .leftmenubigbox .subleftmenu span{float:left;padding-right:10px;line-height:28px;}
+.leftmenu .leftmenubigbox .subleftmenu span a{color:#339933;}
+
+
+/*幻灯片*/
+.flashpicbox{float:left;width:705px;position:relative;}
+.flashpic{width:705px;height:310px;background:#fff;}
+.flashpic li{padding:0;}
+.flashpic li img{width:705px;height:310px;}
+.flashpicbox .premenu a{display:block;width:40px;height:82px;position:absolute;top:110px;left:0px;cursor:pointer;background:url(../img/menu.png) no-repeat 0 0;z-index:100}
+.flashpicbox .nextmenu a{display:block;width:40px;height:82px;position:absolute;top:110px;right:0px;cursor:pointer;background:url(../img/menu.png) no-repeat -40px 0;z-index:200}
+
+
+/*搜索*/
+.rightsearch{float:right;width:275px;}
+.rightregister{background:#f4f4f4;height:30px;padding:5px;}
+.rightregister a{float:left;display:block;width:90px;padding-left:37px;font-size:14px;font-weight:bold;height:28px;line-height:28px;border:1px solid #fa8d00;background:#fa8d00;color:#fff;}
+.rightregister a.a01{background:#fa8d00 url(../img/register.jpg) no-repeat 10px 7px;}
+.rightregister a.a02{background:#fa8d00 url(../img/register.jpg) no-repeat 10px -30px;}
+
+.indexsearchbox{width:273px;height:258px;border:1px solid #E6E6E6;background:#fafafa url(../img/searc_index.jpg) no-repeat;position:relative;}
+.indexsearchbox h3{height:40px;}
+.indexsearchbox .indexsearch_tab{padding:0 10px;}
+.indexsearchbox .indexsearch_tab li{float:left;width:50px;height:25px;text-align:center;background:url(../img/index_search_tab.gif) repeat-x -50px 20px;cursor:pointer;}
+.indexsearchbox .indexsearch_tab li.here{background:url(../img/index_search_tab.gif) repeat-x 0 20px;}
+.indexsearchbox .box{padding:10px;}
+.indexsearchbox .box p{padding:0 0 6px 0;}
+.indexsearchbox .inp01{border:1px solid #d8d8d8;padding:3px 5px;width:109px;color:#ccc;font-family:"微软雅黑";background:#fff url(../img/dot2.gif) no-repeat 120px 11px}
+.indexsearchbox .inp02{border:1px solid #d8d8d8;padding:3px 5px;width:240px;font-family:"宋体";background:#fff url(../img/calendar.gif) no-repeat 230px 5px}
+.indexsearchbox .inp03{border:1px solid #d8d8d8;padding:3px 5px;width:240px;font-family:"微软雅黑";background:#fff url(../img/dot2.gif) no-repeat 232px 11px;}
+.indexsearchbox .inp04{border:1px solid #d8d8d8;padding:3px 5px;width:240px;font-family:"微软雅黑";}
+.indexsearchbox .searchbut{width:252px;height:35px;color:#fff;font-size:14px;font-weight:bold;text-align:center;border:none;background:#fa8d00;font-family:"微软雅黑";}
+
+.indexsearchbox .citylist{width:210px;position:absolute;top:101px;left:10px;border:1px solid #ccc;background:#fff;}
+.indexsearchbox .citylist h3{height:25px;padding:0 10px;line-height:25px;background:#f5f5f5;position:relative;}
+.indexsearchbox .citylist .box{padding:10px;line-height:22px;}
+.indexsearchbox .citylist .box span{padding-right:5px;cursor:pointer;color:#0066cc;}
+.indexsearchbox .citylist h3 .close{position:absolute;top:8px;right:8px;display:block;width:7px;height:8px;background:url(../img/close2.gif) no-repeat;cursor:pointer;}
+
+.indexsearchbox .pricelist{width:210px;position:absolute;top:167px;left:10px;border:1px solid #ccc;background:#fff;}
+.indexsearchbox .pricelist h3{height:25px;padding:0 10px;line-height:25px;background:#f5f5f5;position:relative;}
+.indexsearchbox .pricelist .box{padding:10px;line-height:22px;}
+.indexsearchbox .pricelist .box span{padding-right:5px;cursor:pointer;color:#0066cc;}
+.indexsearchbox .pricelist h3 .close{position:absolute;top:8px;right:8px;display:block;width:7px;height:8px;background:url(../img/close2.gif) no-repeat;cursor:pointer;}
+
+/*推荐旅行社*/
+.lxslist li{padding:10px;border-bottom:1px dotted #eee;}
+.lxslist li p.p01 a{font-size:14px;color:#3aa400}
+.lxslist li p.p02{color:#999;margin-top:5px;line-height:18px;}
+
+/*企业专区*/
+.enterprise{padding-top:154px;background:url(../img/sprite_enterprise.jpg) no-repeat 0 0;}
+.enterprise .enterprisebox01{float:left;width:242px;height:110px;border-right:1px solid #ececec;padding:10px;line-height:22px;color:#666;}
+.enterprise .enterprisebox02{float:left;width:242px;height:110px;border-right:1px solid #ececec;padding:10px;line-height:22px;color:#666;}
+.enterprise .enterprisebox03{float:left;width:240px;height:110px;padding:10px;line-height:22px;color:#666;}
+
+/*签证中心*/
+.visa_tab{position:absolute;top:10px;right:10px;height:30px;}
+.visa_tab li{float:left;background:#eee;width:50px;height:30px;display:inline;margin-left:5px;line-height:30px;font-size:14px;text-align:center;cursor:pointer;}
+.visa_tab li.here{float:left;background:#fff;border-top:2px solid #336633;border-left:1px solid #eee;border-right:1px solid #eee;}
+.visalist li{float:left;width:80px;text-align:center;padding:10px 7px;}
+.visalist li img{width:44px;height:36px;}
+.visalist li p{height:20px;line-height:20px;}

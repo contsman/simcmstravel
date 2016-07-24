@@ -1,0 +1,45 @@
+<?php
+require("../../inc/header.php");
+
+/*
+		SoftName : EmpireBak Version 2010
+		Author   : wm_chief
+		Copyright: Powered by www.phome.net
+*/
+
+DoSetDbChar('utf8');
+E_D("DROP TABLE IF EXISTS `travel_service`;");
+E_C("CREATE TABLE `travel_service` (
+  `p_id` int(11) NOT NULL auto_increment,
+  `s_id` int(11) NOT NULL,
+  `orderid` int(11) NOT NULL,
+  `p_title` varchar(50) NOT NULL,
+  `p_info` text NOT NULL,
+  `p_tql` varchar(200) NOT NULL,
+  `p_page` varchar(200) NOT NULL,
+  `p_status` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`p_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_service` values('88','1','0','纯玩、购物什么意思？','','','88.html','0');");
+E_D("replace into `travel_service` values('87','1','0','合同中单房差是什么？','&lt;p&gt;\r\n	&lt;a href=&quot;http://www.chinacits.com.cn/other.asp?id=79&quot; style=&quot;margin: 0px; padding: 0px; text-decoration: initial; color: rgb(57, 57, 57); font-family: 宋体; text-indent: 6px;&quot; target=&quot;_blank&quot;&gt;合同中单房差是什么？&lt;/a&gt;&lt;/p&gt;\r\n','','87.html','0');");
+E_D("replace into `travel_service` values('86','1','0','什么叫独立成团？','&lt;p&gt;\r\n	&lt;a href=&quot;http://www.chinacits.com.cn/other.asp?id=78&quot; style=&quot;margin: 0px; padding: 0px; text-decoration: initial; color: rgb(57, 57, 57); font-family: 宋体; text-indent: 6px;&quot; target=&quot;_blank&quot;&gt;什么叫独立成团？&lt;/a&gt;&lt;/p&gt;\r\n','','86.html','0');");
+E_D("replace into `travel_service` values('89','1','0','******、双卧是什么意思？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	******、双卧是什么意思？&lt;/p&gt;\r\n','','89.html','0');");
+E_D("replace into `travel_service` values('90','2','0','签合同可以刷卡吗？','&lt;p&gt;\r\n	签合同可以刷卡吗？&lt;/p&gt;\r\n','','90.html','0');");
+E_D("replace into `travel_service` values('91','2','0','网上支付可以吗？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	网上支付可以吗？&lt;/p&gt;\r\n','','91.html','0');");
+E_D("replace into `travel_service` values('92','2','0','旅游的发票如何开？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	旅游的发票如何开？&lt;/p&gt;\r\n','','92.html','0');");
+E_D("replace into `travel_service` values('93','2','0','可以付支票或公户转账吗？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	可以付支票或公户转账吗？&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','93.html','0');");
+E_D("replace into `travel_service` values('94','3','0','中国旅行社签约流程？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	中国旅行社签约流程？&lt;/p&gt;\r\n','','94.html','0');");
+E_D("replace into `travel_service` values('95','3','0','可以不签合同吗？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	可以不签合同吗？&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	为了保障您的权益，北京中国国际旅行社有限公司建议您签署正规的旅游合同。一般无法提供合同的旅游机构，游客需提高警惕&lt;/p&gt;\r\n','','95.html','0');");
+E_D("replace into `travel_service` values('96','3','0','能传真签合同吗？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	能传真签合同吗？&lt;/p&gt;\r\n','','96.html','0');");
+E_D("replace into `travel_service` values('97','3','0','有旅游合同范本下载吗？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	有旅游合同范本下载吗？&lt;/p&gt;\r\n','','97.html','0');");
+E_D("replace into `travel_service` values('98','4','0','参团旅游其他事项？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;参团旅游其他事项？&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','98.html','0');");
+E_D("replace into `travel_service` values('99','4','0','签证相关问题解答？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	中国旅行社退团、退款问题解答？&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','99.html','0');");
+E_D("replace into `travel_service` values('100','4','0','中国旅行社退团、退款问题解答？','&lt;p&gt;\r\n	&lt;span style=&quot;color: rgb(21, 21, 21); font-family: 宋体; font-size: 14px; font-weight: bold; text-align: center;&quot;&gt;中国旅行社退团、退款问题解答？&lt;/span&gt;&lt;/p&gt;\r\n','','100.html','0');");
+E_D("replace into `travel_service` values('101','4','0','有旅游保险吗？保额多少？','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	有旅游保险吗？保额多少？&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','101.html','0');");
+E_D("replace into `travel_service` values('102','5','0','中国旅行社网站免责声明','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;中国旅行社网站免责声明&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','102.html','0');");
+E_D("replace into `travel_service` values('103','5','0','预订金缴纳事宜','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;预订金缴纳事宜&lt;/strong&gt;&lt;/p&gt;\r\n','','103.html','0');");
+E_D("replace into `travel_service` values('104','5','0','拒签及面试消签相关问题','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;拒签及面试消签相关问题&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;拒签后签证费退还么？&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	一般签证申请被受理时，无论最终是否获签，签证费均不退还。签证费是为审核签证材料支付的受理费用，各国自主决定如何收取签证费用。通常，各国根据对等原则确定收费标准。&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;什么是面试销签？&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	个别使馆规定，参加由旅行社组织的团队旅游者归国后要在申请签证时的领馆进行面试销签；证明已经按时回国的程序。&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	面试销签者的指定：有的国家是在办理好签证取签时，指定其中某个人。有的国家是团队回国后，所有护照送进使、领馆后再指定的某个人。&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 宋体;&quot;&gt;\r\n	&lt;a href=&quot;http://bbs.52jscn.com&quot;&gt;bbs.52jscn.com&lt;/a&gt; 站长网 QQ：677123&lt;/p&gt;\r\n','','104.html','0');");
+E_D("replace into `travel_service` values('105','5','0','中国旅行社教您出国旅游省钱妙招','&lt;p&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&lt;strong style=&quot;margin: 0px; padding: 0px;&quot;&gt;中国旅行社教您出国旅游省钱妙招&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p style=&quot;margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: 宋体; line-height: 30px;&quot;&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n','','105.html','0');");
+
+require("../../inc/footer.php");
+?>

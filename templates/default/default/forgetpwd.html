@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>优促网&mdash;优惠促销信息一网打尽</title>
+<link href="static/css/base.css" rel="stylesheet" type="text/css" />
+<link href="static/css/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+<script language="JavaScript">
+$(function(){
+    //点击更多
+    $('#changecity').click(function(){
+        $('.citylist').toggle('fast');
+    });
+});
+</script>
+</head>
+<body>
+<{include file="default/top.html"}>
+<div class="register">
+	<div class="register_box clearfix forgetpwd" style="background:none;">
+	<form method="post" id="loginfrom_01" action="index.php?mod=forgetpwd">
+	<{if $ac=="resetpwd"}>
+		<p class="f14 fb">请输入新密码：</p>
+		<p><input name="password" type="password" class="emailinput"/></p>
+		<p class="f14 fb">请再次输入：</p>
+		<p><input name="pwdagain" type="password" class="emailinput"/></p>
+	<{else}>
+		<p class="f14 fb">请输入您的注册邮箱</p>
+		<p><input type="text" name="email" class="emailinput"></p>
+	<{/if}>
+		<p><input type="image" src="<{$weburl}>/static/img/email.gif"/></p>
+	</form>
+    </div>
+</div>
+<!--版权-->
+<{include file="default/foot.html"}>
+</body>
+</html>

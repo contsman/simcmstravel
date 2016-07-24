@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li><荷兰+德国漫游细品8日游></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：XZMGLHY</span><荷兰+德国漫游细品8日游></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+										<li><img src="/static/pic/nopic.jpg" /></li>
+									</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="/index.php?mod=calendar&id=239" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide">起价说明
+</div>
+		<div class="helpbox help02 hide"><p>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 16px; ">我们大力推广&ldquo;</span><strong style="font-size: 16px; ">网订优惠</strong><span style="font-size: 16px; ">&rdquo;政策，通过网站预订您不但可以享受到和线下预定一样的优惠，还可能享受到某些产品在线预订的&ldquo;</span><strong style="font-size: 16px; ">专享</strong><span style="font-size: 16px; ">&rdquo;优惠。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您只需留下您的&ldquo;<strong>手机+座机+邮箱</strong>&rdquo;的联系方式，并注明您心仪的<strong>线路</strong>和出行<strong>时间</strong>及出行<strong>人数</strong>，我们的客服将在第一时间联系您。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您也可以下单后直接拨打我们24小时免费电话4006 365 001联系我们的客服，或在上班时间9:00-18:00致电我们的客服人员为您服务。</span></p>
+</div>
+		<p class="price01">市场价：<span class="fb f16 pr10">16800元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10">15700元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01">0</span></li>
+				<li>出发城市：</li>
+				<li>行程天数：8天</li>
+				<li class="li01">往返交通：飞机</li>
+				<li class="li01">住宿标准：当地三星级酒店</li>
+			</ul>
+		</div>
+		<form method="get" action="/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+											</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="239">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+										<li><img src="/upload/common/1381154961.jpg"></li>
+										<li><img src="/upload/common/1381934825.png"></li>
+										<li><img src="/upload/common/1368626684.jpg"></li>
+									</ul>
+			</div>
+			<div class="tel adviserbox">
+									<div >
+					<p>洪艳楠(资深旅游顾问)</p>
+					<p>业务范围：云南，四川</p>
+					</div>
+									<div class="hide">
+					<p>张燕(资深旅游顾问)</p>
+					<p>业务范围：青岛，大连</p>
+					</div>
+									<div class="hide">
+					<p>王乐乐(资深旅游顾问)</p>
+					<p>业务范围：北京周边</p>
+					</div>
+							</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<p>
+	1、往纯净祥和，被誉为&ldquo;绿色威尼斯&rdquo;的羊角村。在这里坐上一条特色平底木船，荡漾在绿水间、穿行于宁谧的村中。聆听着船夫娓娓细说各所房子的故事，倾心感受大自然带来的惬意时光。<br />
+	2、荷兰的马斯特里赫特的瑟莱克斯教堂书店。这是一座教堂改建的书店，被誉为&ldquo;天堂书店&rdquo;。书状的大门、高高的穹顶、庄严的大厅、十字架状的咖啡桌、14世纪的壁画、排列有序的图书，都是那么的美轮美奂。<br />
+	3、斯坦茨位于博登湖西端，德国的西南角，毗邻瑞士。她是一座有2000年历史的古城，在博登湖南岸莱茵河流出处，与瑞士的克罗伊茨林根仅一街之隔，是著名的疗养和旅游胜地。美丽的博登湖和莱茵河从康城的东部起，下绕到南边，再往上回旋到西头，在康城的三面&ldquo;镶&rdquo;起了一长条清澈碧绿的&ldquo;水&rdquo;弧边。<br />
+	4、瑙岛座落于博登湖的西北部，是座著名的花岛，拥有精美华丽的花园和贝恩纳道特伯爵的宫殿。您可以乘船或者从湖岸两边的小桥到达这里。水仙、郁金香、玫瑰、大丽花、樱草花和兰花，让游客们从春天一直到晚秋时节都能够感受到&ldquo;花岛&rdquo;的美丽。</p>
+
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+											</ul>
+					<div class="tripbox">
+											</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<p>
+	报价包含以下服务：<br />
+	1、国际往返机票（含机场税），团队经济舱；<br />
+	2、团队旅游签证费；<br />
+	3、欧洲当地标准三星酒店双人标准间住宿（两人一间，含早餐）；<br />
+	4、中式午、晚餐（五菜一汤，用餐时间在飞机或船上以机船餐为准，不再另退餐费）；<br />
+	5、全程旅游巴士及专业司机；<br />
+	6、全程中文领队兼导游服务；<br />
+	7、行程中有★号景点的首道门票；<br />
+	8、旅游人身意外险；<br />
+	9、旅行社责任险。</p>
+<p>
+	报价不包含以下服务：<br />
+	1、护照费；<br />
+	2、洗衣、理发、电话、饮料、烟酒、付费电视、行李搬运等私人费用；<br />
+	3、境外司机、导游小费（每人全程：64欧元）；<br />
+	4、行李海关课税，超重行李托运费、管理费；<br />
+	5、行程中未提及的景点游览及其他费用，如特殊门票、游船（轮）、缆车、地铁票等费用；<br />
+	6、因交通延阻、罢工、大风、大雾、航班取消或更改时间等人力不可抗拒原因所引致的额外费用；<br />
+	7、签证相关的例如未成年人公证，认证等相关费用。<br />
+	备注：<br />
+	上述行程次序、景点、航班及住宿地点可能临时变动、修改或更换，最终行程以出发前我公司确认的行程为准；<br />
+	我公司保留因航空公司、签证、政府、天气等因素而更改行程和追加差价的权利。</p>
+
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<p>
+	销签说明<br />
+	1、照欧洲各使馆现行规定，会抽查团队部分或全部出团客人回国后面试销签。使馆会在团队出团后予以通知，抽查到的客人必须按照使馆通知时间本人前往使馆。建议客人将返程机票订2、回国当天下午或第二天；如遇回国抵达当天为周五、周六或周日，请订下周一下午或晚上的航班，以避免使馆通知面试而耽误航班（各使馆周五下午不对外办公）。<br />
+	3、分使馆通常会待客人回国几天后才通知面试消签，此种情况较难理解，但实属使馆现行做法。且所有面试费用由客人自理，请各位客人做好被通知面试销签准备。<br />
+	4、洲使馆规定，凡在旅行社参团办理团队签证的客人须在回国抵达首都机场时将护照、全程登机牌交回使馆销签，同时，护照销签时间取决于各使馆的工作进度，由于旅游旺季或有大型5、动等原因，使馆的工作量很大，销签的时间会长些，请客人予以理解并做好这个准备。届时会有专人向您收取，谢谢您的配合！<br />
+	6、务必保管好全程登机牌，并核对姓名拼写，发生姓名错误请及时告知导游，及时补救。若因客人自身原因丢失、缺损登机牌证明或姓名不正确，请抵达中国后配合旅行社第一时间前往7、馆面试销签；如果不能当即销签，使馆将会通知面试核销签证，由此产生的所有费用由客人承担！！！</p>
+
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<p>
+	温馨提示：<br />
+	1、当您从欧洲离境时，一定检查海关是否给您的护照盖了清晰的离境章，它是您已经回到中国的唯一凭证。如果没有盖章或者章不清晰无法辨认将会2、导致使馆要求您面试销签，由此造成不必要的损失，非常抱歉只能由本人承担！请您谅解的同时也请您自己务必仔细留意！<br />
+	3、行程中所列航班号及时间仅供参考，将根据实际情况做出合理的调整；<br />
+	4、欧洲同北京时间时差：夏季六小时；冬季七小时（个别国家不同地区也会有时差，均以当地到达时间为准）；<br />
+	5、行程中所注明的城市间距离，参照境外地图，仅供参考，视当地交通状况进行调整；<br />
+	6、依照旅游业现行作业规定，本公司有权依据最终出团人数情况，调整房间分房情况。</p>
+
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<p>
+	如何预定</p>
+
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<p>
+	付款方式</p>
+
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+								</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

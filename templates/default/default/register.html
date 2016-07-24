@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$setting.keywords}>-<{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>" name="keywords" />
+		<meta content="<{$setting.description}>" name="description" />
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_user.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+		<script type="text/javascript">
+				var base_url="";
+				$(function(){
+					var items_array = [
+						{ name:"email",type:"mail",simple:"email",message:"请填写邮箱",focusMsg:'请填写正确的邮箱！',ajax:{method:'get',url: base_url+'index.php?mod=register&ajax=1',success_msg:'恭喜！邮箱可用',failure_msg:'邮箱已被注册！'}},
+						{ name:"password",type:'password',simple:"密码",focusMsg:'只能为数字和英文及下划线的组合，6-20个字符'},
+						{ name:"repassword",type:'eq',to:'password',simple:"确认密码",focusMsg:'请再输入一遍您上面填写的密码'},
+						{ name:"turename",type:"",simple:"真实姓名",focusMsg:'请填写真实姓名'},
+						{ name:"tel",type:"telephone",simple:"手机",focusMsg:'请填写手机'},
+						{ name:"allow",type:"",simple:"会员服务条款",focusMsg:'请阅读会员服务条款'},
+						{ name:"authcode",type:"num",simple:"验证码",message:"请填写验证码",focusMsg:'请填写验证码',ajax:{method:'get',url: 'index.php?mod=register&ajax=1',success_msg:'恭喜！验证码正确',failure_msg:'验证码不正确'}}
+					];
+					$("#regfrom").skygqCheckAjaxForm({
+						items			: items_array
+					});
+				});
+				</script>
+	</head>
+	<body>
+		<{include file="default/`$setting.templates`/top.html"}>
+		<div class="topline"></div>
+		<div class="register">
+			<div class="register_box clearfix">
+				<h3>会员注册 <span class="english">REGISTER</span></h3>
+					<form method="post" id="regfrom" action="index.php?mod=register">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<th colspan="2">填写登录信息<span><span class="red">*</span>标记的内容为必填项。</span></th>
+							</tr>
+							<tr>
+								<td colspan="2" class="td_2"></td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>邮箱：</td>
+								<td>
+								<input class="input_180" type="text" name="email"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>密码：</td>
+								<td>
+								<input class="input_180" type="password" name="password"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>确认密码：</td>
+								<td>
+								<input class="input_180" type="password" name="repassword"/>
+								</td>
+							</tr>
+							<tr>
+								<th colspan="2">填写基本信息</th>
+							</tr>
+							<tr>
+								<td colspan="2" class="td_2"></td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>真实姓名：</td>
+								<td>
+								<input class="input_180" type="text" name="turename"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>手机：</td>
+								<td>
+								<input class="input_180" type="text" name="tel"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_1"><span class="red">*</span>验证码：</td>
+								<td><input type="text" name="authcode" class="input_60"> <img src="<{$weburl}>/include/kcaptcha/" width="80" height="30" onclick="this.src='<{$weburl}>/include/kcaptcha/?'+Math.random();" title="点击刷新验证码" align="absmiddle" style="cursor:pointer"/ id="checkcode"> <a href="#" onclick="document.getElementById('checkcode').src='<{$weburl}>/include/kcaptcha/?'+Math.random();" class="td_a f14 unl">看不清楚？换一张</a></td>
+							</tr>
+							<tr>
+								<td class="td_1"></td>
+								<td><span>
+									<input type="checkbox" name="allow"/>
+								我已经看过并同意 <a href="<{$weburl}>/help/89.html" target="_blank" class="green01">会员服务条款</a></span></td>
+							</tr>
+							<tr>
+								<td class="td_1"></td>
+								<td>
+								<input type="submit" value="" class="regbut"/>
+								<input type="hidden" name="ac" value="reg">
+								<input type="hidden" name="usertype" value="2">
+								</td>
+							</tr>
+						</table>
+				<div class="h20"></div>
+			</div>
+		</div>
+		<!--版权-->
+		<{include file="default/`$setting.templates`/foot.html"}>
+	</body>
+</html>

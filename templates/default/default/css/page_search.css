@@ -1,0 +1,85 @@
+@import url(base.css);
+@import url(common.css);
+@charset "utf-8";
+/*全站链接样式*/
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#ff6600; text-decoration:none;} 
+.blank{height:10px;}
+body{ color:#333; font-size:12px;}
+.blank{ height:10px;}
+
+body{font-weight:normal;font:12px "宋体",verdana,lucida,helvetica,arial,sans-serif;}
+
+
+/*搜索列表*/
+.search{background:#FFFFFF;border:1px solid #E6E6E6;}
+.search .order{ background:#fafafa;height:45px;padding-right:10px;}
+.search .order ul{float:left;padding-left:10px;}
+.search .order ul li{float:left;padding:12px 10px 0 8px;}
+.search .order ul li.pagenum a.selected{color:#f60;font-weight:bold;}
+.search .order ul li span{float:left;padding-right:10px;}
+.search .order ul li .orderbox01{float:left;display:block; padding-left:5px;padding-right:2px;width:48px;height:22px;line-height:21px;background:url(../img/orderbg.gif) no-repeat 0 0;}
+.search .order ul li .orderbox02{float:left;display:block; padding-left:5px;padding-right:2px;width:48px;height:22px;line-height:21px;background:url(../img/orderbg.gif) no-repeat 0 -22px;}
+.search .order ul li .orderbox03{float:left;display:block; padding-left:5px;padding-right:2px;width:48px;height:22px;line-height:21px;background:url(../img/orderbg.gif) no-repeat 0 -44px;}
+.search .order ul li .orderbox04{float:left;display:block; padding-left:5px;padding-right:2px;width:48px;height:22px;line-height:21px;background:url(../img/orderbg.gif) no-repeat 0 -66px;}
+
+#arrival_city{padding:10px;padding-left:96px;}
+#arrival_city a{padding-right:10px;}
+
+
+/*线路列表*/
+.search .box{padding:10px 20px;}
+.pwlist{width:748px;padding:20px 0;border-bottom:1px dashed #ccc;position:relative;}
+.pwlist dt{float:right;width:563px;line-height:25px;font-size:16px;color:#1100fd;}
+.pwlist dt a.title{color:#0066cc;}
+.pwlist dt a.title2{color:#009900;}
+.pwlist dt .price{float:right;color:#f60;font-size:14px;font-family:"宋体";font-weight:bold;}
+.pwlist dd{margin:0 0 0 185px;padding:0;}
+.pwlist dd.info{width:450px;color:#666;}
+.pwlist dd p{padding:5px 0;}
+.pwlist dd.img{float:left;margin:0;}
+.pwlist dd.img img{width:165px;height:105px;}
+.pwlist .linebutbox{position:absolute;top:65px;right:-10px;width:100px;}
+.pwlist .linebutbox .but01{display:block;width:90px;height:25px;line-height:25px;background:#ff6600;color:#fff;text-align:center;}
+.pwlist .linebutbox .but02{display:block;width:90px;height:25px;line-height:25px;background:#339933;color:#fff;text-align:center;border:none;cursor:pointer;font-family:"宋体";}
+.pwlist .datemore{padding:2px 15px 2px 5px;background:#eee url(../img/dot2.gif) no-repeat 33px 8px;cursor:pointer;}
+
+
+
+/*线路对比*/
+.comparebut01{float:left;display:block;width:90px;height:25px;line-height:25px;background:#d50808;color:#fff;text-align:center;cursor:pointer;border:none;font-family:"宋体";}
+.comparebut02{float:left;display:block;width:60px;height:25px;line-height:25px;background:#317ee7;color:#fff;text-align:center;display:inline;margin-left:5px;cursor:pointer;}
+
+.comparecarstable .th{width:100px;border-bottom:1px solid #d8d8d8;background:#fafafa;padding:10px;font-size:14px;}
+.comparecarstable td{border-bottom:1px solid #d8d8d8;border-right:1px solid #d8d8d8;padding:10px;font-size:14px;}
+.comparecarstable td p{padding:5px 0;line-height:22px;}
+
+/*线路对比*/
+.productCompareThumb{width:100px}
+a.selectProduct{display:inline-block;width:13px;height:13px;background:url(../img/compare/CompareClose.gif) no-repeat left top;cursor:pointer}
+#TbProduct td.tdbgleft{vertical-align:middle}
+#scrollMsg{position:absolute;top:750px;left:center;z-index:999;margin:0 auto;width:769px;height:auto;background:#ebd7a2;opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8}
+#scrollMsg a{color:Blue}
+#scrollMsg td{overflow:hidden;vertical-align:middle}
+.addCompare{cursor:pointer}
+.msgBox{position:absolute;z-index:999;overflow:visible;padding:3px;width:120px;border:#ff0000 solid 1px;background:#fef9f3;color:#ff0000}
+#ShowProductCount{padding-left:5px;text-align:center;font-size:12px}
+#CompareBox{position:absolute;right:1px;z-index:999;width:148px;background:#317ee7;text-align:left;font:normal 12px/22px Tahoma;//display:none;padding-bottom:10px;}
+#CompareShowBox{height:30px;border-bottom:#468be9 solid 1px;background:url(../img/compare/CompareTitle.gif) no-repeat;line-height:24px}
+#CompareShowBox span{float:right;margin:7px 0 0 0px;width:28px;height:15px;background:url(../img/compare/dot3.gif ) no-repeat 0 7px;font-size:0;line-height:0;cursor:pointer}
+#CompareBtnBox{margin:5px;padding:0 5px;height:22px;background:#1364d2}
+#ClearAllProduct{float:right;color:#fff;font-size:12px;cursor:pointer}
+#ClearAllProduct:hover{text-decoration:underline}
+#CompareProductList{overflow:hidden;margin:5px;padding:0}
+#CompareProductList li{overflow:hidden;margin-bottom:5px;padding:2px 5px;border-bottom:#094ca9 dotted 1px;}
+#CompareProductList li a{color:#07387b;text-decoration:none;line-height:18px}
+#CompareProductList li a:hover{text-decoration:underline}
+#CompareProductList ul{margin:0;padding:0;list-style:none}
+#ShowCompare{display:block;width:59px;height:22px;background:url(../img/compare/CompareButton.gif) no-repeat left top;cursor:pointer}
+.ClearCompare{display:block;width:59px;height:22px;background:url(../img/compare/ClearButton.gif) no-repeat left top;cursor:pointer}
+.CompareBut{padding:0 10px;}
+#CompareHideBox{position:absolute;right:1px;z-index:999;display:none;width:39px;height:84px;background:url(../img/compare/CompareListClose.gif) no-repeat left top;cursor:pointer}
+.removeProduct{float:right;margin:3px 3px 0px 3px;width:16px;height:16px;background:url(../img/compare/CompareClose.gif) no-repeat left top;cursor:pointer}
+
+.selectmenu{display:block;width:120px;height:25px;line-height:25px;background:#317ee7;text-align:center;color:#fff;}
+.selectmenu:hover{color:#fff;}

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>搜索引擎的认识误区与技术展望 - travelcms</title>
+<meta content=",travelcms" name="keywords" />
+<meta content="搜索引擎的认识误区与技术展望,travelcms" name="description" />
+<link href="/cms/code/simcms_travel/templates/default/default/css/page_page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/cms/code/simcms_travel/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/cms/code/simcms_travel/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/cms/code/simcms_travel/"><img src="/cms/code/simcms_travel/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headcenter">
+		<div class="topsearch">
+			<form method="get" action="/cms/code/simcms_travel/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+	<div class="headright">
+		<img src="/cms/code/simcms_travel/templates/default/default/img/tel.jpg"/>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+				<li>
+		<a href="/cms/code/simcms_travel/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/outbound.html" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/domestic.html" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/cruise.html" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/sunset.html" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/students.html" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/visa" title="各国签证"  >各国签证</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end -->	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="/cms/code/simcms_travel">首页</a></li>
+			<li class="li01">>></li>
+			<li>旅游资讯</li>
+		</ul>
+	</div>
+	<div class="main clearfix">
+		<div class="main_left">
+			<div class="commonbox">
+	<h3>中国旅行社郑重承诺</h3>
+	<div class="box">
+		<div class="manager"></div>
+		<ul class="promiselist mt10">
+			<li class="li01">提前说明进店次数</li>
+			<li class="li02">全程质量监督</li>
+			<li class="li03">行程透明无强制消费</li>
+			<li class="li04">价格真实准确</li>
+		</ul>
+	</div>
+</div>			<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+						<li><span class="fr orange01">￥5380起</span><a href="http://localhost/cms/code/simcms_travel/line/201209/189.html">海口非2蓝梦之.</a></li>
+					</ul>
+		<ul class="ranklist hide">
+					</ul>
+	</div>
+</div>			<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/218.html" target="_blank">传亚马逊中国总裁王汉华离.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/178.html" target="_blank">详谈Global.asa清除及百度快照.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/179.html" target="_blank">隐藏淘宝客网站链接的3种形.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/180.html" target="_blank">深度分析网站收录大幅度下.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/181.html" target="_blank">百度大面积k站 到底是站长问.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/182.html" target="_blank">外链资源积累要注意什么？</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/183.html" target="_blank">SEO站内篇 “内力”强劲招数.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/184.html" target="_blank">实战分享：我是如何一周内.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/185.html" target="_blank">浅析京东商城的SEO、用户体.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/186.html" target="_blank">实例告诉你关于内容更新的.</a></li>
+					</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+					<li><a href="http://localhost/cms/code/simcms_travel/news/201210/197.html" target="_blank">中小企业电商网站应该如何.</a></li>
+				</ul>
+	</div>
+</div>		</div>
+		<div class="main_right">
+			<div class="commonbox">
+				<h3>旅游资讯</h3>
+				<div class="newsbox">
+					<h2 class="tc f14 fb mb10"> 搜索引擎的认识误区与技术展望 </h2>
+					<p class="tc"> 添加时间：
+					2012-10-11 &nbsp;&nbsp;&nbsp;点击：<span class="red"><script src="/cms/code/simcms_travel/index.php?mod=hit&id=170"></script></span> </p>
+					<div class="detail mt10 mb10">  </div>
+					<div class="pb20"> 
+                <p style="text-align:center;"><a href="http://mytool.chinaz.com/baidusort.aspx" target="_blank">百度权重查询</a> <a href="http://jy.chinaz.com/" target="_blank">站长交易</a> <a href="http://jy.chinaz.com/" target="_blank">友情链接交换</a> <a href="http://www.313.com" target="_blank">网站建设</a>,<a href="http://www.313.com/" target="_blank">网站设计</a>,<a href="http://www.313.com" target="_blank">企业建站</a>就找<a href="http://www.313.com" target="_blank">313</a></p>
+                <p>搜索结果越多越好，技术差距决定优劣，SEO可以提高搜索排名&hellip;&hellip;，媒体和公众对搜索引擎的这些普遍认知，其实都是严重的认识误区。聚合规则，排序方法，展现方式，将成为未来搜索引擎竞争的关键，而竞价排名，将随着竞争的展开逐步退出历史舞台。</p>
+<p>随着360搜索的上线以及3B大战的展开，网络爱好者们对搜索引擎技术及市场的讨论成为近期的互联网小热点。笔者也向多位搜索技术专家进行了求教，并与身边朋友进行了探讨，结果发现，人们对于搜素引擎普遍存在严重的认识误区。</p>
+<p><strong>误区一：搜索结果越多越好</strong></p>
+<p><strong>描述：</strong>&ldquo;搜索一个关键词，哪个搜索引擎给出的结果多，哪个搜索引擎就比较好。&rdquo;这是最普遍存在，但也是最不科学的一种认识误区。不仅很多普通用户这样认为，就是很多大众媒体，在报道搜索市场大战时，也会采用这种简单的评判方式来对比搜索引擎的性能。</p>
+<p><strong>分析：</strong>大 量专业研究资料显示（笔者自查），在搜索结果中，首页首条的关注度是100%，前3条的关注度超过90%，前10条的关注度约为80%-85%，其后各条 结果的关注度和点击率便直线下降，翻看第二页的用户只有20%左右，而翻看第三页的用户通常不超过1%。所以说，2页（最多3页）以后的搜索结果，对于 99%以上的用户来说是毫无意义的。</p>
+<p>另外，搜索结果多也不一定代表搜索的信息量更大。比如，我们搜索某条热点话题，搜索引擎往往会将不同网 站转载的同一篇文章依次罗列，甚至会将同一篇文章的各页回复也罗列出来。有时，同一个网页也会多次出现在一次搜索的结果当中。通常来说，在10万条搜索结 果中，真正有价值的差异化信息往往不足1000条。</p>
+<p><strong>结论：</strong>搜索结果有1万条还是100万条，其实没有本质差别，因为几乎没有人会查看100条以后的搜索结果。<strong>比较搜索引擎好坏的关键是要看谁能在前三页，特别是首页前几条，向用户提供最可靠和最有价值的信息。</strong></p>
+<p><strong>技术展望：</strong>搜 索结果的&ldquo;聚合&rdquo;与&ldquo;排序&rdquo;方式的创新会成为未来几年重要的发展方向：首先，大量同质化的信息会被聚合成一条或两条搜索结果，而具体网页的罗列则会展现在 二级页面或扩展窗口中，从而大大提高搜索首页显示的信息量；其次，搜索引擎还会像微博那样，标示相似信息最初的发布源头。<strong>在未来的竞争中，谁能提供更好的聚合与排序，谁就能吸引更多的用户使用。</strong></p>
+<p><strong>误区二：搜索引擎之间的技术差距很大</strong></p>
+<p><strong>描述：</strong>Google技术最好，百度次之，其他搜索引擎的技术都很拦，而且不是一天两天能够杆上的。这是很多JY人士的共同观点。</p>
+<p><strong>分析：</strong>这是典型的不懂技术的人的技术观点。Google问世已经有14年了，但从应用的角度看，搜索技术仍然停留于文字检索或符号检索。虽然图像检索和视频检索的研究已经持续了近10年之久（笔者是这个领域的专家），但由于应用成本太高，因此至今尚未实现大规模的民用化。</p>
+<p>也就是说，目前在搜索领域占绝对主导地位的文字检索，实际上已经经历了10余年的广泛应用，其主要的或核心的技术方法不仅早为业界熟知，而且在各类学术期刊上也都可以查到，实在谈不上还有什么像样的技术秘密了。</p>
+<p><strong>结论：文字搜索是一种非常成熟的搜索技术，虽然不同引擎的具体技术实现会有一定的差别，但核心的技术方法都是大同小异。</strong>造成搜索结果存在差异的主要原因，其实是搜索结果更新周期的不同，以及信息的排序方法和整合方法的不同。</p>
+<p><strong>技术展望：</strong>未来搜素引擎的竞争，将不再是核心技术方法的竞争，而是内容整合，结果聚合以及信息排序等外围技术和展现方式的竞争。当然，更新速度的比拼在一定时间内还会持续，不过不会持续很久。</p>
+<p><strong>误区三：网页优化（SEO</strong><strong>）可以提高搜索排名</strong></p>
+<p><strong>描述：</strong>SEO（Search Engine Optimization），意为搜索引擎优化。主要目的是增加特定关键字的曝光率以增加网站的能见度。具体方法是通过研究各类搜索引擎的抓取规则和排序 规则，对网页进行相关的优化，从而提高网页在搜索结果中的排名。SEO是比较专业的技术方法，目前已经形成产业，很多规规矩矩的网站都希望能通过SEO来 增加访问量。</p>
+<p><strong>分析：</strong>自从某些主流搜索引擎推出竞价排名之后，SEO就沦为一种垃圾技术。这是因为，如果不能在热搜词中排名靠 前，那么做SEO的价值就不大；但是，一旦某个词汇成为热搜词，那么这个词汇就会被竞价拍卖。到头来，做再多的网页优化，也会被竞价系统挤出前3页。如前 所述，上不了前3页，所有的劳动就都是无用功，纯属瞎掰。</p>
+<p><strong>结论：</strong>竞价排名没啥技术含量，但却足以谋杀任何专业的SEO技术。<strong>在中国，钱永远是</strong><strong>TMD</strong><strong>老子，技术永远是TMD</strong><strong>孙子。</strong></p>
+<p><strong>技术展望：</strong>竞价排名不死，还瞎展望个啥！</p>
+<p><strong>误区四：搜索结果由搜索引擎自动生成</strong></p>
+<p><strong>描述：</strong>搜索引擎的信誉就是搜索结果的公正性。因此，每一家搜索引擎都会宣称其搜索结果是搜索引擎自然生成的。不过，这一点很少会有用户相信。</p>
+<p><strong>分析：</strong>在竞价排名体系中，含热搜词的网页搜索结果的前3页基本都是人工干预出来的。竞价上去的自然是人工干预的，那些看起来不像竞价上去的，其实也是人工干预出来的，是用来给搜索结果的公正性作伪装的。</p>
+<p><strong>结论：进行热搜词搜索时，99%</strong><strong>的用户看到的都是人工干预的结果，但翻过前几页之后，我们还是可以看到自动生成的排序结果。</strong></p>
+<p><strong>技术展望：</strong>如果没有激烈的市场竞争，竞价排名下的人工干预还将是中国搜索的主流。搜索技术的研究实际上已经没有什么意义了，反正都是钱说了算。</p>
+<p><strong>误区五：新闻搜索是网络热点的聚合</strong></p>
+<p><strong>描述：</strong>主流搜索引擎大多声称其新闻首页是网络新闻和热点的聚合。从内容和结果来看，似乎也是八九不离十。</p>
+<p><strong>分析：</strong>中国最大的新闻网站莫过于四大门户（搜狐、新浪、网易、腾讯）、凤凰网和新华网等。不过，我们点开百度新闻首页的链接，进入的基本都是一些不知名的小网站，很难看到上述大站的身影，甚至连知名报刊杂志的网页版内容也很难上百度的新闻首页。</p>
+<p>Google新闻首页的情况好得多，至少一半的新闻链接来自门户及大站。而让笔者最为惊讶的是，在搜狗的新闻首页中，东家搜狐的连接竟然与另外三大门户网站差不太多，而四大门户及凤凰网和新华网等的连接总量占比超过，70%。</p>
+<p>上述情况大家可以亲自验证一下。</p>
+<p><strong>结论：即便是相同的新闻内容，某些搜索引擎也会根据自身的利益需求来选择新闻源。</strong>所谓的热点聚合，其实只是利益驱使的外部伪装而已。当然，也可能有人会认为，上述情况表明，百度的搜索范围最广，能力最强。</p>
+<p><strong>技术展望：</strong>如何在可靠性，时效性以及盈利能力上进行平衡，考验的是搜索公司的社会良知。</p>       		 </div>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>相关新闻</h3>
+				<div class="box">
+					<ul class="clearfix aboutnewslist">
+												<li><a href="">网站“盲目推进”的SEO手段 你知道多少</a></li>
+												<li><a href="">手机站的百度优化技巧汇总</a></li>
+												<li><a href="">如何对关键词竞争度进行数据化分析</a></li>
+																		<li><a href="">网页设计师必备10个搜索引擎优化技巧</a></li>
+												<li><a href="">15个应该注意的SEO事项</a></li>
+												<li><a href="">一个专业做SEOer的必须建立自己长期的资源</a></li>
+											</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--版权--> 
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/cms/code/simcms_travel/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/cms/code/simcms_travel/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/cms/code/simcms_travel/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+	<div class="main clearfix mt10">
+		<div class="foottop">
+			<a href="/cms/code/simcms_travel/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/cms/code/simcms_travel/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2012 travelcms 版权所有. travelcms&nbsp;&nbsp;技术支持：<a href="http://www.simcms.net" target="_blank" class="green01 unl">simcms</a></p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+	</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

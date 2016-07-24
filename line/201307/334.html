@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li><尼泊尔全景之旅8晚9天></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：XZMNYDZR</span><尼泊尔全景之旅8晚9天></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+										<li><img src="/static/pic/nopic.jpg" /></li>
+									</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="/index.php?mod=calendar&id=334" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide">起价说明
+</div>
+		<div class="helpbox help02 hide"><p>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 16px; ">我们大力推广&ldquo;</span><strong style="font-size: 16px; ">网订优惠</strong><span style="font-size: 16px; ">&rdquo;政策，通过网站预订您不但可以享受到和线下预定一样的优惠，还可能享受到某些产品在线预订的&ldquo;</span><strong style="font-size: 16px; ">专享</strong><span style="font-size: 16px; ">&rdquo;优惠。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您只需留下您的&ldquo;<strong>手机+座机+邮箱</strong>&rdquo;的联系方式，并注明您心仪的<strong>线路</strong>和出行<strong>时间</strong>及出行<strong>人数</strong>，我们的客服将在第一时间联系您。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您也可以下单后直接拨打我们24小时免费电话4006 365 001联系我们的客服，或在上班时间9:00-18:00致电我们的客服人员为您服务。</span></p>
+</div>
+		<p class="price01">市场价：<span class="fb f16 pr10">13660元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10">13560元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01">188</span></li>
+				<li>出发城市：</li>
+				<li>行程天数：9天</li>
+				<li class="li01">往返交通：国航客机</li>
+				<li class="li01">住宿标准：参考酒店： 加德满都YAK&YETI（当地五星或同级2晚） 博卡</li>
+			</ul>
+		</div>
+		<form method="get" action="/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+											</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="334">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+										<li><img src="/upload/common/1381154961.jpg"></li>
+										<li><img src="/upload/common/1381934825.png"></li>
+										<li><img src="/upload/common/1368626684.jpg"></li>
+									</ul>
+			</div>
+			<div class="tel adviserbox">
+									<div >
+					<p>洪艳楠(资深旅游顾问)</p>
+					<p>业务范围：云南，四川</p>
+					</div>
+									<div class="hide">
+					<p>张燕(资深旅游顾问)</p>
+					<p>业务范围：青岛，大连</p>
+					</div>
+									<div class="hide">
+					<p>王乐乐(资深旅游顾问)</p>
+					<p>业务范围：北京周边</p>
+					</div>
+							</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<p>
+	&nbsp;</p>
+<p>
+	<span style="font-size:16px;">悠然假日&mdash;精选尼泊尔境内特色酒店，享受舒适旅途。</span></p>
+<p>
+	<span style="font-size:16px;">丛林探险&mdash;亲临世界自然遗产保护区奇达旺，体验丛林探险之乐趣</span></p>
+<p>
+	<span style="font-size:16px;">趣味民俗－穿梭尼泊尔街市里弄，感受风土人情，探寻神秘的宗教文化和独特的精神世界</span></p>
+<p>
+	<span style="font-size:16px;">雪山奇观－观雪山日出，赏博卡拉盛景，享受身穿短衫看雪山的乐趣,于酒店房间眺望雪峰，领略心灵震撼</span></p>
+
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+											</ul>
+					<div class="tripbox">
+											</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<p>
+	&nbsp;</p>
+<p>
+	<span style="font-size:16px;">报价包括：</span></p>
+<p>
+	<span style="font-size: 16px; ">1、&nbsp;全程3-5星级酒店双人标准间住宿；&nbsp;</span></p>
+<p>
+	<span style="font-size: 16px; ">2、&nbsp;单冷豪华空调巴士；（公务活动期间每天行驶80公里，工作8小时，超出部分另外付费）；&nbsp;</span></p>
+<p>
+	<span style="font-size: 16px; ">3、&nbsp;酒店自助早餐；西式、中式午晚餐；&nbsp;</span></p>
+<p>
+	<span style="font-size: 16px; ">4、&nbsp;国际机场接送；英文导游接机</span></p>
+<p>
+	<span style="font-size: 16px; ">5、&nbsp;当地籍专业司机、当地籍全陪当地中文导游；</span></p>
+<p>
+	<span style="font-size: 16px; ">6、&nbsp;行程所列景点门票；</span></p>
+<p>
+	<span style="font-size: 16px; ">7、&nbsp;每人每天一瓶矿泉水；</span></p>
+<p>
+	<span style="font-size: 16px; ">8、&nbsp;全程国际机票；以及各地机场建设税；</span></p>
+<p>
+	<span style="font-size:16px;">9、尼泊尔旅游签证费用；</span></p>
+<p>
+	&nbsp;</p>
+<p>
+	<span style="font-size:16px;">报价不包括：&nbsp;</span></p>
+<p>
+	<span style="font-size: 16px; ">1、自费项目；</span></p>
+<p>
+	<span style="font-size: 16px; ">2、&nbsp;境内消费，境外个人消费如机场行李搬运、景点需缴纳的相机携带费、酒店洗衣、电话、医疗费等；餐中另要酒水，保险费等；</span></p>
+<p>
+	<span style="font-size: 16px; ">3、 以上未提及一切费用；</span></p>
+<p>
+	<span style="font-size: 16px; ">4、自由活动用餐（大约每餐花费30元人民币）</span></p>
+<p>
+	<span style="font-size: 16px; ">5、&nbsp;单价差RMB&nbsp;2000/间/全程；</span></p>
+<p style="margin-left:18.0000pt;">
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<p style="margin-left:20.9500pt;">
+	<span style="font-size:16px;">请提前至少15个工作日将尼泊尔签证资料：半年以上有效期的护照原件+1张2寸彩照+身份证复印件交我社办理签证。</span></p>
+
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<p style="margin-left: 58.75pt; ">
+	<span style="font-size: 16px; ">&nbsp; &nbsp; &nbsp;</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">1、以上行程仅供参考，以最后出发行程及航班顺序为准！本社保留因天气、交通等原因对具体行程进行适当</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">调整的权利！</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">2、此价格基于酒店普通标准间核算，如确认团组时无普通标准间，此价格将做相应调整。</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">3、（1） &nbsp;尼泊尔政府出于对奇旺国家森林公园周边环境保护的考虑，至今未在奇旺建设高等级酒店。奇旺索</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">拉哈镇所在的酒店均为条件简陋、无洗漱用具、由太阳能供热水、少有电视、空调设备的度假村式的酒店。几</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">年前大多酒店还采用不向房间供电，仅使用马灯照明的方式，为得是让客人感受身在森林里的空气清新、鸟语</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">花香的原生态环境。建议自带洗漱用品和拖鞋。</span><span style="font-size: 16px; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">&nbsp; &nbsp; &nbsp;（2）尼泊尔道路狭窄、又多为盘山公路，行车速度慢，该全景游各地之间的行车时间多在6-7小时，建议</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">客人为长途行车做些准备以获得舒适的旅途。比如携带靠枕、食品、消遣时间的视听设备等。</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">4、该行程是最经典的尼泊尔全景游行程，全程没有恼人的进店购物安排，全部是纯观光时间。自费项目（绝对根据个人喜好自行选择）包含：a、乘观光飞机绕飞珠峰（Mountain&nbsp;Flight），感觉珠峰触手可及，费用大约：205美金/人（请提前一天向您的领队或导游预订，具体费用以当地实际报价为准），b、翠苏里河白浪漂流(White&nbsp;Water&nbsp;Rafting，6人方可安排)，体验尼泊尔享誉世界的户外探险项目，费用大约：55美金/人（请提前一天向您的领队或导游预订）；游客自费参加的户外探险项目须自行负责人身、财产安全。</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size: 16px; ">5、本行程10位成人成团出行，15人以上则不仅有当地导游接待，而且安排领队全程陪同。</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p style="margin-left: 20.95pt; ">
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<p>
+	如何预定</p>
+
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<p>
+	付款方式</p>
+
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+									<li><span class="price">￥9680元</span><a href="http://demo.52jscn.com/line/201307/344.html" target="_blank" class="title1"><神秘印度六天经典之旅></a><a href="http://demo.52jscn.com/line/201307/344.html" target="_blank" class="title2">4人起发</a></li>
+								</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

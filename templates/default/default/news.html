@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><{$news.n_title}> - <{$setting.sitename}></title>
+<meta content="<{$news.n_keywords}>,<{$setting.keywords}>" name="keywords" />
+<meta content="<{$news.n_title}>,<{$setting.description}>" name="description" />
+<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--内容--> 
+<{include file="default/`$setting.templates`/head.html" }>
+	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="<{$weburl}>">首页</a></li>
+			<li class="li01">>></li>
+			<li><{$news.catname}></li>
+		</ul>
+	</div>
+	<div class="main clearfix">
+		<div class="main_left">
+			<{include file="default/`$setting.templates`/block_promise.html" }>
+			<{include file="default/`$setting.templates`/block_hotline.html" }>
+			<{include file="default/`$setting.templates`/block_news.html" }>
+		</div>
+		<div class="main_right">
+			<div class="commonbox">
+				<h3><{$news.catname}></h3>
+				<div class="newsbox">
+					<h2 class="tc f14 fb mb10"> <{$news.n_title}> </h2>
+					<p class="tc"> 添加时间：
+					<{$news.addtime}> &nbsp;&nbsp;&nbsp;点击：<span class="red"><script src="<{$weburl}>/index.php?mod=hit&id=<{$news.n_id}>"></script></span> </p>
+					<div class="detail mt10 mb10"> <{$news.n_description}> </div>
+					<div class="pb20"> <{$news.n_info}> </div>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>相关新闻</h3>
+				<div class="box">
+					<ul class="clearfix aboutnewslist">
+						<{foreach from=$aboutnewslist.pre item=prenews}>
+						<li><a href="<{$prenews.n_url}>"><{$prenews.n_title}></a></li>
+						<{/foreach}>
+						<{foreach from=$aboutnewslist.next item=nextnews}>
+						<li><a href="<{$nextnews.n_url}>"><{$nextnews.n_title}></a></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--版权--> 
+<{include file="default/`$setting.templates`/block_service.html" }>
+<{include file="default/`$setting.templates`/foot.html" }>
+</body>
+</html>

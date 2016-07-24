@@ -1,0 +1,14 @@
+<div class="main mt10">
+	<div class="service clearfix">
+		<{foreach from=$common_cache.bottom_service key=key item=bottom_service_list}>
+		<div class="servicebox <{if $key<=3}>bbr<{/if}>">
+			<h3><{$bottom_service_list.s_name}></h3>
+			<ul>
+				<{foreach from=$bottom_service_list.pagelist item=page_list}>
+				<li><a href="<{$weburl}>/service/<{$page_list.p_page}>"><{$page_list.p_title}></a></li>
+				<{/foreach}>
+			</ul>
+		</div>
+		<{/foreach}>
+	</div>
+</div>

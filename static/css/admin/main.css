@@ -1,0 +1,49 @@
+@import url(base.css);
+@charset "utf-8";
+/* ==========================================================
+	* Name: 全站公共样式
+	* Date: 2011/07/01
+	* User: littlemao
+============================================================*/
+/*全站链接样式*/
+body{color:#333; font-size:12px;font-family:"微软雅黑";background:#74cef3 url(../../img/admin/top.gif) repeat-x;}
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#ff6600; text-decoration:none;} 
+.blank{height:10px;}
+.blank{ height:10px;}
+
+
+/*整体框架*/
+.top{padding-left:170px;height:37px;background:url(../../img/admin/adminlogo.gif) no-repeat 10px 9px;}
+.top .top_top{height:37px;padding-left:10px;line-height:37px;padding-right:20px;color:#fff;}
+.top .top_bottom{height:33px;}
+.top .top_bottom .topmenu{}
+.top .top_bottom .topmenu li{float:left;display:block;width:90px;height:35px;line-height:35px;overflow:hidden;text-align:center;font-size:14px;font-weight:bold;color:#ccc;background:url(../../img/admin/topmenuline.gif) no-repeat right 0;cursor:pointer;}
+.top .top_bottom .topmenu li.here{background:#333;color:#fff;}
+
+.optionmenu{float:left;display:block;width:72px;height:24px;line-height:24px;text-align:center;color:#333;background:url(../../img/admin/topmenubg.gif) no-repeat;}
+
+/**/
+.mainw{padding:10px;}
+.main{margin-left:auto;margin-right:auto;width:100%;background:url(../../img/admin/left.gif) repeat-y;}
+.main .mainleft{float:left;width:159px;}
+.main .mainright{margin-left:159px;_float:right;_margin-left:0;background:#e9e9e9}
+
+
+/*管理员*/
+.lefttop{text-align:center;}
+.lefttop a{color:#fff;}
+
+/*左边菜单*/
+.sidetop{height:35px;line-height:35px;padding:0 5px;background:#bae5f3;border-bottom:1px solid #acdceb;}
+.sidetop a{background:#94ccdd;padding:3px 10px;color:#333;}
+.sidetop a:hover{color:#333;}
+#side div {padding:10px;margin:0;text-align:left;}
+#side div h3{padding:5px 0;font-size:14px;font-weight:bold;background:url(../../img/admin/leftline.gif) no-repeat 0 bottom;color:#006a92;cursor:pointer;}
+#side div h3 span.title{display:block;background:url(../../img/admin/leftdot.gif) no-repeat right 3px;}
+
+#side ul {margin:0;padding:0;margin-top:5px;list-style:none;}
+#side li {display:inline;height:25px;line-height:25px;}
+#side li a{display:block;height:25px;line-height:25px;padding-left:5px;color:#006a92;}
+#side li a:hover,#side a.selected{background:#99dbf3;}
+#side li a.current {border-left:3px solid #395E9F;padding-left:4px;}

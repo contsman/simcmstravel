@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_index.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.textRemindAuto-1.0.js"></script>
+		<script type="text/javascript" src="/static/js/lhgcalendar/lhgcalendar.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".flashpic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				$('.leftmenubox').hover(function(){
+					$(this).addClass("leftmenubox_hover");
+					$(this).children("div").show();
+				},function(){
+					$(this).removeClass("leftmenubox_hover");
+					$(this).children("div").hide();
+				});
+
+				//签证
+				var $visa_li = $("ul.visa_tab li");
+				$visa_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $visa_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.visabox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//搜索
+				var $search_li = $("ul.indexsearch_tab li");
+				$search_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $search_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.searchboxbox > p").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				//城市选择
+				$("input[name='departure_city']").click(function(event){
+					event.stopPropagation();
+					$(".citylist01").show();
+				});
+
+				$('.city01').click(function() {
+					$("input[name='departure_city']").val($(this).text());
+					$(".citylist01").hide();
+				});
+
+				$("input[name='arrival_city']").click(function(event) {
+					event.stopPropagation();
+					$(".citylist02").show();
+				});
+				$('.city02').click(function() {
+					$("input[name='arrival_city']").val($(this).text());
+					$(".citylist02").hide();
+				});
+
+				$("input[name='arrival_city_en']").click(function(event) {
+					event.stopPropagation();
+					$(".citylist03").show();
+				});
+				$('.city03').click(function() {
+					$("input[name='arrival_city_en']").val($(this).text());
+					$(".citylist03").hide();
+				});
+
+				$(document).click(function(event){
+					$(".citylist01").hide();
+					$(".citylist02").hide();
+					$(".citylist03").hide();
+					$(".pricelist").hide();
+				});  
+
+				$('.close').click(function() {
+					$(".citylist01").hide();
+					$(".citylist02").hide();
+					$(".citylist03").hide();
+					$(".pricelist").hide();
+				});
+				
+				//价格区间
+				$("input[name='price']").click(function(event){
+					event.stopPropagation();
+					$(".pricelist").show();
+				});
+
+				$('.price_span').click(function() {
+					$("input[name='price']").val($(this).text());
+					$(".pricelist").hide();
+				});
+
+				//日期选择
+				$('#demo_inp1').calendar();
+				
+				//输入框提示
+				$(".remindAuto").textRemindAuto();
+				$(".borderChange").textRemindAuto({chgClass: "border"});
+				$("#textColorChg").textRemindAuto({
+					focusColor: "red"							  
+				});
+			})
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户" class="here" >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="main clearfix">
+	<div class="main_left">
+		<div class="leftmenu">
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%AC%A7%E6%B4%B2">欧洲</a></h4>
+							<div class="fl">
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%BF%84%E7%BD%97%E6%96%AF">俄罗斯</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%B3%95%E5%9B%BD">法国</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%84%8F%E5%A4%A7%E5%88%A9">意大利</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E7%91%9E%E5%A3%AB">瑞士</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%BE%B7%E5%9B%BD">德国</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E8%A5%BF%E7%8F%AD%E7%89%99">西班牙</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E8%91%A1%E8%90%84%E7%89%99">葡萄牙</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%B8%8C%E8%85%8A">希腊</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E6%AC%A7">北欧</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%9C%E6%AC%A7">东欧</a></span>
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E7%BE%8E%E6%B4%B2">美洲</a></h4>
+							<div class="fl">
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E7%BE%8E%E5%9B%BD">美国</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8A%A0%E6%8B%BF%E5%A4%A7">加拿大</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%85%B3%E5%B2%9B">关岛</a></span>
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%A4%8F%E5%A8%81%E5%A4%B7">夏威夷</a></span>
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%9C%E5%8D%97%E4%BA%9A">东南亚</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8D%97%E4%BA%9A">南亚</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%97%A5%E9%9F%A9">日韩</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E9%9D%9E%E6%B4%B2">非洲</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%BE%B3%E6%B4%B2">澳洲</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%B8%AF%E6%BE%B3%E5%8F%B0">港澳台</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>出境游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E4%BF%84%E7%BD%97%E6%96%AF">俄罗斯</a>&nbsp;&nbsp;<a href="/index.php?mod=search&ac=search&keywords=%E5%BE%B7%E5%9B%BD">德国</a>&nbsp;&nbsp;<a href="/index.php?mod=search&ac=search&keywords=%E5%8A%A0%E6%8B%BF%E5%A4%A7">加拿大</a>&nbsp;&nbsp;</p>
+			</div>
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%B5%B7%E5%8D%97">海南</a></h4>
+							<div class="fl">
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%89%E4%BA%9A">三亚</a></span>
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%BA%91%E5%8D%97">云南</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>国内游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%89%E4%BA%9A">三亚</a>&nbsp;&nbsp;</p>
+			</div>
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E8%8D%89%E5%8E%9F">草原</a></h4>
+							<div class="fl">
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%AE%89%E5%9B%BA%E9%87%8C">安固里</a></span>
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E6%B5%B7%E6%BB%A8">海滨</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>周边游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E5%AE%89%E5%9B%BA%E9%87%8C">安固里</a>&nbsp;&nbsp;</p>
+			</div>
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E4%BA%AC%E4%BC%91%E9%97%B2%E4%B8%80%E6%97%A5%E6%B8%B8">北京休闲一日游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E4%BA%AC%E7%B2%BE%E5%93%81%E7%BA%AF%E7%8E%A9%E6%B8%B8">北京精品纯玩游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E4%BA%AC%E4%BC%91%E9%97%B2%E5%93%81%E8%B4%A8%E6%B8%B8">北京休闲品质游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E4%BA%AC%E5%85%A8%E6%99%AF%E7%89%B9%E4%BB%B7%E6%B8%B8">北京全景特价游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>北京游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E5%8C%97%E4%BA%AC%E4%BC%91%E9%97%B2%E4%B8%80%E6%97%A5%E6%B8%B8">北京休闲一日游</a>&nbsp;&nbsp;</p>
+			</div>
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%9B%BD%E5%86%85">国内</a></h4>
+							<div class="fl">
+															<span class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%BD%E6%B1%9F">丽江</a></span>
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E5%9B%BD%E9%99%85">国际</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>自助游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E4%B8%BD%E6%B1%9F">丽江</a>&nbsp;&nbsp;</p>
+			</div>
+						<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E7%BA%A2%E8%89%B2%E6%97%85%E6%B8%B8">红色旅游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+											<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="/index.php?mod=search&ac=search&keywords=%E8%9C%9C%E6%9C%88%E6%97%85%E6%B8%B8">蜜月旅游</a></h4>
+							<div class="fl">
+														</div>
+						</div>
+									</div>
+				<h3>主题游目的地</h3>
+				<p class="com"><a href="/index.php?mod=search&ac=search&keywords=%E7%BA%A2%E8%89%B2%E6%97%85%E6%B8%B8">红色旅游</a>&nbsp;&nbsp;<a href="/index.php?mod=search&ac=search&keywords=%E8%9C%9C%E6%9C%88%E6%97%85%E6%B8%B8">蜜月旅游</a>&nbsp;&nbsp;</p>
+			</div>
+					</div>
+		<div class="commonbox mt10">
+			<h3><a href="/news/list_53.html" target="_blank">旅行社推荐</a></h3>
+			<div class="box2">
+				<ul class="lxslist">
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+						<li><span class="fr orange01">￥20800起</span><a href="http://demo.52jscn.com/line/201307/367.html"><英国爱尔兰经.</a></li>
+						<li><span class="fr orange01">￥20000起</span><a href="http://demo.52jscn.com/line/201307/366.html"><俄罗斯+北欧（.</a></li>
+						<li><span class="fr orange01">￥15800起</span><a href="http://demo.52jscn.com/line/201307/364.html"><英格兰、苏格.</a></li>
+						<li><span class="fr orange01">￥17000起</span><a href="http://demo.52jscn.com/line/201307/363.html"><芬兰、瑞典、.</a></li>
+						<li><span class="fr orange01">￥17500起</span><a href="http://demo.52jscn.com/line/201307/360.html"><芬兰、瑞典、.</a></li>
+						<li><span class="fr orange01">￥18800起</span><a href="http://demo.52jscn.com/line/201307/358.html"><俄罗斯、芬兰.</a></li>
+						<li><span class="fr orange01">￥19800起</span><a href="http://demo.52jscn.com/line/201307/352.html"><俄罗斯、芬兰.</a></li>
+						<li><span class="fr orange01">￥18800起</span><a href="http://demo.52jscn.com/line/201307/347.html"><情定爱琴海-希.</a></li>
+						<li><span class="fr orange01">￥19300起</span><a href="http://demo.52jscn.com/line/201307/346.html"><南欧风情-西班.</a></li>
+						<li><span class="fr orange01">￥20800起</span><a href="http://demo.52jscn.com/line/201307/342.html"><英国爱尔兰经.</a></li>
+					</ul>
+		<ul class="ranklist hide">
+						<li><span class="fr orange01">￥3080起</span><a href="http://demo.52jscn.com/line/201307/378.html"><宜昌、三峡大.</a></li>
+						<li><span class="fr orange01">￥3040起</span><a href="http://demo.52jscn.com/line/201307/377.html"><黄山观日出、.</a></li>
+						<li><span class="fr orange01">￥4180起</span><a href="http://demo.52jscn.com/line/201307/373.html"><大美西藏全景.</a></li>
+						<li><span class="fr orange01">￥2150起</span><a href="http://demo.52jscn.com/line/201307/370.html"><黄山观日出、.</a></li>
+						<li><span class="fr orange01">￥1980起</span><a href="http://demo.52jscn.com/line/201307/359.html"><红旗渠+太行山.</a></li>
+						<li><span class="fr orange01">￥2320起</span><a href="http://demo.52jscn.com/line/201307/337.html"><庐山+三叠泉+.</a></li>
+						<li><span class="fr orange01">￥4190起</span><a href="http://demo.52jscn.com/line/201307/328.html"><南宁+巴马（长.</a></li>
+						<li><span class="fr orange01">￥2200起</span><a href="http://demo.52jscn.com/line/201307/327.html"><南宁+德天大瀑.</a></li>
+						<li><span class="fr orange01">￥4180起</span><a href="http://demo.52jscn.com/line/201307/324.html"><大美西藏全景.</a></li>
+						<li><span class="fr orange01">￥1140起</span><a href="http://demo.52jscn.com/line/201307/298.html"><北京全景特价.</a></li>
+					</ul>
+	</div>
+</div>		<div class="toolbox mt10">
+			<h3>工具箱</h3>
+			<div class="box">
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</div>
+
+	</div>
+	<div class="main_right">
+		<div class="clearfix mt10">
+			<!--幻灯片-->
+			<div class="flashpicbox">
+				<div class="premenu"> <a href="#"> </a> </div>
+				<div class="nextmenu"> <a href="#"> </a> </div>
+				<div class="flashpic">
+					<ul>
+												<li> <img src="/upload/common/1369572925.jpg"> </li>
+											</ul>
+				</div>
+			</div>
+			<!--幻灯片-->
+			<div class="rightsearch">
+				<div class="rightregister">
+					<a href="#" class="a01">游览注册</a>
+					<a href="#" class="a02 ml5">旅行社入驻</a>
+				</div>
+				<!--搜索-->
+				<div class="indexsearchbox mt10">
+					<h3></h3>
+					<ul class="indexsearch_tab clearfix">
+						<li class="here">出境游</li>
+						<li>国内游</li>	
+					</ul>
+					<div class="box">
+						<div class="citylist citylist03 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+																	<span class="city03">法国</span>
+																	<span class="city03">芬兰</span>
+																	<span class="city03">瑞典</span>
+																	<span class="city03">丹麦</span>
+																	<span class="city03">哥伦比亚</span>
+																	<span class="city03">济州岛</span>
+																	<span class="city03">朝鲜</span>
+																	<span class="city03">韩国</span>
+																	<span class="city03">日本</span>
+																	<span class="city03">以色列</span>
+																	<span class="city03">挪威</span>
+																	<span class="city03">奥地利</span>
+																	<span class="city03">匈牙利</span>
+																	<span class="city03">巴黎</span>
+																	<span class="city03">荷兰</span>
+																	<span class="city03">保加利亚</span>
+																	<span class="city03">罗马尼亚</span>
+																	<span class="city03">白俄罗斯</span>
+																	<span class="city03">乌克兰</span>
+																	<span class="city03">斯洛伐克</span>
+																	<span class="city03">波兰</span>
+																	<span class="city03">捷克</span>
+																	<span class="city03">不丹</span>
+																	<span class="city03">文莱</span>
+																	<span class="city03">意大利</span>
+																	<span class="city03">德国</span>
+																	<span class="city03">瑞士</span>
+																	<span class="city03">巴西</span>
+																	<span class="city03">阿根廷</span>
+																	<span class="city03">英国</span>
+																	<span class="city03">中国</span>
+																	<span class="city03">日本</span>
+																	<span class="city03">韩国</span>
+																	<span class="city03">俄罗斯</span>
+																	<span class="city03">西班牙</span>
+																	<span class="city03">葡萄牙</span>
+																	<span class="city03">斯里兰卡</span>
+																	<span class="city03">印度</span>
+																	<span class="city03">尼泊尔</span>
+																	<span class="city03">秘鲁</span>
+																	<span class="city03">东欧</span>
+																	<span class="city03">冰岛</span>
+																	<span class="city03">北欧</span>
+																	<span class="city03">土耳其</span>
+																	<span class="city03">希腊</span>
+																	<span class="city03">法国</span>
+															</div>
+						</div>
+						<div class="pricelist hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+								<span class="price_span">2000以内</span> <span class="price_span">2001-5000</span> <span class="price_span">5001-9999</span> <span class="price_span">10000-20000</span> <span class="price_span">20000以上</span>
+							</div>
+						</div>
+						<div class="citylist citylist01 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+															</div>
+						</div>
+						<div class="citylist citylist02 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+															</div>
+						</div>
+						<form method="get" action="/index.php?mod=search">
+							<div class="searchboxbox">
+								<p class="clearfix"><span class="fl"><input type="text" value="出发地" name="departure_city" class="inp01 remindAuto"></span><span class="fl pl10"><input type="text" value="目的地" value="" name="arrival_city_en" class="inp01 remindAuto"></span></p>
+								<p class="clearfix hide"><span class="fl"><input type="text" name="departure_city" value="出发地" class="inp01 remindAuto"></span><span class="fl pl10"><input type="text" value="目的地" name="arrival_city" class="inp01 remindAuto"></span></p>
+							</div>
+							<p><input id="demo_inp1" type="text" name="departure_date" value="出发日期" class="inp02 remindAuto"></p>
+							<p><input type="text" name="price" value="价格区间" class="inp03 remindAuto" readonly="readonly"></p>
+							<p><input type="text" name="keywords" value="关键词" class="inp04 remindAuto"></p>
+							<p><input type="submit" value="搜 索" class="searchbut"/></p>
+							<input type="hidden" name="mod" value="search"/>
+							<input type="hidden" name="ac" value="search"/>
+						</form>
+					</div>
+				</div>
+				<!--搜索-->
+			</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3>
+					<span class="more">
+					 <a href="/index.php?mod=search&ac=search&keywords=%E4%BC%A6%E6%95%A6&s_type=1" target="_blank">伦敦</a> | 
+					 <a href="/index.php?mod=search&ac=search&keywords=%E5%A4%8F%E5%A8%81%E5%A4%B7&s_type=1" target="_blank">夏威夷</a> | 
+					 
+					<a href="/index.php?mod=search&ac=search&catid=2&s_type=1">更多+</a></span><span class="title">出境游</span><span class="english">OVERSEAS TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+												<li><span class="price">￥20800起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/367.html" class="title1" target="_blank"><英国爱尔兰经典11日游></a> <a href="http://demo.52jscn.com/line/201307/367.html" class="title2" target="_blank">巨人堤-都柏林-圣三一学院-健力.</a></div></li>
+												<li><span class="price">￥20000起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/366.html" class="title1" target="_blank"><俄罗斯+北欧（芬兰 瑞典 挪威 丹麦）+峡湾12日经典游></a> <a href="http://demo.52jscn.com/line/201307/366.html" class="title2" target="_blank">国航直飞 可配全国联运</a></div></li>
+												<li><span class="price">￥15800起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/364.html" class="title1" target="_blank"><英格兰、苏格兰深度文化之旅7日游></a> <a href="http://demo.52jscn.com/line/201307/364.html" class="title2" target="_blank">世界著名的大学城-剑桥；英国老.</a></div></li>
+												<li><span class="price">￥17000起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/363.html" class="title1" target="_blank"><芬兰、瑞典、丹麦、挪威（峡湾）9天></a> <a href="http://demo.52jscn.com/line/201307/363.html" class="title2" target="_blank">纳维亚半岛-欣赏挪威西海岸一带.</a></div></li>
+												<li><span class="price">￥20200起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/361.html" class="title1" target="_blank"><俄罗斯+北欧（芬兰 瑞典 挪威 丹麦）+峡湾13日经典游></a> <a href="http://demo.52jscn.com/line/201307/361.html" class="title2" target="_blank">中国国际航空直飞欧洲，轻松旅.</a></div></li>
+												<li><span class="price">￥17500起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/360.html" class="title1" target="_blank"><芬兰、瑞典、丹麦、挪威（双峡湾）10天></a> <a href="http://demo.52jscn.com/line/201307/360.html" class="title2" target="_blank">纳维亚半岛-欣赏挪威西海岸一带.</a></div></li>
+												<li><span class="price">￥18800起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/358.html" class="title1" target="_blank"><俄罗斯、芬兰、瑞典、丹麦、挪威（峡湾）12日游></a> <a href="http://demo.52jscn.com/line/201307/358.html" class="title2" target="_blank">莫斯科圣彼得堡-松恩峡湾-豪华过.</a></div></li>
+											</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+									<p><a href="http://demo.52jscn.com/line/201307/366.html" target="_blank"><img src="" class="img"></a></p>
+					<p class="title"><a href="http://demo.52jscn.com/line/201307/366.html" target="_blank"><俄罗斯+北欧（芬兰 瑞典 挪威 丹. 国航直飞 可配全国联运</a></p>
+					<p class="price01"><span class="fr">折扣：9.8折</span>原价：￥20500起</p>
+					<p class="price02">
+						<a href="http://demo.52jscn.com/line/201307/366.html" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥20000起</span>
+					</p>
+							</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3><span class="more">
+					 <a href="/index.php?mod=search&ac=search&keywords=%E4%BA%91%E5%8D%97&s_type=1" target="_blank">云南</a> | 
+					 <a href="/index.php?mod=search&ac=search&keywords=%E4%B8%89%E4%BA%9A&s_type=1" target="_blank">三亚</a> | 
+					 
+				<a href="/index.php?mod=search&ac=search&catid=1&s_type=1">更多+</a></span><span class="title">国内游</span><span class="english">DOMESTIC TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+												<li><span class="price">￥4180起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/373.html" class="title1" target="_blank"><大美西藏全景游></a> <a href="http://demo.52jscn.com/line/201307/373.html" class="title2" target="_blank">布达拉宫.大昭寺.纳木措.羊卓雍.</a></div></li>
+												<li><span class="price">￥4180起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/324.html" class="title1" target="_blank"><大美西藏全景精华游></a> <a href="http://demo.52jscn.com/line/201307/324.html" class="title2" target="_blank">布达拉宫.大昭寺.扎基寺.纳木措..</a></div></li>
+												<li><span class="price">￥4480起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/315.html" class="title1" target="_blank"><阳光之旅2－林芝游></a> <a href="http://demo.52jscn.com/line/201307/315.html" class="title2" target="_blank"> 布达拉宫、大昭寺、林芝、鲁朗.</a></div></li>
+												<li><span class="price">￥4480起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/314.html" class="title1" target="_blank"><阳光之旅1－全景游></a> <a href="http://demo.52jscn.com/line/201307/314.html" class="title2" target="_blank">布达拉宫、大昭寺、林芝、鲁朗.</a></div></li>
+												<li><span class="price">￥1140起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/298.html" class="title1" target="_blank"><北京全景特价游></a> <a href="http://demo.52jscn.com/line/201307/298.html" class="title2" target="_blank"> 故宫  长城  颐和园</a></div></li>
+												<li><span class="price">￥180起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/266.html" class="title1" target="_blank"><北京精华一日游></a> <a href="http://demo.52jscn.com/line/201307/266.html" class="title2" target="_blank">恭王府 清华大学 北京大学 </a></div></li>
+												<li><span class="price">￥150起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/254.html" class="title1" target="_blank"><北京八达岭长城 定陵一日游></a> <a href="http://demo.52jscn.com/line/201307/254.html" class="title2" target="_blank">北京市内免费接送</a></div></li>
+											</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+									<p><a href="http://demo.52jscn.com/line/201307/324.html" target="_blank"><img src="/upload/small/2013/09/285cd3b1f6a0f2d696d35f1e8f87af3c.jpg" class="img"></a></p>
+					<p class="title"><a href="http://demo.52jscn.com/line/201307/324.html" target="_blank"><大美西藏全景精华游> 布达拉宫.大昭寺.扎基寺.纳木措..</a></p>
+					<p class="price01"><span class="fr">折扣：8.9折</span>原价：￥4680起</p>
+					<p class="price02">
+						<a href="http://demo.52jscn.com/line/201307/324.html" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥4180起</span>
+					</p>
+							</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3><span class="more">
+					 <a href="/index.php?mod=search&ac=search&keywords=%E4%B8%89%E4%BA%9A&s_type=1" target="_blank">三亚</a> | 
+					 <a href="/index.php?mod=search&ac=search&keywords=%E5%8E%A6%E9%97%A8&s_type=1" target="_blank">厦门</a> | 
+									<a href="/index.php?mod=search&ac=search&catid=1&s_type=1">更多+</a></span><span class="title">自由行</span><span class="english">SEFL-GUIDED TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+												<li><span class="price">￥2150起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/370.html" class="title1" target="_blank"><黄山观日出、宏村古村落+杭州两天休闲自由行></a> <a href="http://demo.52jscn.com/line/201307/370.html" class="title2" target="_blank"></a></div></li>
+												<li><span class="price">￥24800起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/341.html" class="title1" target="_blank"><落日希腊爱琴海半自由行VIP8日游></a> <a href="http://demo.52jscn.com/line/201307/341.html" class="title2" target="_blank">希腊特色晚餐-圣岛悬崖餐厅龙虾.</a></div></li>
+												<li><span class="price">￥12800起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/283.html" class="title1" target="_blank"><夏威夷一地六日半自由行></a> <a href="http://demo.52jscn.com/line/201307/283.html" class="title2" target="_blank">全程四星级酒店；2天自由活动！</a></div></li>
+												<li><span class="price">￥17500起</span><div class="title"><a href="http://demo.52jscn.com/line/201307/202.html" class="title1" target="_blank"><夏威夷欧胡岛半自由行8日></a> <a href="http://demo.52jscn.com/line/201307/202.html" class="title2" target="_blank">“品味天堂滋味“夏威夷一地半.</a></div></li>
+											</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+									<p><a href="http://demo.52jscn.com/line/201307/283.html" target="_blank"><img src="/upload/small/2013/09/0c4f4c7bd1188b1a8e25bcef08c28e07.jpg" class="img"></a></p>
+					<p class="title"><a href="http://demo.52jscn.com/line/201307/283.html" target="_blank"><夏威夷一地六日半自由行> 全程四星级酒店；2天自由活动！</a></p>
+					<p class="price01"><span class="fr">折扣：8.1折</span>原价：￥15900起</p>
+					<p class="price02">
+						<a href="http://demo.52jscn.com/line/201307/283.html" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥12800起</span>
+					</p>
+							</div>
+		</div>
+	</div>
+</div>
+<!--友情链接-->
+<div class="main mt10">
+	<div class="flinkbox">
+		<h3>友情链接</h3>
+		<div class="box">
+			<ul class="flinklist clearfix">
+							</ul>
+		</div>
+	</div>
+</div>
+<!--友情链接-->
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

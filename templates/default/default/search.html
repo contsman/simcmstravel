@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$setting.keywords}>-<{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>" name="keywords" />
+		<meta content="<{$setting.description}>" name="description" />
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_search.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.cookie.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.timers.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/productCompare.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".datemore").toggle(
+					function () {
+						 $(this).parent().next().show();
+					},
+					function () {
+						 $(this).parent().next().hide();
+					}
+				);
+				$(".arrival_cid").click(function(){
+					$.get("<{$weburl}>/index.php?mod=ajax&ajax=1", { 
+						catid :  $(this).attr("value") 
+					}, function (data, textStatus){
+						$("#arrival_city").show(); 
+						$("#arrival_city").html(data); // 把返回的数据添加到页面上
+					});
+				});
+			})
+		</script>
+	</head>
+	<body>
+<!--内容--> 
+<{include file="default/`$setting.templates`/head.html"}>
+<div class="nav">
+	<ul class="clearfix">
+		<li><a href="<{$weburl}>">首页</a></li>
+		<li class="li01">>></li>
+		<li>搜索结果</li>
+	</ul>
+</div>
+<div class="main clearfix">
+	<div class="main_left">
+		<{include file="default/`$setting.templates`/block_promise.html" }>
+		<{include file="default/`$setting.templates`/block_hotline.html" }>
+		<{include file="default/`$setting.templates`/block_news.html" }>
+	</div>
+	<div class="main_right">
+		<div class="searchbox">
+			<h3 class="clearfix">
+				<span class="title fl pr10">当前搜索条件</span>
+				<{if $smarty.cookies.catid==1}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>国内游</a></span><{/if}>
+				<{if $smarty.cookies.catid==2}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>出境游
+				</a></span><{/if}>
+				<{if $smarty.cookies.departure_city<>''}><span><a href="index.php?mod=search&ac=search&departure_city=" class="notice"><span>出发地</span><{$smarty.cookies.departure_city}></a></span><{/if}>
+				<{if $smarty.cookies.arrival_city<>''}><span><a href="index.php?mod=search&ac=search&arrival_city=" class="notice"><span>目的地</span><{$smarty.cookies.arrival_city}></a></span><{/if}>
+				<{if $smarty.cookies.keywords<>''}><span><a href="index.php?mod=search&ac=search&keywords=" class="notice"><span>关键词</span><{$smarty.cookies.keywords}></a></span><{/if}>
+				<{if $smarty.cookies.endprice<>0}><span><a href="index.php?mod=search&ac=search&startprice=0&endprice=0" class="notice"><span>价格</span><{$smarty.cookies.startprice}>-<{$smarty.cookies.endprice}>元</a></span><{/if}>
+				<{if $smarty.cookies.startday<>0 or $smarty.cookies.endday<>0}><span><a href="index.php?mod=search&ac=search&startday=0&endday=0" class="notice"><span>天数</span><{$smarty.cookies.startday}>-<{$smarty.cookies.endday}>天</a></span><{/if}>
+				<span><a href="index.php?mod=search&ac=search&s_type=1" class="fl pl10 orange01">清空</a></span>
+			</h3>
+			<div class="box">
+				<ul class="conditionlist">
+					<li class="clearfix">
+						<span>类&nbsp;&nbsp;&nbsp;型：</span> 
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=0" <{if $smarty.cookies.catid==0}>class="here"<{/if}>>不限</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=1"  <{if $smarty.cookies.catid==1}>class="here"<{/if}>>国内游</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=2"  <{if $smarty.cookies.catid==2}>class="here"<{/if}>>出境游</a>
+					</li>
+					<li class="clearfix">
+						<span>天&nbsp;&nbsp;&nbsp;数：</span>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startday=0&endday=0"  <{if $smarty.cookies.startday==0 and  $smarty.cookies.endday==0}>class="here"<{/if}>>不限</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startday=0&endday=5" <{if $smarty.cookies.startday==0 and  $smarty.cookies.endday==5}>class="here"<{/if}>>5天以内</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startday=6&endday=8" <{if $smarty.cookies.startday==6 and  $smarty.cookies.endday==8}>class="here"<{/if}>>6-8天</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startday=9&endday=10" <{if $smarty.cookies.startday==9 and  $smarty.cookies.endday==10}>class="here"<{/if}>>9-10天</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startday=10&endday=100" <{if $smarty.cookies.startday==10 and  $smarty.cookies.endday==100}>class="here"<{/if}>>10天以上</a>
+					</li>
+					<li class="clearfix">
+						<span>价&nbsp;&nbsp;&nbsp;格：</span> 
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=0&endprice=0" <{if $smarty.cookies.startprice==0 and  $smarty.cookies.endprice==0}>class="here"<{/if}>>不限</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=0&endprice=2000" <{if $smarty.cookies.startprice==0 and  $smarty.cookies.endprice==2000}>class="here"<{/if}>>2000以内</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=2001&endprice=5000" <{if $smarty.cookies.startprice==2001 and  $smarty.cookies.endprice==5000}>class="here"<{/if}>>2001-5000</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=5001&endprice=9999" <{if $smarty.cookies.startprice==5001 and  $smarty.cookies.endprice==9999}>class="here"<{/if}>>5001-9999</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=10000&endprice=20000" <{if $smarty.cookies.startprice==10000 and  $smarty.cookies.endprice==20000}>class="here"<{/if}>>10000-20000</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&startprice=20000&endprice=1000000" <{if $smarty.cookies.startprice==20000 and  $smarty.cookies.endprice==1000000}>class="here"<{/if}>>20000以上</a>
+					</li>
+					<li class="clearfix"><span>目的地：</span> <a href="<{$weburl}>/index.php?mod=search&ac=search&departure_city=" <{if $smarty.cookies.arrival_city==''}>class="here"<{/if}>>不限</a> 
+					<{if $smarty.cookies.catid==2}>
+						<{foreach from=$common_cache.arrival_foreign key=skey item=foreign_arrival}><span class="arrival_cid aspan" value="<{$foreign_arrival.catid}>"><{$foreign_arrival.catname}></span>
+						<{/foreach}>
+					<{else}>
+						<{foreach from=$common_cache.arrival_china key=skey item=china_arrival}><span class="arrival_cid aspan" value="<{$china_arrival.catid}>"><{$china_arrival.catname}></span>
+						<{/foreach}>
+					<{/if}>
+					</li>
+				</ul>
+				<div class="hide" id="arrival_city"></div>
+			</div>
+		</div>
+		<div class="search clearfix mt10">
+			<div class="order">
+				<ul class="clearfix">
+					<li class="clearfix"><span>排序方式：</span><a href="<{$weburl}>/index.php?mod=search&ac=search&order=<{if $smarty.cookies.order==1}>2<{elseif $smarty.cookies.order==2}>1<{else}>2<{/if}>" <{if $smarty.cookies.order==1}>class="orderbox02"<{elseif $smarty.cookies.order==2}>class="orderbox01"<{else}>class="orderbox03"<{/if}>>时间</a> <a href="<{$weburl}>/index.php?mod=search&ac=search&order=<{if $smarty.cookies.order==3}>4<{elseif $smarty.cookies.order==4}>3<{else}>3<{/if}>" <{if $smarty.cookies.order==3}>class="orderbox01"<{elseif $smarty.cookies.order==4}>class="orderbox02"<{else}>class="orderbox03"<{/if}>>价格</a></li>
+					<li>
+						<select name="order"  onchange='if(this.options[this.selectedIndex].value!="") location.href=this.options[this.selectedIndex].value;'>
+							<option value="0" selected>选择排列显示方式</option>
+							<option value="<{$weburl}>/index.php?mod=search&ac=search&order=1" <{if $smarty.cookies.order==1}>selected<{/if}>>按发布时间倒序</option>
+							<option value="<{$weburl}>/index.php?mod=search&ac=search&order=2" <{if $smarty.cookies.order==2}>selected<{/if}>>按发布时间正序</option>
+							<option value="<{$weburl}>/index.php?mod=search&ac=search&order=4" <{if $smarty.cookies.order==4}>selected<{/if}>>按价格倒序</option>
+							<option value="<{$weburl}>/index.php?mod=search&ac=search&order=3" <{if $smarty.cookies.order==3}>selected<{/if}>>按价格正序</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			<div class="searchlist">
+				<div class="box">
+					<{foreach from=$line_list item=linelist}>
+					<dl class="pwlist clearfix">
+						<div class="linebutbox">
+							<p><a href="<{$linelist.p_url}>" target="_blank" class="but01">查看详情</a></p>
+							<p class="mt5"><a link="<{$weburl}>/index.php?mod=compare" name="<{$linelist.p_short_title}>" value="<{$linelist.p_id}>" id="<{$linelist.p_id}>" class="addCompare but02">加入对比</a></p>
+						</div>
+						<dt><span class="price">￥<{$linelist.p_price}>元起</span><a href="<{$linelist.p_url}>" target="_blank" class="title"><{$linelist.p_title}></a> <a href="<{$linelist.p_url}>" target="_blank" class="title2"><{$linelist.p_short_title2}></a></dt>
+						<dd class="img"><a href="<{$linelist.p_url}>" target="_blank"><{if $linelist.p_pics<>""}><img src="<{$linelist.smallpic}>" /><{else}><img src="<{$weburl}>/static/pic/snopic.jpg" /><{/if}></a></dd>
+						<dd class="info">
+							<p>特色：<{$linelist.p_detail}></p>
+							<p><span class="orange01">编号：<{$linelist.p_no}></span> &nbsp;&nbsp;&nbsp;出发城市：<{$linelist.city}>&nbsp;&nbsp;&nbsp;天数：<{$linelist.p_travel_days}>天</p>
+							<p>出发日期：<{foreach from=$linelist.datelist key=skey item=datelist}> <{if $skey<3}><{$datelist.departure_time}>&nbsp;&nbsp;<{/if}><{/foreach}> <span class="datemore">团期</span></p>
+							<p class="hide"><{foreach from=$linelist.datelist key=skey item=datelist02}> <{if $skey>=3}><{$datelist02.departure_time}>&nbsp;&nbsp;<{/if}><{/foreach}></p>
+						</dd>
+					</dl>
+					<{/foreach}>
+				</div>
+				<div class="pagelist"><{$button_basic}><{$button_select}></div>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="default/`$setting.templates`/block_service.html" }>
+<{include file="default/`$setting.templates`/foot.html" }>
+</body>
+</html>

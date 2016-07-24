@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>北京旅游网-北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_line.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="/templates/default/default/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".linepic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				//导航固定
+				var ie6 = /msie 6/i.test(navigator.userAgent),dv = $('#fixedMenu'),st;
+				dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+				$(window).scroll(function(){
+					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+					if (st >= parseInt(dv.attr('otop'))) {
+						if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+							dv.css({ position: 'absolute', top: st });
+						}
+						else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+					} 
+					else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+				});
+				var $div_li = $("div.detail ul li");
+				$div_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $div_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.tab_box > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//旅游顾问
+				var $consultant_li = $("ul.adviserlist li");
+				$consultant_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $consultant_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.adviserbox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				$(".but01").hover(function(){
+					$(".help01").show();
+				},function () {
+					$(".help01").hide();
+				});
+
+				$(".but02").hover(function(){
+					$(".help02").show();
+				},function () {
+					$(".help02").hide();
+				});
+			})
+			function doPrint() { 
+				bdhtml=window.document.body.innerHTML; 
+				sprnstr="<!--startprint-->"; 
+				eprnstr="<!--endprint-->"; 
+				prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+				prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+				window.document.body.innerHTML=prnhtml; 
+				window.print(); 
+			}
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li><越南美拖、胡志明、河内下龙湾+柬埔寨吴哥窟4飞8日></li>
+	</ul>
+</div>
+<div class="linetitle"><span class="lineno">线路编码：XZMYJXZ</span><越南美拖、胡志明、河内下龙湾+柬埔寨吴哥窟4飞8日></div>
+<div class="linebox clearfix">
+	<div class="linebox_left">
+		<div class="linepicbox">
+			<div class="premenu"> <a href="#"> </a> </div>
+			<div class="nextmenu"> <a href="#"> </a> </div>
+			<div class="linepic">
+				<ul>
+										<li><img src="/static/pic/nopic.jpg" /></li>
+									</ul>
+			</div>
+		</div>
+		<div class="mt10">
+			<iframe id="report_iframe" frameborder="0" scrolling="no" name="report_iframe" height="490" src="/index.php?mod=calendar&id=232" width="100%"></iframe>
+		</div>
+	</div>
+	<div class="linebox_right">
+		<div class="helpbox help01 hide">起价说明
+</div>
+		<div class="helpbox help02 hide"><p>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 16px; ">我们大力推广&ldquo;</span><strong style="font-size: 16px; ">网订优惠</strong><span style="font-size: 16px; ">&rdquo;政策，通过网站预订您不但可以享受到和线下预定一样的优惠，还可能享受到某些产品在线预订的&ldquo;</span><strong style="font-size: 16px; ">专享</strong><span style="font-size: 16px; ">&rdquo;优惠。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您只需留下您的&ldquo;<strong>手机+座机+邮箱</strong>&rdquo;的联系方式，并注明您心仪的<strong>线路</strong>和出行<strong>时间</strong>及出行<strong>人数</strong>，我们的客服将在第一时间联系您。</span></p>
+<p>
+	<span style="font-size:16px;">&nbsp; &nbsp; &nbsp; 您也可以下单后直接拨打我们24小时免费电话4006 365 001联系我们的客服，或在上班时间9:00-18:00致电我们的客服人员为您服务。</span></p>
+</div>
+		<p class="price01">市场价：<span class="fb f16 pr10">7380元</span><span class="but01">起价说明</span></p>
+		<p class="price02">优惠价：<span class="orange01 fb f16 pr10">7180元起</span><span class="but02">网订优惠</span></p>
+		<div class="detail01 mt10">
+			<ul class="clearfix">
+				<li class="li01">推荐指数：<span class="orange01">180</span></li>
+				<li>出发城市：</li>
+				<li>行程天数：8天</li>
+				<li class="li01">往返交通：飞机</li>
+				<li class="li01">住宿标准：全程四星</li>
+			</ul>
+		</div>
+		<form method="get" action="/index.php?mod=order">
+		<div class="detail02 mt10">
+			<p>
+				<span>出发日期：</span>
+				<span>
+					<select name="departure_date">
+											</select>
+				</span>
+			</p>
+			<p>
+				<span>出游人数：</span>
+				<span>成人</span>
+				<span>
+					<select name="adult_nums">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+				<span>儿童</span>
+				<span>
+					<select name="children_nums">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</span>
+			</p>
+			<p><span class="orange01">出发日期不对价格会有差异，请仔细阅读</span> <a href="/help/83.html" target="_blank">计算出游总价</a></p>
+		</div>
+		<div class="mt10">
+			<input type="submit" value="" class="orderbut">
+			<input type="hidden" name="mod" value="order">
+			<input type="hidden" name="id" value="232">
+		</div>
+		</form>
+		<div class="adviser mt10">
+			<h3>资深旅游顾问</h3>
+			<div class="box">
+				<ul class="adviserlist clearfix">
+										<li><img src="/upload/common/1381154961.jpg"></li>
+										<li><img src="/upload/common/1381934825.png"></li>
+										<li><img src="/upload/common/1368626684.jpg"></li>
+									</ul>
+			</div>
+			<div class="tel adviserbox">
+									<div >
+					<p>洪艳楠(资深旅游顾问)</p>
+					<p>业务范围：云南，四川</p>
+					</div>
+									<div class="hide">
+					<p>张燕(资深旅游顾问)</p>
+					<p>业务范围：青岛，大连</p>
+					</div>
+									<div class="hide">
+					<p>王乐乐(资深旅游顾问)</p>
+					<p>业务范围：北京周边</p>
+					</div>
+							</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="featurebox mt10">
+	<h3>行程特色</h3>
+	<div class="box">
+		<p>
+	　　　　　<br />
+	【产品特点】:该产品为越柬行踪经典连线产品，吴哥段免费升级四星酒店住宿，专业<br />
+	地接操作，质量有保证，玩得更安心；全程精选4家品质购物店，保证从容消费。</p>
+<p>
+	【主要城市】:胡志明：有东方巴黎之美称，越南最大的城市，东西方文化相互交融的一座现代化发展中城市；美拖：感受越南湄公河沿岸的异域风光，畅享丰富的热带水果，感受独木舟的别样风情；吴哥：深度探访世界文化遗产&mdash;吴哥古迹，深切体味古迹的厚重感与历史感；下龙湾：联合国教科文组织评定的世界自然遗产之一。因其景色酷似中国的桂林山水，被评定为&ldquo;海上桂林&rdquo;。其风光秀丽迷人，在2011年公布的世界新七大自然奇观中，下龙湾榜上有名。</p>
+<p>
+	【美食美味】:越南湄公河特色油泡象鱼餐+越南胡志明西贡河游船晚餐+柬埔寨民俗歌舞表演自助晚餐+柬埔寨高棉特色美食餐+下龙湾游船丰盛海味大餐！</p>
+<p>
+	【真情真礼】: 越南当地电话卡一张、遮阳帽、吴哥纪念团体照、每位游客每日一瓶矿泉水</p>
+
+	</div>
+</div>
+<div class="detail mt10">
+	<div id="fixedMenu">
+		<h3>
+		<ul class="detail_title_tab clearfix">
+			<li class="here">详细行程</li>
+			<li>费用说明</li>
+			<li>签证须知</li>
+			<li>温馨提示</li>
+			<li>如何预定</li>
+			<li>付款方式</li>
+			<li>相关线路</li>
+		</ul>
+		<div class="printmenu" onclick="doPrint();"></div>
+		</h3>
+	</div>
+	<div class="tab_box">
+		<div class="detailbox">
+			<!--startprint-->
+			<div class="p10">
+				<!--详细行程-->
+				<div>
+					<ul class="daylist">
+											</ul>
+					<div class="tripbox">
+											</div>
+				</div>
+				<!--详细行程-->
+			</div>
+			<!--endprint-->
+		</div>
+		<!--费用说明-->
+		<div class="feesbox mt10">
+			<h3>费用说明</h3>
+			<div class="box">
+				<p>
+	　<br />
+	　费用包含：<br />
+	　★行程表内所列机票及燃油附加费；<br />
+	　★全程星级酒店标准间住宿(两人一房) 、景点门票、旅游用车、中文导游；&nbsp;&nbsp;&nbsp;<br />
+	　★行程表所列用餐，全程12正餐7早餐（正餐围桌餐10人一桌，8菜一汤，早餐自助）；<br />
+	　★越南签证费+柬埔寨落地签证费<br />
+	　★柬埔寨机场离境税<br />
+	　★每人每日一瓶矿泉水<br />
+	　<br />
+	　费用不含：</p>
+<p>
+	　●护照费<br />
+	　●人力不可抗因素导致的额外费用；&nbsp;&nbsp;&nbsp;<br />
+	　●私人消费所产生的个人费用等；<br />
+	　●全程导游、司机小费（RMB￥ 240/人）；&nbsp;<br />
+	　●旅游意外险，请组团社建议客人购买；<br />
+	　●航空公司临时加收燃油附加费<br />
+	　<br />
+	　<br />
+	自费打包：　</p>
+<p>
+	　8人以上可参加。（说明：柬埔寨段自费项目不可拆开单独安排。）<br />
+	　★选择一：柬埔寨日出+崩密列+按摩，400元人民币/人<br />
+	　★选择二：柬埔寨按摩+崩密列+吴哥微笑大型情景演出(不含自助餐)，500元人民币/人<br />
+	　【崩密列（Beng Mealea）】：建于12世纪的苏利耶跋摩二世（Suryavaman Ⅱ）朝代，它是吴哥遗迹群中最值得去同时也是最难前往的遗迹。崩密列的护城河长1.2公里，宽0.9公里，它和吴哥寺几乎一样大的规模，但依然被丛林严密包裹着。由于比较荒僻，所以很多浮雕和塑像已被掠夺，但寺庙的神秘气氛仍旧在森林深处弥漫。与已修缮过的小吴哥相比，它并未被恢复原貌，仍保持着被发现时的模样。<br />
+	　【柬式传统按摩】：起源于吴哥王朝宫廷，有古典式，加油按摩，柬埔寨按摩的功夫在于高超的技法，按部位分为头部，脸部，腰部，足部，全身。论动作，捏、拽、揉、按、摸、抻、拉。一个钟头下来，客人已进入飘飘欲仙的境地。<br />
+	　【哥微笑大型情景演出】：追随众神的脚步，荏苒时光的轮回，由中国云南省歌舞剧院编排演出&mdash;柬中联袂打造的大型史诗表演《吴哥的微笑》，带您走进柬埔寨这个神秘而古老的国度！</p>
+
+			</div>
+		</div>
+		<!--费用说明-->
+		<!--签证须知-->
+		<div class="feesbox mt10">
+			<h3>签证须知</h3>
+			<div class="box">
+				<p>
+	　※ 半年以上有效期护照，4张2寸白底照片<br />
+	　※ 签证办理时间：5个工作日</p>
+
+			</div>
+		</div>
+		<!--签证须知-->
+		<!--温馨提示-->
+		<div class="feesbox mt10">
+			<h3>温馨提示</h3>
+			<div class="box">
+				<p>
+	　★ 机票：团队机票出票后不能退票、改票、签转、退税。出发前14天取消的，房费全损。<br />
+	　★ 出发前14天取消的，房费全损。出发前5天临时取消的，只退门票。2-9岁的儿童，不占床不含门票，-600元/人；9-12岁的儿童，占床不含门票，-250元/人。单间差：1200元 。关于单间差：如出现单男或单女的情况，会尽量安排该客人与其他同性团友拼房，本公司将于出发前通知是否可以拼房，如未能拼房者，可选择与同行亲友共享双人房并加床（加床者按占半房收费，即三人一房）；如客人不愿意与同行亲友共享三人房，就需支付单人房附加费，以享用单人房间。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	　★ 酒店：行程所使用的酒店，酒店设施、环境、标准都很良好！任何非官方网站所公布的酒店星级档次，只属于该网站自己的评估标准，不代表该酒店的真实档次或星级。酒店内的游泳池都提供住店客人免费使用，可随身携带泳衣（裤）。游泳时请您一定注意人身安全！<br />
+	　柬埔寨酒店内一般会提供免费矿泉水、拖鞋、电热水壶、驱蚊器、电吹风、洗漱等用品。酒店内的插座与中国所用一样，不需要转换插头。当地的电压为220伏。<br />
+	　★ 时差：越南、柬埔寨时间与北京时间有1小时时差。北京时间13：00，即当地时间12：00。<br />
+	　★ 购物：行程中安排4家购物店，越南胡志明一家（木雕工艺品）；河内一家工艺品综合商店；柬埔寨吴哥段一家（珠宝工艺品），一家木雕工艺品店。购物停留时间不超过40分钟，客人自愿消费；全程无需保证自费， 严禁强迫消费。<br />
+	　★ 小费：越南、柬埔寨为小费国家。在柬埔寨海关出入境时，为了减少不必要的麻烦，可支付1美金或10元人民币作为官员小费；当地人员提供房间打扫、行李等服务建议付5-10元人民币或1美金小费。<br />
+	　★ 网络： 酒店房间普遍都有宽带方便客人上网，但各酒店上网费用略有不同，一般在3-5美金/小时，或者免费。<br />
+	　★ 气温：越南、柬埔寨日间气温在30摄氏度以上。出行要注意防晒，特别是女性游客在柬埔寨，以下物品必不可少：高度防晒乳液、深层清洁的洗面产品、修护作用的润肤产品、遮阳帽、墨镜等。在柬埔寨吴哥窟游览，需要着带袖上衣及长裤（过膝盖）。<br />
+	　★ 海关：请不要随身携带大额外汇出、入越南/柬埔寨境（以3000美金为限）。如确实需要，请一定如实申报。如在境外购买了工艺品或古董等重大（件）物品等，请一定妥善保存购物发票，以备海关查验。如果确实遇到海关人员有意刁难，可给海关人员适当小费以平息事件。越南现已对一般旅游团队取消填写申报单、出入境卡政策！<br />
+	　★ 货币：柬埔寨、越南都流通美金，携带美金前往行程国家即可。如需少量当地货币，可与导游兑换。VISA 银联卡在该国部分商店、酒店也可使用。柬埔寨的货币称&ldquo;瑞尔&rdquo;，1元人民币现在约合440瑞尔！越南的货币称为越南盾，1元人民币约合2500越南盾。<br />
+	　★ 安全：由于旅游旺季，建议谨慎随身携带贵重物品；在景区游览和在餐厅用餐时，注意看管好自己的随身物品。</p>
+
+			</div>
+		</div>
+		<!--温馨提示-->
+		<!--如何预定-->
+		<div class="feesbox mt10">
+			<h3>如何预定</h3>
+			<div class="box">
+				<p>
+	如何预定</p>
+
+			</div>
+		</div>
+		<!--如何预定-->
+		<!--付款方式-->
+		<div class="feesbox mt10">
+			<h3>付款方式</h3>
+			<div class="box">
+				<p>
+	付款方式</p>
+
+			</div>
+		</div>
+		<!--付款方式-->
+		<div class="correlativeline mt10">
+			<h3><span class="title">相关线路</span></h3>
+			<div class="box">
+				<ul class="aboutlinelist clearfix">
+								</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

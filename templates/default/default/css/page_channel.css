@@ -1,0 +1,39 @@
+@import url(base.css);
+@import url(common.css);
+@charset "utf-8";
+/*全站链接样式*/
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#ff6600; text-decoration:none;} 
+.blank{height:10px;}
+body{ color:#333; font-size:12px;}
+.blank{ height:10px;}
+
+body{font-weight:normal;font:12px "宋体",verdana,lucida,helvetica,arial,sans-serif;}
+
+/*当季热卖*/
+.hotbox{border:1px solid #d8d8d8;border-top:2px solid #339933;padding:10px;background:#fdfdfd;}
+.hotbox h3{height:30px;padding-left:10px;font-size:14px;color:#ff6600;font-weight:bold;}
+
+.hotline{float:left;width:360px;padding:10px;}
+.hotline dt{float:right;width:200px;height:20px;color:#007ed9;font-size:14px;font-weight:bold;}
+.hotline dd{margin:0 0 0 160px;padding:0;line-height:18px;color:#868686;}
+.hotline dd.img{float:left;margin:0;}
+.hotline dd.img img{width:150px;height:100px;}
+
+
+/*旅游线路列表*/
+.linetable{width:100%;}
+.linetable th{height:30px;line-height:30px;text-align:center;background:#fbfbfb;font-size:14px;color:#666;}
+.linetable td{height:30px;line-height:30px;font-size:14px;border-bottom:1px solid #eee;}
+.linetable td .title1{color:#0066cc;}
+.linetable td .title2{color:#009900;}
+.linetable td.datatd{cursor:pointer;}
+
+/*网站地图*/
+.sitemap h2{font-size:14px;font-weight:bold;color:#1d71b1;border-bottom:1px solid #d8d8d8;}
+.sitemap h2 a{color:#1d71b1;}
+.sitemap .sitebox{padding:10px;}
+.sitemap .sitebox ul li{float:left;padding-right:10px;height:30px;line-height:30px;font-size:12px;}
+
+.sitemap .mapprobox{float:left;padding:15px;margin-right:10px;border:1px solid #ccc;background:#f5f5f5;font-size:12px;}
+.sitemap .mapprobox h4{font-weight:bold;}

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$page.p_title}> - <{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>"  name="keywords"/>
+		<meta content="<{$setting.description}>" name="description"/>
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_page.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<!--内容-->
+		<{include file="default/`$setting.templates`/head.html"}>
+		<div class="nav">
+			<ul class="clearfix">
+				<li><a href="<{$weburl}>">首页</a></li>
+				<li class="li01">>></li>
+				<li><{$page.p_title}></li>
+			</ul>
+		</div>
+		<div class="main clearfix">
+			<div class="commonbox">
+				<h3><{$page.p_title}></h3>
+				<div class="aboutbox">
+					<{$page.p_info}>
+				</div>
+			</div>
+		</div>
+		<!--版权-->
+		<{include file="default/`$setting.templates`/foot.html"}>
+	</body>
+</html>

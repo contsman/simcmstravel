@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>浅析京东商城的SEO、用户体验及营销手段(一) - travelcms</title>
+<meta content=",travelcms" name="keywords" />
+<meta content="浅析京东商城的SEO、用户体验及营销手段(一),travelcms" name="description" />
+<link href="/cms/code/simcms_travel/templates/default/default/css/page_page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/cms/code/simcms_travel/static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/cms/code/simcms_travel/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/cms/code/simcms_travel/"><img src="/cms/code/simcms_travel/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headcenter">
+		<div class="topsearch">
+			<form method="get" action="/cms/code/simcms_travel/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+	<div class="headright">
+		<img src="/cms/code/simcms_travel/templates/default/default/img/tel.jpg"/>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+				<li>
+		<a href="/cms/code/simcms_travel/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/outbound.html" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/domestic.html" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/cruise.html" title="游轮旅游"  >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/sunset.html" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/students.html" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/visa" title="各国签证"  >各国签证</a>
+		</li>
+				<li>
+		<a href="/cms/code/simcms_travel/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end -->	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="/cms/code/simcms_travel">首页</a></li>
+			<li class="li01">>></li>
+			<li>旅游资讯</li>
+		</ul>
+	</div>
+	<div class="main clearfix">
+		<div class="main_left">
+			<div class="commonbox">
+	<h3>中国旅行社郑重承诺</h3>
+	<div class="box">
+		<div class="manager"></div>
+		<ul class="promiselist mt10">
+			<li class="li01">提前说明进店次数</li>
+			<li class="li02">全程质量监督</li>
+			<li class="li03">行程透明无强制消费</li>
+			<li class="li04">价格真实准确</li>
+		</ul>
+	</div>
+</div>			<script language="JavaScript">
+$(function(){
+	var $hotline_li = $("div.h3_tab ul li");
+    $hotline_li.mouseover(function() {
+       $(this).addClass("here").siblings().removeClass("here");
+       var index = $hotline_li.index(this);
+       $("div.hotlinebox > ul").eq(index).show().siblings().hide();
+    })
+});
+</script>
+<div class="commonbox mt10">
+	<div class="h3_tab">
+		<div class="line">
+		</div>
+		<ul>
+			<li class="here">出境游TOP</li>
+			<li>国内游TOP</li>
+		</ul>
+	</div>
+	<div class="box hotlinebox">
+		<ul class="ranklist">
+						<li><span class="fr orange01">￥5380起</span><a href="http://localhost/cms/code/simcms_travel/line/201209/189.html">海口非2蓝梦之.</a></li>
+					</ul>
+		<ul class="ranklist hide">
+					</ul>
+	</div>
+</div>			<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/218.html" target="_blank">传亚马逊中国总裁王汉华离.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/178.html" target="_blank">详谈Global.asa清除及百度快照.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/179.html" target="_blank">隐藏淘宝客网站链接的3种形.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/180.html" target="_blank">深度分析网站收录大幅度下.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/181.html" target="_blank">百度大面积k站 到底是站长问.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/182.html" target="_blank">外链资源积累要注意什么？</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/183.html" target="_blank">SEO站内篇 “内力”强劲招数.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/184.html" target="_blank">实战分享：我是如何一周内.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/185.html" target="_blank">浅析京东商城的SEO、用户体.</a></li>
+							<li><a href="http://localhost/cms/code/simcms_travel/news/201210/186.html" target="_blank">实例告诉你关于内容更新的.</a></li>
+					</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="/cms/code/simcms_travel/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+					<li><a href="http://localhost/cms/code/simcms_travel/news/201210/197.html" target="_blank">中小企业电商网站应该如何.</a></li>
+				</ul>
+	</div>
+</div>		</div>
+		<div class="main_right">
+			<div class="commonbox">
+				<h3>旅游资讯</h3>
+				<div class="newsbox">
+					<h2 class="tc f14 fb mb10"> 浅析京东商城的SEO、用户体验及营销手段(一) </h2>
+					<p class="tc"> 添加时间：
+					2012-10-11 &nbsp;&nbsp;&nbsp;点击：<span class="red"><script src="/cms/code/simcms_travel/index.php?mod=hit&id=185"></script></span> </p>
+					<div class="detail mt10 mb10">  </div>
+					<div class="pb20"> 
+                <p style="text-align:center;"><a href="http://mytool.chinaz.com/baidusort.aspx" target="_blank">百度权重查询</a> <a href="http://jy.chinaz.com/" target="_blank">站长交易</a> <a href="http://jy.chinaz.com/" target="_blank">友情链接交换</a> <a href="http://www.313.com" target="_blank">网站建设</a>,<a href="http://www.313.com/" target="_blank">网站设计</a>,<a href="http://www.313.com" target="_blank">企业建站</a>就找<a href="http://www.313.com" target="_blank">313</a></p>
+                <p>先说下京东的首页，以下就来说下本人的理解，高手勿喷，仅仅想表达一下自己的理解，让刚入行的兄弟们能有一个大体思路而已！</p>
+<p><strong>标题：</strong>京东网上商城-综合网购首选，正品行货，机打发票，售后上门取件，省钱又放心</p>
+<p><strong>京东网上商城</strong>：告诉用户本站的名字，品牌，京东;网上商城，说明此站是一家做电子商务的网站，是在网上卖东西的</p>
+<p><strong>综合网购：</strong>告诉用户，这里基本上啥子东西都能买到</p>
+<p><strong>正品行货：</strong>申明此站所有商品均是正品，让用户放心购买</p>
+<p><strong>机打发票：</strong>有发票，告诉用户这个网站很正规</p>
+<p><strong>售后上门取件</strong>：让用户知道此站的售后服务是非常巴适方便的，能够上门取件</p>
+<p><strong>省钱又放心：</strong>让用户知道这里的东西都很便宜，并再次声明东西都是正品，放心购买</p>
+<p><strong>描述：</strong>京东商城-专业的数码网上购物商城，产品包括数码、家电、手机、电脑配件、网络产品等数万种商品直销，便捷，诚信的服务，为您提供愉悦的网上商城购物体验！</p>
+<p><strong>京东商城：</strong>声明品牌，让用户再次加深对京东商城的印象</p>
+<p><strong>专业的数码网上购物商城</strong>：告诉用户网站主打产品，并声明自己很专业，让用户宽心</p>
+<p>产品包括数码、家电、手机、电脑配件、网络产品等数万种商品直销：简单介绍网站的几项主打产品，让用户知道这里大概能买到那些东西</p>
+<p>便捷，诚信的服务，为您提供愉悦的网上商城购物体验：告诉用户，此站的一切都是围绕用户来做的，都是为了让用户方便，省心，并非完全为了赚钱.</p>
+<p><strong>关键词密度</strong></p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470212207.jpg" border="0" width="458" alt="浅析京东商城的SEO、用户体验及营销手段(一)" height="435" /></p>
+<p>各个关键词非常自然的出现在网站首页不同的位置，宁愿密度0也不可以堆砌关键字，非常符合百度&ldquo;用户体验&rdquo;的要求，本篇文章是分析它的优势和值得我们学习的地方，所以这里本人不去评价他这么多关键词是否合理，毕竟这玩意各人有各人的理解。</p>
+<p><strong>页面布局</strong></p>
+<p>页面启用网页压缩，缩小网页体积，提升网站访问速度，所有图片一个不漏的全部加上ALT说明</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348469951190.jpg" border="0" /></p>
+<p>大家都知道的，用户的浏览习惯基本上都是从左到右，从上到下，打开网站第一眼看到的绝对是 &ldquo;收藏京东商城&rdquo; 几个大字，用意很明显，就是想让用户把此站收藏起来，接着又展示了几个京东旗下的商城，告诉一些特殊用户我们还有这些东西卖</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470212637.jpg" border="0" width="558" alt="浅析京东商城的SEO、用户体验及营销手段(一)" height="80" /></p>
+<p>搜索框在网站顶部，搜索框里随机出现热门搜索词，并在搜索框下列出部分热门词，告诉用户很多人都喜欢这些东西</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470057899.jpg" border="0" /></p>
+<p>全部商品分类：所有商品大分类小分类都全部展示出来，方便用户查找</p>
+<p>主导航：展示京东旗下其他产品商城</p>
+<p>幻灯片广告：展示部分热卖或主推产品</p>
+<p>货到付款 满39元免运费 售后上门：以图片形式展示自己的优势服务，让用户放心购买。</p>
+<p>京东快报：每日更新与网站相关的新闻，这个新闻的重要性就不用多说了，大家都知道的，并且这些新闻基本带有广告性质，有助于其他产品推广，一举两得。</p>
+<p>便捷服务：提供很多便捷服务，让用户知道这里不仅能买东西，还能提供很多生活服务，提供用户粘度。</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470069660.jpg" border="0" /></p>
+<p>疯狂抢购：大家都知道，一般能够称之为抢购的东西都是性价比比较高，便宜又实惠的，物美价廉的东西大家都喜欢，所以&hellip;&hellip;</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470115335.jpg" border="0" /></p>
+<p>热卖商品：热卖的肯定是大家都喜欢的，既然大家都喜欢，那这些东西肯定是好东西，好东西当然能提高人的购买欲望</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470128918.jpg" border="0" /></p>
+<p>热评商品：评价最多的肯定也卖得多，并且这些评价基本是好评，差评多的产品肯定是没有资格排到这里来的（你懂的），这样一来，肯定能激发用户的购买欲望。</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470140540.jpg" border="0" /></p>
+<p>新品上架：人都有一种心理，新产品虽说不一定会买，但是肯定会有兴趣去了解了解，了解的人多了，自然就产生订单了&hellip;&hellip;</p>
+<p style="text-align: center;"><img src="http://upload.chinaz.com/2012/0924/1348470152936.jpg" border="0" /></p>
+<p>猜你喜欢：这里&ldquo;猜&rdquo;的东西都是一些便宜的，并且生活中随处可见的产品，由此可见，这个&ldquo;猜&rdquo;也并不是完全没有任何依据的&ldquo;猜&rdquo;，好了，今天就写到此了，本人就和京东耗上了，发誓要把京东的SEO、营销、用户体验等一点一点的分析出来，但由于本人水平有限，望高手在批评的时候不要喷口水，谢谢！</p>
+<p>文章由 钢度网 http://www.gangdu1688.com，欢迎点评指导，转载请保留原地址！</p>                   		 </div>
+				</div>
+			</div>
+			<div class="commonbox mt10">
+				<h3>相关新闻</h3>
+				<div class="box">
+					<ul class="clearfix aboutnewslist">
+												<li><a href="">实战分享：我是如何一周内恢复被K首页的</a></li>
+												<li><a href="">SEO站内篇 “内力”强劲招数的威力才会更大</a></li>
+												<li><a href="">外链资源积累要注意什么？</a></li>
+																		<li><a href="">实例告诉你关于内容更新的误区</a></li>
+												<li><a href="">移动搜索引擎优化的10个小窍门</a></li>
+												<li><a href="">怎么提高百度经验的通过率？</a></li>
+											</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--版权--> 
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/cms/code/simcms_travel/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/cms/code/simcms_travel/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/cms/code/simcms_travel/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/cms/code/simcms_travel/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/cms/code/simcms_travel/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+	<div class="main clearfix mt10">
+		<div class="foottop">
+			<a href="/cms/code/simcms_travel/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/cms/code/simcms_travel/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/cms/code/simcms_travel/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2012 travelcms 版权所有. travelcms&nbsp;&nbsp;技术支持：<a href="http://www.simcms.net" target="_blank" class="green01 unl">simcms</a></p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+	</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>游轮旅游-北京旅游网 - 北京旅游网</title>
+		<meta content="北京旅游网" name="keywords" />
+		<meta content="" name="description" />
+		<link href="/templates/default/default/css/page_channel.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+		<script language="JavaScript">
+			$(function(){
+				$("td.datatd").toggle(
+					function () {
+						 $(this).parent().next().show();
+					},
+					function () {
+						 $(this).parent().next().hide();
+					}
+				);
+
+			})
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<script language="JavaScript">
+$(function() {
+	$('div.left').hover(function(){
+		$(this).children('div').stop(true,true).show();
+	},function(){
+		$(this).children('div').stop(true,true).hide();
+	});
+	$('.leftmenubox').hover(function(){
+		$(this).addClass("leftmenubox_hover");
+		$(this).children("div").show();
+	},function(){
+		$(this).removeClass("leftmenubox_hover");
+		$(this).children("div").hide();
+	});
+})
+</script>
+<!--头部end -->
+<script language="JavaScript">
+$(function(){
+	$("#login").load("/index.php?mod=ajax&ajax=1&login=1");
+})
+function set_favorite(title, url) {
+	try {
+		window.external.AddFavorite(url, title);
+	} catch (e) {
+		if (window.sidebar) {
+			window.sidebar.addPanel(title, url, '');
+		} else {
+			alert('请用ctrl+d收藏网址');
+			return false;
+		}
+	}
+}
+</script>
+
+<!--头部end-->
+<div class="topbox">
+	<div class="top">
+		<div class="topleft" id="login"></div>
+		<div class="topright">
+			<a href="/about/91.html" class="topaboutus blue" target="_blank">经营资质</a><span>|</span> 
+			<a href="/about/93.html" class="topaboutus blue" target="_blank">员工风采</a><span>|</span> 
+			<a href="/about/92.html" class="topaboutus blue" target="_blank">办公场所</a><span>|</span> 
+			<a href="#" class="topaboutus blue" onclick="set_favorite()">加入收藏</a> 
+		</div>
+	</div>
+</div>
+<div class="head">
+	<div class="logo"><a href="/"><img src="/templates/default/default/img/logo.jpg"/></a></div>
+	<div class="headright">
+		<div class="topsearch">
+			<form method="get" action="/index.php">
+				<input type="text" name="keywords" class="keywords"><input type="submit" value="" class="button"/>
+				<input type="hidden" name="mod" value="search">
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部end--><div class="topmenubox">
+<div class="topmenu">
+	<ul class="topmenulist">
+		<li class="allsort">全部旅游产品分类</li>
+				<li>
+		<a href="/enterprise" title="企业客户"  >企业客户</a>
+		</li>
+				<li>
+		<a href="/index.html" title="首页"  >首页</a>
+		</li>
+				<li>
+		<a href="/outbound/" title="出境游"  >出境游</a>
+		</li>
+				<li>
+		<a href="/domestic/" title="国内游"  >国内游</a>
+		</li>
+				<li>
+		<a href="/cruise/" title="游轮旅游" class="here" >游轮旅游</a>
+		</li>
+				<li>
+		<a href="/sunset/" title="夕阳红"  >夕阳红</a>
+		</li>
+				<li>
+		<a href="/students/" title="学生专题"  >学生专题</a>
+		</li>
+				<li>
+		<a href="/visa" title="各国签证"  >各国签证</a>
+		</li>
+			</ul>
+</div>
+</div>
+<!--头部end --><!-- <div class="nav">
+	<ul class="clearfix">
+		<li><a href="">首页</a></li>
+		<li class="li01">>></li>
+		<li>游轮旅游</li>
+	</ul>
+</div> -->
+<div class="main clearfix mt10">
+	<div class="main_left2">
+		<div class="guidebox">
+			<h3>游轮旅游</h3>
+			<div class="box">
+				<ul class="guidelist">
+					<li>
+						<h4>类型</h4>
+						<div>
+							<a href="/index.php?mod=search&ac=search&catid=1">国内游</a>
+							<a href="/index.php?mod=search&ac=search&catid=2">出境游</a>
+						</div>
+					</li>
+					<li>
+						<h4>天数</h4>
+						<div>
+							<a href="/index.php?mod=search&ac=search&startday=0&endday=5">5天以内</a>
+							<a href="/index.php?mod=search&ac=search&startday=6&endday=8">6-8天</a>
+							<a href="/index.php?mod=search&ac=search&startday=9&endday=10">9-10天</a>
+							<a href="/index.php?mod=search&ac=search&startday=10&endday=100">10天以上</a>
+						</div>
+					</li>
+					<li>
+						<h4>价格</h4>
+						<div>
+							<a href="/index.php?mod=search&ac=search&startprice=0&endprice=2000">2000以内</a>
+							<a href="/index.php?mod=search&ac=search&startprice=2001&endprice=5000">2001-5000</a>
+							<a href="/index.php?mod=search&ac=search&startprice=5001&endprice=9999">5001-9999</a>
+							<a href="/index.php?mod=search&ac=search&startprice=10000&endprice=20000">10000-20000</a>
+							<a href="/index.php?mod=search&ac=search&startprice=20000&endprice=1000000">20000以上</a>
+						</div>
+					</li>
+					<li>
+						<h4>目的地</h4>
+						<div>
+							<a href="#">海南</a>&nbsp;&nbsp;<a href="#">云南</a>&nbsp;&nbsp;						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="commonbox mt10">
+	<h3><a href="/news/list_53.html" target="_blank">旅游资讯</a></h3>
+	<div class="box">
+		<ul class="newslist">
+					</ul>
+	</div>
+</div>
+<div class="commonbox mt10">
+	<h3><a href="/news/list_55.html" target="_blank">旅游攻略</a></h3>
+	<div class="box">
+		<ul class="newslist">
+				</ul>
+	</div>
+</div>	</div>
+	<div class="main_right2">
+		<div class="hotbox">
+			<h3>当季热卖</h3>
+			<div class="box clearfix">
+								<dl class="hotline">
+					<dt><a href="http://demo.52jscn.com/line/201307/322.html"><纽约、费城、华盛.</a></dt>
+					<dd class="img"><a href="http://demo.52jscn.com/line/201307/322.html"><img src="/static/pic/snopic.jpg" /></a></dd>
+					<dd>
+						<p>海洋绿洲号-纽约、费城、华盛顿、迈阿密+西加勒比海邮轮13日</p>
+						<p class="orange01 fb f16 mt5">￥38800起</p>
+					</dd>
+					
+				</dl>
+								<dl class="hotline">
+					<dt><a href="http://demo.52jscn.com/line/201307/277.html"><豪华南极游轮，惊.</a></dt>
+					<dd class="img"><a href="http://demo.52jscn.com/line/201307/277.html"><img src="/static/pic/snopic.jpg" /></a></dd>
+					<dd>
+						<p>1.乌斯怀亚 2. 布宜诺斯艾利斯 3.南极半岛 拉可罗港 4.南极半岛 雷麦瑞海峡 5.南极冰川 6.南极企鹅 7.</p>
+						<p class="orange01 fb f16 mt5">￥91000起</p>
+					</dd>
+					
+				</dl>
+							</div>
+		</div>
+		<div class="commonbox4 mt10 clearfix mt10">
+			<div class="leftbox">
+				<h3><span class="more"><a href="/index.php?mod=search&ac=search&keywords=%E6%B8%B8%E8%BD%AE" target="_blank">更多+</a></span><span class="title">云南</span></h3>
+				<table class="linetable">
+					<tr>
+						<th width="100">编号</th>
+						<th>线路</th>
+						<th width="60">天数</th>
+						<th width="60">团期</th>
+						<th>价格</th>
+					</tr>
+										<tr>
+						<td align="center">XZMQHJQ</td>
+						<td><a href="http://demo.52jscn.com/line/201307/322.html" class="title1" target="blank"><纽约、费城、华盛顿、迈阿密+西.</a> <a href="http://demo.52jscn.com/line/201307/322.html" class="title2" target="blank">海洋绿洲号</a></td>
+						<td align="center">13天</td>
+						<td align="center" class="datatd"><span class="title1">团期</span></td>
+						<td align="center" class="fb orange01">￥38800起</td>
+					</tr>
+					<tr class="hide">
+						<td colspan="5" class="pl20"></td>
+					</tr>
+										<tr>
+						<td align="center">XZMWZX</td>
+						<td><a href="http://demo.52jscn.com/line/201307/285.html" class="title1" target="blank"><阿拉斯加内湾航线豪华邮轮十天.</a> <a href="http://demo.52jscn.com/line/201307/285.html" class="title2" target="blank">西雅图/朱诺/史凯威/冰河国家公.</a></td>
+						<td align="center">10天</td>
+						<td align="center" class="datatd"><span class="title1">团期</span></td>
+						<td align="center" class="fb orange01">￥28999起</td>
+					</tr>
+					<tr class="hide">
+						<td colspan="5" class="pl20"></td>
+					</tr>
+										<tr>
+						<td align="center">XZMQHJQ</td>
+						<td><a href="http://demo.52jscn.com/line/201307/277.html" class="title1" target="blank"><豪华南极游轮，惊喜发现之旅></a> <a href="http://demo.52jscn.com/line/201307/277.html" class="title2" target="blank"> 9晚10天 经典探险航程 南极半岛.</a></td>
+						<td align="center">10天</td>
+						<td align="center" class="datatd"><span class="title1">团期</span></td>
+						<td align="center" class="fb orange01">￥91000起</td>
+					</tr>
+					<tr class="hide">
+						<td colspan="5" class="pl20"></td>
+					</tr>
+									</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main mt10">
+	<div class="service clearfix">
+				<div class="servicebox bbr">
+			<h3>预订常见问题</h3>
+			<ul>
+								<li><a href="/service/88.html">纯玩、购物什么意思？</a></li>
+								<li><a href="/service/87.html">合同中单房差是什么？</a></li>
+								<li><a href="/service/86.html">什么叫独立成团？</a></li>
+								<li><a href="/service/89.html">******、双卧是什么意思？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>付款与发票</h3>
+			<ul>
+								<li><a href="/service/90.html">签合同可以刷卡吗？</a></li>
+								<li><a href="/service/91.html">网上支付可以吗？</a></li>
+								<li><a href="/service/92.html">旅游的发票如何开？</a></li>
+								<li><a href="/service/93.html">可以付支票或公户转账吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>签署旅游合同</h3>
+			<ul>
+								<li><a href="/service/94.html">中国旅行社签约流程？</a></li>
+								<li><a href="/service/95.html">可以不签合同吗？</a></li>
+								<li><a href="/service/96.html">能传真签合同吗？</a></li>
+								<li><a href="/service/97.html">有旅游合同范本下载吗？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox bbr">
+			<h3>售后服务</h3>
+			<ul>
+								<li><a href="/service/98.html">参团旅游其他事项？</a></li>
+								<li><a href="/service/99.html">签证相关问题解答？</a></li>
+								<li><a href="/service/100.html">中国旅行社退团、退款问题解答？</a></li>
+								<li><a href="/service/101.html">有旅游保险吗？保额多少？</a></li>
+							</ul>
+		</div>
+				<div class="servicebox ">
+			<h3>旅游其他事项</h3>
+			<ul>
+								<li><a href="/service/102.html">中国旅行社网站免责声明</a></li>
+								<li><a href="/service/103.html">预订金缴纳事宜</a></li>
+								<li><a href="/service/104.html">拒签及面试消签相关问题</a></li>
+								<li><a href="/service/105.html">中国旅行社教您出国旅游省钱妙招</a></li>
+							</ul>
+		</div>
+			</div>
+</div><!--底部导航-->
+<div class="footer">
+		<div class="foottop">
+			<a href="/about/index.html" class="topaboutus green01" target="_blank">关于我们</a><span> | </span> 
+			<a href="/about/91.html" class="topaboutus green01" target="_blank">经营资质</a><span> | </span> 
+			<a href="/about/93.html" class="topaboutus green01" target="_blank">员工风采</a><span> | </span> 
+			<a href="/about/92.html" class="topaboutus green01" target="_blank">办公场所</a><span> | </span>
+			<a href="/about/71.html" class="topaboutus green01" target="_blank">联系我们</a>
+		</div>
+		<div class="copyright">
+			<p> Copyright © 2009-2014  版权所有. travelcms</p>
+			<p>客服电话：010-58480317  </p>
+		</div>
+ </div>
+<!-- 版权 结束 --></body>
+</html>

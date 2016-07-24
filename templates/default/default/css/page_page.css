@@ -1,0 +1,49 @@
+@import url(base.css);
+@import url(common.css);
+@charset "utf-8";
+/*全站链接样式*/
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#ff6600; text-decoration:none;} 
+.blank{height:10px;}
+body{ color:#333; font-size:12px;}
+.blank{ height:10px;}
+
+body{font-weight:normal;font:12px "宋体",verdana,lucida,helvetica,arial,sans-serif;}
+
+.enterpriselist li{float:left;width:200px;height:35px;line-height:35px;}
+.enterpriselist li a{font-size:14px;}
+
+/*新闻*/
+.listnews li{height:35px;line-height:35px;border-bottom:1px dashed #eee;}
+.newsbox{padding:20px;line-height:25px;}
+.aboutnewslist li{float:left;width:370px;height:30px;line-height:30px;padding-left:10px;background:url(../img/dot.gif) no-repeat 0 13px;}
+
+/*服务列表*/
+.servicelist li{padding:5px 0;padding-left:10px;background:url(../img/dot.gif) no-repeat 0 10px;}
+
+
+/*签证列表*/
+.visalist01 li{float:left;width:100px;height:30px;line-height:30px;padding:0 10px;font-size:14px;color:#0066cc;}
+.visalist01 li a{color:#0066cc;}
+.visalist02 li{float:left;width:200px;height:30px;line-height:30px;padding:0 10px;font-size:14px;}
+
+.visalist{padding:20px 30px;background:#fafafa;}
+.visalist li{float:left;height:30px;line-height:30px;width:350px;font-size:14px;color:#0066cc;}
+.visalist li a{color:#0066cc;}
+
+/*分页*/
+.pagelist{padding:15px 0;text-align:right;font-size:12px;}
+.pagelist span{padding:3px 5px;border:1px solid #ccc;margin-left:2px;}
+.pagelist span.xspace-current{background:#004f8b;border:1px solid #004f8b;color:#fff;}
+.pagelist a{font-size:12px;padding:3px 5px;border:1px solid #ccc;margin-left:2px;}
+.pagelist a:hover{border:1px solid #004f8b;background:#317ee7;color:#fff;}
+.pagelist a.selected{border:1px solid #004f8b;background:#317ee7;color:#fff;}
+
+/*订购*/
+.ordertitle{margin-left:300px;}
+.ordertable{margin-left:300px;}
+.ordertable th{font-weight:bold;text-align:right;}
+.ordertable td{padding:10px;}
+
+.orderbut{width:100px;height:37px;border:none;background:url(../img/sprite_common.gif) no-repeat 0 -748px;}
+.close{width:100px;height:37px;border:none;background:url(../img/sprite_common.gif) no-repeat 0 -794px;}

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="admin/editor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form1" id="channelform"  enctype="multipart/form-data" method="post" action="<{$adminpage}>?mod=viewpoint">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>景点标题：</th>
+<td><input name="title" type="text"  size="30" value="<{$viewpoint.title}>"/></td>
+</tr>
+<tr>
+<th>图片1：</th>
+<td><input name="pic1" type="file"/>  <{if $viewpoint.pic01<>''}>[<a href="<{$viewpoint.pic01}>" target="_blank">查看图片</a>]<{/if}></td>
+</tr>
+<tr>
+<th>图片1描述：</th>
+<td><textarea name="info01" rows="5" cols="50"><{$viewpoint.info01}></textarea></td>
+</tr>
+<tr>
+<th>图片2：</th>
+<td><input name="pic2" type="file"/> <{if $viewpoint.pic01<>''}>[<a href="<{$viewpoint.pic02}>" target="_blank">查看图片</a>]<{/if}></td>
+</tr>
+<tr>
+<th>图片2描述：</th>
+<td><textarea name="info02" rows="5" cols="50"><{$viewpoint.info02}></textarea></td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons">
+	<input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="id" value="<{$viewpoint.id}>">
+	<input type="hidden" name="tid" value="<{if $viewpoint.tid==''}><{$tid}><{else}><{$viewpoint.tid}><{/if}>">
+	<input type="hidden" name="pid" value="<{if $viewpoint.pid==''}><{$pid}><{else}><{$viewpoint.pid}><{/if}>">
+	<input type="reset" name="thevaluereset" value="重置">
+	</div>
+</td>
+</tr>
+</table>
+</div>
+</form>
+ </body>
+</html>

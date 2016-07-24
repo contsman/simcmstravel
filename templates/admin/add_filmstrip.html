@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form1" method="post" enctype="multipart/form-data"  action="<{$adminpage}>?mod=filmstrip">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>图例：</th>
+<td><input name="upload" type="file"/>
+</td>
+<tr>
+<tr>
+<th>url路径：</th>
+<td><input name="url" type="text" size="50" value="<{$filmstrip.url}>" /></td>
+</tr>
+<tr>
+<th>排序：</th>
+<td><input name="orderid" type="text" size="10" value="<{$filmstrip.orderid}>" /></td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons">
+		<input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+		<input type="hidden" name="ac" value="<{$ac}>">
+		<input type="hidden" name="id" value="<{$filmstrip.id}>">
+		<input type="reset" name="thevaluereset" value="重置">
+	</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

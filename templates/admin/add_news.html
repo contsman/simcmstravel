@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="static/css/admin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="admin/editor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="static/js/skygqcheckajaxform.1.5/jquery.skygqcheckajaxform.1.5.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var items_array = [
+			{ name:"s_id",type:"",simple:"信息类别",focusMsg:'请选择信息类别'},
+			{ name:"n_title",type:"",simple:"信息标题",focusMsg:'请填写信息标题'}
+		];
+		$("#newsform").skygqCheckAjaxForm({
+			items			: items_array
+		});
+	});
+</script>
+</head>
+<body>
+<div class="tablenav"><span class="title">您的位置：<{$mod_name}> <span class="navfont">>></span> <{$ac_arr.$ac}></span><span class="refresh"><a href="javascript:location.reload() 
+">刷新</a></span></div>
+<div class="colorarea01">
+<form name="form" id="newsform" method="post" enctype="multipart/form-data" action="<{$adminpage}>?mod=news">
+<table cellspacing="0" cellpadding="0" width="100%"  class="maintable">
+<tr>
+<th>信息类别：</th>
+<td><{$selectcategory}></td>
+</tr>
+<tr>
+<th>形式：</th>
+<td><select name="n_type">
+	<{$select_newstype}>
+</select>
+</td>
+</tr>
+<tr>
+<th>信息标题：</th>
+<td><input name="n_title" type="text" size="80" value="<{$news.n_title}>" /></td>
+</tr>
+<tr>
+<th>作者：</th>
+<td><input name="n_author" type="text" size="30" value="<{$news.n_author}>" /></td>
+</tr>
+<tr>
+<th>关键字：</th>
+<td><input name="n_keywords" type="text" size="60" value="<{$news.n_keywords}>" /></td>
+</tr>
+<tr>
+<th>链接：</th>
+<td><input name="n_url" type="text" size="50" value="<{$news.n_url}>" /></td>
+</tr>
+<{if $news.n_pic!=""}>
+<tr>
+<th>原图：</th>
+<td>
+	<img src="upload/upload/<{$news.n_pic}>" width="100"/></td>
+</tr>
+<{/if}>
+<tr>
+<th>缩略图：</th>
+<td><input name="upload" type="file"/>
+</td>
+<tr>
+<th>信息内容：</th>
+<td height="350"><textarea class="ckeditor" cols="80" id="editor1" name="n_info" rows="20"><{$news.n_info}></textarea></td>
+</tr>
+<tr>
+<th></th>
+<td>
+	<div class="buttons">
+	<input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
+	<input type="hidden" name="ac" value="<{$ac}>">
+	<input type="hidden" name="id" value="<{$news.n_id}>">
+	<input type="reset" name="thevaluereset" value="重置">
+	</div>
+</td>
+</tr>
+</table>
+ </form>
+</div>
+</body>
+</html>

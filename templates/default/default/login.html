@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$setting.keywords}>-<{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>" name="keywords" />
+		<meta content="<{$setting.description}>" name="description" />
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_user.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		</head>
+	<body>
+<!--内容--> 
+<{include file="default/`$setting.templates`/top.html"}>
+<div class="topline"></div>
+<div class="register">
+	<div class="register_box clearfix login">
+		<h3>会员登录 <span class="english">LOGIN</span></h3>
+        	<form method="post" id="loginfrom_01" action="index.php?mod=login">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                	<td colspan="2" class="td_2"></td>
+                </tr>
+                <tr>
+                	<td class="td_1">邮箱：</td>
+                    <td><input class="input_180" type="text" name="email"/></td>
+                </tr>
+                <tr>
+                	<td class="td_1">密码：</td>
+                    <td><input class="input_180" type="password" name="password"/></td>
+                </tr>
+				<tr>
+                	<td class="td_1">验证码：</td>
+                    <td><input type="text" name="authcode" class="input_60"> <img src="<{$weburl}>/include/kcaptcha/" width="80" height="30" onclick="this.src='<{$weburl}>/include/kcaptcha/?'+Math.random();" title="点击刷新验证码" align="absmiddle" style="cursor:pointer"/ id="checkcode"> <a href="#" onclick="document.getElementById('checkcode').src='<{$weburl}>/include/kcaptcha/?'+Math.random();" class="td_a f14 unl">看不清楚？换一张</a></td>
+                </tr>
+                <tr>
+                	<td class="td_1"></td>
+                    <td><input type="submit" value="" class="loginbut"><input type="hidden" name="ac" value="login"/><!-- <a href="<{$weburl}>/index.php?mod=forgetpwd" class="td_a f14 unl">忘记密码？</a> --></td>
+                </tr>
+            </table>
+           </form>
+		 <div class="register_box_bottom mt20">
+			<span class="title">还不是<{$setting.sitename}>会员？</span> 一分钟轻松注册！<a href="<{$weburl}>/index.php?mod=register" target="_blank" class="unl f14">免费注册</a>
+		</div>
+    </div>
+</div>
+
+<!--版权-->
+<{include file="default/`$setting.templates`/foot.html"}>
+</body>
+</html>
