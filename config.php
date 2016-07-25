@@ -1,8 +1,8 @@
 ﻿<?php
-$db_config['DB_HOST'] = '10.211.55.8';
-$db_config['DB_USER'] = 'root';
-$db_config['DB_PASS'] = '123456';
-$db_config['DB_NAME'] = 'simcms_lv';
+$db_config['DB_HOST'] = '118.244.213.17';
+$db_config['DB_USER'] = 'sq_bjeyoutx';
+$db_config['DB_PASS'] = 'bjeyoutx123';
+$db_config['DB_NAME'] = 'sq_bjeyoutx';
 $db_config['DB_CHARSET'] = 'utf8';
 $db_config['DB_ERROR'] = true;
 $db_config['TB_PREFIX'] = 'travel_';

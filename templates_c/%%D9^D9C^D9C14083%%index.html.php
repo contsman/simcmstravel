@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-24 11:56:57
+<?php /* Smarty version 2.6.18, created on 2016-07-25 13:24:54
          compiled from default/default/index.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -169,7 +169,7 @@ unset($_smarty_tpl_vars);
 			</div>
 			<?php endforeach; endif; unset($_from); ?>
 		</div>
-		<div class="commonbox mt10">
+		<!--div class="commonbox mt10">
 			<h3><a href="<?php echo $this->_tpl_vars['weburl']; ?>
 /news/list_53.html" target="_blank">旅行社推荐</a></h3>
 			<div class="box2">
@@ -192,7 +192,7 @@ unset($_smarty_tpl_vars);
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div-->
 		<?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "default/".($this->_tpl_vars['setting']['templates'])."/block_hotline.html", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;

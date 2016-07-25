@@ -5,13 +5,13 @@ if(!defined('InEmpireBak'))
 }
 
 //Database
-$phome_db_ver="";
-$phome_db_server="10.211.55.8";
+$phome_db_ver="5.0";
+$phome_db_server="118.244.213.17";
 $phome_db_port="3306";
-$phome_db_username="root";
-$phome_db_password="123456";
-$phome_db_dbname="simcms_lv";
-$baktbpre="";
+$phome_db_username="sq_bjeyoutx";
+$phome_db_password="bjeyoutx123";
+$phome_db_dbname="sq_bjeyoutx";
+$baktbpre="travel_";
 $phome_db_char="utf8";
 
 //USER

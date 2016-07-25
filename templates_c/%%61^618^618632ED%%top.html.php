@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-24 11:56:57
+<?php /* Smarty version 2.6.18, created on 2016-07-25 14:22:49
          compiled from default/default/top.html */ ?>
 <script language="JavaScript">
 $(function(){
@@ -36,7 +36,7 @@ function set_favorite(title, url) {
 </div>
 <div class="head">
 	<div class="logo"><a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/"><img src="<?php echo $this->_tpl_vars['weburl']; ?>
+/"><img class="logo_pic" src="<?php echo $this->_tpl_vars['weburl']; ?>
 /templates/default/<?php echo $this->_tpl_vars['setting']['templates']; ?>
 /img/logo.jpg"/></a></div>
 	<div class="headright">
@@ -47,6 +47,9 @@ function set_favorite(title, url) {
 				<input type="hidden" name="mod" value="search">
 			</form>
 		</div>
+	</div>
+	<div id="header_ad">
+		<a target="_blank" href="/"><img src="/templates/default/default/img/head_bandad03.jpg"></a>
 	</div>
 </div>
 <!--头部end-->

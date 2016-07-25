@@ -19,8 +19,7 @@
 			$file = $this->cache_dir."/".$key.".php";           
 			$val = serialize($val);           
 			@file_put_contents($file,$val) or $this->error(__line__,"文件写入失败");        
-			           echo $limit_time;
-			@touch($file,time()+$limit_time) or $this->error(__line__,"更改文件时间失败");       
+			@touch($file,time()+$limit_time) or $this->error(__line__,"更改文件时间失败");
 		}
 		
 		//读取缓存      

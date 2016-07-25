@@ -70,7 +70,7 @@ elseif ($ac == 'add' || $ac == 'edit')
         {
             $_POST[$v] = htmlspecialchars($_POST[$v]);
         }
-        $post = post('pic','url','orderid');
+        $post = post('pic','url','detail','orderid');
         $post['orderid'] = intval($post['orderid']);
         if(!empty($_FILES['upload']['name'])){
             $newname = time();

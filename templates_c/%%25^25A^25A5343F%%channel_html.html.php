@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-24 11:56:57
+<?php /* Smarty version 2.6.18, created on 2016-07-25 13:18:11
          compiled from admin/channel_html.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +40,6 @@ function submithtml(action)
 						<option value='1'>出境旅游</option>
 						<option value='2'>国内旅游</option>
 						<option value='3'>国际游轮</option>
-						<option value='4'>夕阳红游</option>
 						<option value='5'>学生专题</option>
 						<option value='6'>全球签证</option>
 					<select>

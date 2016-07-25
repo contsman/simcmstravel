@@ -26,11 +26,13 @@ a:hover{ color:#ff6600; text-decoration:none;}
 .top .topright{float:right;width:300px;padding-top:10px;}
 .head{margin-left:auto;margin-right:auto;height:105px;width:1200px;position:relative;}
 .head .logo{float:left;width:320px;height:60px;font-size:38px;font-family:"宋体";padding-top:23px;}
+.logo_pic{height:100%;width:100%;}
 .head .logo a{display:block;width:163px;height:73px;color:#fff;}
-.head .headright{float:right;width:500px;padding-top:20px;}
+.head .headright{float:left;width:500px;padding-top:20px;}
 .head .topsearch{float:left;width:500px;padding-top:16px;}
-.head .topsearch .keywords{width:400px;padding:0 10px;height:34px;background:url(../img/search.jpg) no-repeat 0 0;border:none;font-family:"宋体";}
+.head .topsearch .keywords{width:250px;padding:0 10px;height:34px;background:url(../img/search.jpg) no-repeat 0 0;border:none;font-family:"宋体";}
 .head .topsearch .button{width:77px;height:34px;background:url(../img/search.jpg) no-repeat right 0;border:none;}
+#header_ad { position: relative; float: right; overflow: hidden; width: 249px; height: 100%;margin-top: 5px;}
 .topline{width:100%;background:#339933;height:3px;}
 
 .top .topright a,.top .topright span{float:left;}

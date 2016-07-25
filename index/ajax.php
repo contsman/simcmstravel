@@ -14,10 +14,10 @@ if (!defined('APP_IN')) exit('Access Denied');
 if (!empty($_GET['ajax']) && isset($_GET['login']))
 {	header('Content-Type:text/plain; charset=utf-8');
 	if(!empty($_SESSION['USER_ID']) || !empty($_SESSION['USER_NAME'])){
-		$loginstr=$_SESSION['USER_NAME'].",欢迎来到中国旅行网！<a href='".WEB_PATH."/index.php?mod=user'>[会员中心]</a> <a href='".WEB_PATH."/index.php?mod=user&ac=logout'>[退出]</a>";
+		$loginstr=$_SESSION['USER_NAME'].",欢迎来到首都国旅网！<a href='".WEB_PATH."/index.php?mod=user'>[会员中心]</a> <a href='".WEB_PATH."/index.php?mod=user&ac=logout'>[退出]</a>";
 	}
 	else{
-		$loginstr = "欢迎来到中国旅行网！&nbsp;&nbsp;<a href='".WEB_PATH."/index.php?mod=login' target='_blank'>[请登录]</a>&nbsp;&nbsp; 新用户？&nbsp;&nbsp;<a href='".WEB_PATH."/index.php?mod=register' target='_blank'>[请注册]</a>";
+		$loginstr = "欢迎来到首都国旅网！&nbsp;&nbsp;<a href='".WEB_PATH."/index.php?mod=login' target='_blank'>[请登录]</a>&nbsp;&nbsp; 新用户？&nbsp;&nbsp;<a href='".WEB_PATH."/index.php?mod=register' target='_blank'>[请注册]</a>";
 	}
 	echo $loginstr;
 	exit;
