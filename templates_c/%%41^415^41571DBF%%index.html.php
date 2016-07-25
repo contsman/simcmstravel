@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-24 11:55:55
+<?php /* Smarty version 2.6.18, created on 2016-07-25 17:59:35
          compiled from admin/index.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,7 +37,7 @@
  </p>
 			<p>MySQL 版本：<?php echo $this->_tpl_vars['sysinfo']['mysql']; ?>
 </p>
-			<p>技术支持：bbs.52jscn.com </p>
+			<p>技术支持：wtc0913@163.com </p>
 		</div>
 	</div>
  </div>

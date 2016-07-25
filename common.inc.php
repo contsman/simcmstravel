@@ -12,7 +12,8 @@ if (isset($_REQUEST['GLOBALS']))
 // 程序目录(有/)
 define('WEB_ROOT', str_replace(array('\\', '//'), array('/', '/'), dirname(__FILE__) . DIRECTORY_SEPARATOR));
 // 网站URL(无/)
-define('WEB_URL', 'http://' . $_SERVER['HTTP_HOST'] . ($_SERVER['SERVER_PORT'] == 80 ? '' : ':' . $_SERVER['SERVER_PORT']) . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')));
+//define('WEB_URL', 'http://' . $_SERVER['HTTP_HOST'] . ($_SERVER['SERVER_PORT'] == 80 ? '' : ':' . $_SERVER['SERVER_PORT']) . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')));
+define('WEB_URL', 'http://' . $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == 80 ? '' : ':' . $_SERVER['SERVER_PORT']) . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')));
 
 //输出页面字符集
 header('Content-type: text/html; charset=utf-8');
