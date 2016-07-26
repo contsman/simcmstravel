@@ -167,5 +167,5 @@ else
     showmsg('非法操作',-1);
 }
 
-showmsg($ac_arr[$ac].($rs ? '成功' : '失败'),ADMIN_PAGE.?mod=$mod&ac=list");
+showmsg($ac_arr[$ac].($rs ? '成功' : '失败'),ADMIN_PAGE."?mod=$mod&ac=list");
 ?>

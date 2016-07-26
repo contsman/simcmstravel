@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-04 21:30:31
+<?php /* Smarty version 2.6.18, created on 2016-07-26 15:01:26
          compiled from default/default/line.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -108,8 +108,11 @@ unset($_smarty_tpl_vars);
 					<?php $_from = $this->_tpl_vars['piclist']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['pic']):
 ?>
-					<li><?php if ($this->_tpl_vars['pic'] <> ''): ?><img src="<?php echo $this->_tpl_vars['weburl']; ?>
+					<!--li><?php if ($this->_tpl_vars['pic'] <> ''): ?><img src="<?php echo $this->_tpl_vars['weburl']; ?>
 /<?php echo $this->_tpl_vars['pic']; ?>
+"/><?php else: ?><img src="<?php echo $this->_tpl_vars['weburl']; ?>
+/static/pic/nopic.jpg" /><?php endif; ?></li-->
+					<li><?php if ($this->_tpl_vars['pic'] <> ''): ?><img src="<?php echo $this->_tpl_vars['pic']; ?>
 "/><?php else: ?><img src="<?php echo $this->_tpl_vars['weburl']; ?>
 /static/pic/nopic.jpg" /><?php endif; ?></li>
 					<?php endforeach; endif; unset($_from); ?>

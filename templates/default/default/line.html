@@ -87,7 +87,8 @@
 			<div class="linepic">
 				<ul>
 					<{foreach from=$piclist item=pic}>
-					<li><{if $pic<>''}><img src="<{$weburl}>/<{$pic}>"/><{else}><img src="<{$weburl}>/static/pic/nopic.jpg" /><{/if}></li>
+					<!--li><{if $pic<>''}><img src="<{$weburl}>/<{$pic}>"/><{else}><img src="<{$weburl}>/static/pic/nopic.jpg" /><{/if}></li-->
+					<li><{if $pic<>''}><img src="<{$pic}>"/><{else}><img src="<{$weburl}>/static/pic/nopic.jpg" /><{/if}></li>
 					<{/foreach}>
 				</ul>
 			</div>

@@ -1,12 +1,6 @@
 <?php
 /*
- 本软件版权归作者所有,在投入使用之前注意获取许可
- 作者：北京市普艾斯科技有限公司
- 项目：simcms_锐游1.0
- 电话：010-58480317
- 网址：http://www.simcms.net
- simcms.net保留全部权力，受相关法律和国际		  		
- 公约保护，请勿非法修改、转载、散播，或用于其他赢利行为，并请勿删除版权声明。
+ wtc0913@163.com
 */
 
 include('../common.inc.php');
@@ -34,8 +28,8 @@ function new_name($filename) {
 		return $name;
 	} else {
 		return;
-	} 
-} 
+	}
+}
 // 上传图片
 if (!empty($_FILES)) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
@@ -50,7 +44,7 @@ if (!empty($_FILES)) {
 	move_uploaded_file($tempFile, $targetFile);
 	copy($targetFile, $targetFiles);
 
-	require_once dirname(dirname(__FILE__)) . '/include/img.class.php'; 
+	require_once dirname(dirname(__FILE__)) . '/include/img.class.php';
 
 	// 生成缩略图
 	if ($settings['isdstimg'] == 1) {
@@ -64,7 +58,7 @@ if (!empty($_FILES)) {
 		$t -> setSrcImg($targetFile);
 		$t -> setDstImg($targetFile);
 		$t -> createImg('600', '600');
-	} 
+	}
 
 	// 加水印
 	/*if ($settings['water'] == 1) {
@@ -76,6 +70,6 @@ if (!empty($_FILES)) {
 	} */
 
 	echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $targetFile);
-} 
+}
 
 ?>

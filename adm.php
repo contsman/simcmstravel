@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * 锦尚中国站长分享圈子 bbs.52jscn.com
+ * wtc0193@163.com
  */
 
 include('common.inc.php');
