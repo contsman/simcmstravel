@@ -14,7 +14,7 @@ a:hover{ color:#ff6600; text-decoration:none;}
 
 
 /*整体框架*/
-.top{padding-left:170px;height:37px;background:url(../../img/admin/adminlogo.gif) no-repeat 10px 9px;}
+.top{padding-left:170px;height:37px;/*background:url(../../img/admin/adminlogo.gif) no-repeat 10px 9px;*/}
 .top .top_top{height:37px;padding-left:10px;line-height:37px;padding-right:20px;color:#fff;}
 .top .top_bottom{height:33px;}
 .top .top_bottom .topmenu{}

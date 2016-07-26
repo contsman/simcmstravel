@@ -69,7 +69,7 @@ include('index/page.php');
 			<!-- <li>采集管理</li> -->
 			<li>系统设置</li>
 		</ul>
-		<div class="top_top fr"><span class="fl">欢迎您，<?=$_SESSION['ADMIN_NAME']?></span><span class="fl pl10 pt5"><a href="<?php echo ADMIN_PAGE?>?mod=login&ac=logout" class="optionmenu black">安全退出</a></span><span class="fl pl10 pt5"><a href="<?php echo ADMIN_PAGE?>?mod=cache&ac=del" class="optionmenu black">清除缓存</a></span><span class="fl pl10 pt5"><a href="http://bbs.52jscn.com" class="optionmenu black" target="_blank">源码论坛</a></span></div>
+		<div class="top_top fr"><span class="fl">欢迎您，<?=$_SESSION['ADMIN_NAME']?></span><span class="fl pl10 pt5"><a href="<?php echo ADMIN_PAGE?>?mod=login&ac=logout" class="optionmenu black">安全退出</a></span><span class="fl pl10 pt5"><a href="<?php echo ADMIN_PAGE?>?mod=cache&ac=del" class="optionmenu black">清除缓存</a></span><!--span class="fl pl10 pt5"><a href="http://bbs.52jscn.com" class="optionmenu black" target="_blank">源码论坛</a></span--></div>
 	</div>
 </div>
 <div class="mainw">
