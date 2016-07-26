@@ -26,7 +26,7 @@ $tpl->assign( 'ac', $ac );
 if ($ac == 'list')
 {
     include(INC_DIR.'Page.class.php');
-    $Page = new Page($db->tb_prefix.'area','parentid=-1','*','20','orderid');
+    $Page = new Page($db->tb_prefix.'area','parentid=0','*','20','orderid');
     $list = $Page->get_data();
 	foreach($list as $key => $value ){
 		$citylist = $db -> row_select('area', "parentid=".$value['id'], 'id,name', 0, 'orderid asc');

@@ -199,7 +199,7 @@ function arr_province() {
 // 地区数组
 function arr_city() {
 	global $db;
-	$data = $db -> row_select('area', "code in(110000,120000,310000) or code like '__0100' and name like '%市'", 'id,name', 0, 'orderid asc');
+	$data = $db -> row_select('area', "id in(110000,120000,310000) or id like '__0100' and name like '%市'", 'id,name', 0, 'orderid asc');
 	return get_array($data, 'id', 'name');
 } 
 // 签证分类数组
