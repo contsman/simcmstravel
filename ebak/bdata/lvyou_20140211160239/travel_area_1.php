@@ -7,7 +7,7 @@ require("../../inc/header.php");
 		Copyright: Powered by www.phome.net
 */
 
-DoSetDbChar('gbk');
+DoSetDbChar('utf8');
 E_D("DROP TABLE IF EXISTS `travel_area`;");
 E_C("CREATE TABLE `travel_area` (
   `id` int(11) NOT NULL auto_increment,
@@ -15,8 +15,8 @@ E_C("CREATE TABLE `travel_area` (
   `orderid` int(11) NOT NULL,
   `parentid` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=163 DEFAULT CHARSET=gbk");
-E_D("replace into `travel_area` values('162','±±¾©','0','-1');");
+) ENGINE=MyISAM AUTO_INCREMENT=163 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_area` values('162','åŒ—äº¬','0','-1');");
 
 require("../../inc/footer.php");
 ?>

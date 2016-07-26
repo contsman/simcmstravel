@@ -7,7 +7,7 @@ require("../../inc/header.php");
 		Copyright: Powered by www.phome.net
 */
 
-DoSetDbChar('gbk');
+DoSetDbChar('utf8');
 E_D("DROP TABLE IF EXISTS `travel_templates`;");
 E_C("CREATE TABLE `travel_templates` (
   `id` int(11) NOT NULL auto_increment,
@@ -15,15 +15,15 @@ E_C("CREATE TABLE `travel_templates` (
   `filename` varchar(50) NOT NULL,
   `catid` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=gbk");
-E_D("replace into `travel_templates` values('1','µ¥Ò³Ä£°æ','about.html','1');");
-E_D("replace into `travel_templates` values('2','µ×²¿¹«¹²Ä£°æ','foot.html','1');");
-E_D("replace into `travel_templates` values('3','Í·²¿¹«¹²Ä£°æ','head.html','1');");
-E_D("replace into `travel_templates` values('4','Ê×Ò³Ä£°æ','index.html','1');");
-E_D("replace into `travel_templates` values('5','ÐÂÎÅÏêÏ¸Ò³Ä£°æ','news.html','1');");
-E_D("replace into `travel_templates` values('6','ÐÂÎÅÁÐ±íÒ³Ä£°æ','news_list.html','1');");
-E_D("replace into `travel_templates` values('7','²úÆ·ÁÐ±íÒ³Ä£°æ','products.html','1');");
-E_D("replace into `travel_templates` values('8','²úÆ·ÁÐ±íÒ³Ä£°æ','products_list.html','1');");
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_templates` values('1','å•é¡µæ¨¡ç‰ˆ','about.html','1');");
+E_D("replace into `travel_templates` values('2','åº•éƒ¨å…¬å…±æ¨¡ç‰ˆ','foot.html','1');");
+E_D("replace into `travel_templates` values('3','å¤´éƒ¨å…¬å…±æ¨¡ç‰ˆ','head.html','1');");
+E_D("replace into `travel_templates` values('4','é¦–é¡µæ¨¡ç‰ˆ','index.html','1');");
+E_D("replace into `travel_templates` values('5','æ–°é—»è¯¦ç»†é¡µæ¨¡ç‰ˆ','news.html','1');");
+E_D("replace into `travel_templates` values('6','æ–°é—»åˆ—è¡¨é¡µæ¨¡ç‰ˆ','news_list.html','1');");
+E_D("replace into `travel_templates` values('7','äº§å“åˆ—è¡¨é¡µæ¨¡ç‰ˆ','products.html','1');");
+E_D("replace into `travel_templates` values('8','äº§å“åˆ—è¡¨é¡µæ¨¡ç‰ˆ','products_list.html','1');");
 
 require("../../inc/footer.php");
 ?>

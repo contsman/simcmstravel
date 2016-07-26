@@ -7,7 +7,7 @@ require("../../inc/header.php");
 		Copyright: Powered by www.phome.net
 */
 
-DoSetDbChar('gbk');
+DoSetDbChar('utf8');
 E_D("DROP TABLE IF EXISTS `travel_consultant`;");
 E_C("CREATE TABLE `travel_consultant` (
   `id` tinyint(4) NOT NULL auto_increment,
@@ -17,10 +17,10 @@ E_C("CREATE TABLE `travel_consultant` (
   `pic` varchar(20) default NULL,
   `orderid` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=gbk");
-E_D("replace into `travel_consultant` values('13','ºéÑÞéª','ÔÆÄÏ£¬ËÄ´¨','×ÊÉîÂÃÓÎ¹ËÎÊ','1381154961.jpg','0');");
-E_D("replace into `travel_consultant` values('14','ÕÅÑà','Çàµº£¬´óÁ¬','×ÊÉîÂÃÓÎ¹ËÎÊ','1381934825.png','0');");
-E_D("replace into `travel_consultant` values('15','ÍõÀÖÀÖ','±±¾©ÖÜ±ß','×ÊÉîÂÃÓÎ¹ËÎÊ','1368626684.jpg','0');");
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_consultant` values('13','æ´ªè‰³æ¥ ','äº‘å—ï¼Œå››å·','èµ„æ·±æ—…æ¸¸é¡¾é—®','1381154961.jpg','0');");
+E_D("replace into `travel_consultant` values('14','å¼ ç‡•','é’å²›ï¼Œå¤§è¿ž','èµ„æ·±æ—…æ¸¸é¡¾é—®','1381934825.png','0');");
+E_D("replace into `travel_consultant` values('15','çŽ‹ä¹ä¹','åŒ—äº¬å‘¨è¾¹','èµ„æ·±æ—…æ¸¸é¡¾é—®','1368626684.jpg','0');");
 
 require("../../inc/footer.php");
 ?>

@@ -7,7 +7,7 @@ require("../../inc/header.php");
 		Copyright: Powered by www.phome.net
 */
 
-DoSetDbChar('gbk');
+DoSetDbChar('utf8');
 E_D("DROP TABLE IF EXISTS `travel_templates_category`;");
 E_C("CREATE TABLE `travel_templates_category` (
   `catid` int(11) NOT NULL auto_increment,
@@ -16,8 +16,8 @@ E_C("CREATE TABLE `travel_templates_category` (
   `addtime` int(11) NOT NULL,
   `isshow` tinyint(1) NOT NULL,
   PRIMARY KEY  (`catid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=gbk");
-E_D("replace into `travel_templates_category` values('1','default','Ĭ�Ϸ��','0','1');");
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_templates_category` values('1','default','默认风格','0','1');");
 
 require("../../inc/footer.php");
 ?>

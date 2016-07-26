@@ -7,17 +7,17 @@ require("../../inc/header.php");
 		Copyright: Powered by www.phome.net
 */
 
-DoSetDbChar('gbk');
+DoSetDbChar('utf8');
 E_D("DROP TABLE IF EXISTS `travel_keyword`;");
 E_C("CREATE TABLE `travel_keyword` (
   `k_id` smallint(6) NOT NULL auto_increment,
   `k_keyword` text,
   `k_type` varchar(20) NOT NULL,
   PRIMARY KEY  (`k_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=gbk");
-E_D("replace into `travel_keyword` values('8','Â×¶Ø|ÏÄÍþÒÄ','0');");
-E_D("replace into `travel_keyword` values('9','ÔÆÄÏ|ÈýÑÇ','1');");
-E_D("replace into `travel_keyword` values('10','ÈýÑÇ|ÏÃÃÅ','2');");
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8");
+E_D("replace into `travel_keyword` values('8','ä¼¦æ•¦|å¤å¨å¤·','0');");
+E_D("replace into `travel_keyword` values('9','äº‘å—|ä¸‰äºš','1');");
+E_D("replace into `travel_keyword` values('10','ä¸‰äºš|åŽ¦é—¨','2');");
 
 require("../../inc/footer.php");
 ?>
