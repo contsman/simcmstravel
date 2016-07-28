@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-07-25 17:54:21
+<?php /* Smarty version 2.6.18, created on 2016-07-27 10:28:33
          compiled from admin/add_area.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +11,8 @@
 <script type="text/javascript">
 	$(function() {
 		var items_array = [
-			{ name:"name",type:"",simple:"地区名称",focusMsg:'请填写地区名称'}
+			{ name:"name",type:"",simple:"地区名称",focusMsg:'请填写地区名称'},
+			{ name:"id",type:"",simple:"地区代码",focusMsg:'请填写地区代码'}
 		];
 		$("#areaform").skygqCheckAjaxForm({
 			items			: items_array
@@ -34,6 +35,11 @@
 " /></td>
 </tr>
 <tr>
+<th>代码：</th>
+<td><input name="id" type="text"  size="30" <?php if ($this->_tpl_vars['ac'] == 'edit'): ?> readonly <?php endif; ?> value="<?php echo $this->_tpl_vars['area']['id']; ?>
+" /></td>
+</tr>
+<tr>
 <th>排序：</th>
 <td>
 	<input type="text" name="orderid" size="5" value="<?php echo $this->_tpl_vars['area']['l_orderid']; ?>
@@ -45,8 +51,6 @@
 <td>
 	<div class="buttons"><input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
 	<input type="hidden" name="ac" value="<?php echo $this->_tpl_vars['ac']; ?>
-">
-	<input type="hidden" name="id" value="<?php echo $this->_tpl_vars['area']['id']; ?>
 ">
 	<input type="hidden" name="parentid" value="<?php echo $this->_tpl_vars['area']['parentid']; ?>
 ">

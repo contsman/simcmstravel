@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><{$setting.keywords}>-<{$setting.sitename}></title>
+		<meta content="<{$setting.keywords}>" name="keywords" />
+		<meta content="<{$setting.description}>" name="description" />
+		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_index.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.textRemindAuto-1.0.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/lhgcalendar/lhgcalendar.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/templates/default/<{$setting.templates}>/js/jcarousellite_1.0.1.min.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				$(".flashpic").jCarouselLite({
+					btnNext: ".premenu",
+					btnPrev: ".nextmenu",
+					scroll: 1,
+					visible: 1,
+					auto: 5000
+				});
+				$('.leftmenubox').hover(function(){
+					$(this).addClass("leftmenubox_hover");
+					$(this).children("div").show();
+				},function(){
+					$(this).removeClass("leftmenubox_hover");
+					$(this).children("div").hide();
+				});
+
+				//签证
+				var $visa_li = $("ul.visa_tab li");
+				$visa_li.hover(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $visa_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.visabox > div").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+
+				//搜索
+				var $search_li = $("ul.indexsearch_tab li");
+				$search_li.click(function() {
+				   $(this).addClass("here").siblings().removeClass("here"); //去掉其它同辈<li>元素的高亮
+				   var index = $search_li.index(this); // 获取当前点击的<li>元素 在 全部li元素中的索引。
+				   $("div.searchboxbox > p").eq(index).show().siblings().hide(); //隐藏其它几个同辈的<div>元素
+				});
+				
+				//城市选择
+				$("input[name='departure_city']").click(function(event){
+					event.stopPropagation();
+					$(".citylist01").show();
+				});
+
+				$('.city01').click(function() {
+					$("input[name='departure_city']").val($(this).text());
+					$(".citylist01").hide();
+				});
+
+				$("input[name='arrival_city']").click(function(event) {
+					event.stopPropagation();
+					$(".citylist02").show();
+				});
+				$('.city02').click(function() {
+					$("input[name='arrival_city']").val($(this).text());
+					$(".citylist02").hide();
+				});
+
+				$("input[name='arrival_city_en']").click(function(event) {
+					event.stopPropagation();
+					$(".citylist03").show();
+				});
+				$('.city03').click(function() {
+					$("input[name='arrival_city_en']").val($(this).text());
+					$(".citylist03").hide();
+				});
+
+				$(document).click(function(event){
+					$(".citylist01").hide();
+					$(".citylist02").hide();
+					$(".citylist03").hide();
+					$(".pricelist").hide();
+				});  
+
+				$('.close').click(function() {
+					$(".citylist01").hide();
+					$(".citylist02").hide();
+					$(".citylist03").hide();
+					$(".pricelist").hide();
+				});
+				
+				//价格区间
+				$("input[name='price']").click(function(event){
+					event.stopPropagation();
+					$(".pricelist").show();
+				});
+
+				$('.price_span').click(function() {
+					$("input[name='price']").val($(this).text());
+					$(".pricelist").hide();
+				});
+
+				//日期选择
+				$('#demo_inp1').calendar();
+				
+				//输入框提示
+				$(".remindAuto").textRemindAuto();
+				$(".borderChange").textRemindAuto({chgClass: "border"});
+				$("#textColorChg").textRemindAuto({
+					focusColor: "red"							  
+				});
+			})
+		</script>
+		</head>
+	<body>
+<!--内容--> 
+<{include file="default/`$setting.templates`/head.html"}>
+<div class="main clearfix">
+	<div class="main_left">
+		<div class="leftmenu">
+			<{foreach from=$common_cache.leftmenulist item=leftmenu}>
+			<div class="leftmenubox">
+				<div class="leftmenubigbox hide">
+					<{foreach from=$leftmenu.sub item=subleftmenu}>
+						<div class="subleftmenu clearfix">
+							<h4 class="fl"><a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$subleftmenu.keywords}>"><{$subleftmenu.catname}></a></h4>
+							<div class="fl">
+							<{foreach from=$subleftmenu.sub item=subsubleftmenu}>
+								<span class="fl"><a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$subsubleftmenu.keywords}>"><{$subsubleftmenu.catname}></a></span>
+							<{/foreach}>
+							</div>
+						</div>
+					<{/foreach}>
+				</div>
+				<h3><{$leftmenu.catname}></h3>
+				<p class="com"><{foreach from=$leftmenu.recommend item=recommendmenu}><a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$recommendmenu.keywords}>"><{$recommendmenu.catname}></a>&nbsp;&nbsp;<{/foreach}></p>
+			</div>
+			<{/foreach}>
+		</div>
+		<!--div class="commonbox mt10">
+			<h3><a href="<{$weburl}>/news/list_53.html" target="_blank">旅行社推荐</a></h3>
+			<div class="box2">
+				<ul class="lxslist">
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+					<li>
+						<p class="p01"><a href="#">北京神舟国旅</a></p>
+						<p class="p02">北京神舟国旅集团5A级旅行社，专业出境、国内旅游，电话010-51651898</p>
+					</li>
+				</ul>
+			</div>
+		</div-->
+		<{include file="default/`$setting.templates`/block_hotline.html" }>
+		<div class="toolbox mt10">
+			<h3>工具箱</h3>
+			<div class="box">
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</div>
+
+	</div>
+	<div class="main_right">
+		<div class="clearfix mt10">
+			<!--幻灯片-->
+			<div class="flashpicbox">
+				<div class="premenu"> <a href="#"> </a> </div>
+				<div class="nextmenu"> <a href="#"> </a> </div>
+				<div class="flashpic">
+					<ul>
+						<{foreach from=$filmlist item=film}>
+						<li> <img src="<{$weburl}>/upload/common/<{$film.pic}>"> </li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<!--幻灯片-->
+			<div class="rightsearch">
+				<div class="rightregister">
+					<a href="#" class="a01">游览注册</a>
+					<a href="#" class="a02 ml5">旅行社入驻</a>
+				</div>
+				<!--搜索-->
+				<div class="indexsearchbox mt10">
+					<h3></h3>
+					<ul class="indexsearch_tab clearfix">
+						<li class="here">出境游</li>
+						<li>国内游</li>	
+					</ul>
+					<div class="box">
+						<div class="citylist citylist03 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+								<{foreach from=$citylist_en item=city_en}>
+									<span class="city03"><{$city_en}></span>
+								<{/foreach}>
+							</div>
+						</div>
+						<div class="pricelist hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+								<span class="price_span">2000以内</span> <span class="price_span">2001-5000</span> <span class="price_span">5001-9999</span> <span class="price_span">10000-20000</span> <span class="price_span">20000以上</span>
+							</div>
+						</div>
+						<div class="citylist citylist01 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+								<{foreach from=$citylist_zh item=city_zh}>
+									<span class="city01"><{$city_zh}></span>
+								<{/foreach}>
+							</div>
+						</div>
+						<div class="citylist citylist02 hide">
+							<h3><span class="close"></span>请从以下列表中选择</h3>
+							<div class="box">
+								<{foreach from=$citylist_zh item=city_zh}>
+									<span class="city02"><{$city_zh}></span>
+								<{/foreach}>
+							</div>
+						</div>
+						<form method="get" action="<{$weburl}>/index.php?mod=search">
+							<div class="searchboxbox">
+								<p class="clearfix"><span class="fl"><input type="text" value="出发地" name="departure_city" class="inp01 remindAuto"></span><span class="fl pl10"><input type="text" value="目的地" value="" name="arrival_city_en" class="inp01 remindAuto"></span></p>
+								<p class="clearfix hide"><span class="fl"><input type="text" name="departure_city" value="出发地" class="inp01 remindAuto"></span><span class="fl pl10"><input type="text" value="目的地" name="arrival_city" class="inp01 remindAuto"></span></p>
+							</div>
+							<p><input id="demo_inp1" type="text" name="departure_date" value="出发日期" class="inp02 remindAuto"></p>
+							<p><input type="text" name="price" value="价格区间" class="inp03 remindAuto" readonly="readonly"></p>
+							<p><input type="text" name="keywords" value="关键词" class="inp04 remindAuto"></p>
+							<p><input type="submit" value="搜 索" class="searchbut"/></p>
+							<input type="hidden" name="mod" value="search"/>
+							<input type="hidden" name="ac" value="search"/>
+						</form>
+					</div>
+				</div>
+				<!--搜索-->
+			</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3>
+					<span class="more">
+					<{foreach item=keyword0 from=$common_cache.keywords.0.keyword}> <a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$keyword0.keywords}>&s_type=1" target="_blank"><{$keyword0.keyword}></a> | 
+					<{/foreach}> 
+					<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=2&s_type=1">更多+</a></span><span class="title">出境游</span><span class="english">OVERSEAS TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+						<{foreach from=$linelist_cj item=line_cj}>
+						<li><span class="price">￥<{$line_cj.p_price}>起</span><div class="title"><a href="<{$line_cj.p_url}>" class="title1" target="_blank"><{$line_cj.p_title}></a> <a href="<{$line_cj.p_url}>" class="title2" target="_blank"><{$line_cj.p_short_title2}></a></div></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+				<{foreach from=$splinelist01 item=sp_linelist01}>
+					<p><a href="<{$sp_linelist01.p_url}>" target="_blank"><img src="<{$sp_linelist01.smallpic}>" class="img"></a></p>
+					<p class="title"><a href="<{$sp_linelist01.p_url}>" target="_blank"><{$sp_linelist01.p_short_title}> <{$sp_linelist01.p_short_title2}></a></p>
+					<p class="price01"><span class="fr">折扣：<{$sp_linelist01.zhekou}>折</span>原价：￥<{$sp_linelist01.p_market_price}>起</p>
+					<p class="price02">
+						<a href="<{$sp_linelist01.p_url}>" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥<{$sp_linelist01.p_price}>起</span>
+					</p>
+				<{/foreach}>
+			</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3><span class="more">
+					<{foreach item=keyword1 from=$common_cache.keywords.1.keyword}> <a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$keyword1.keywords}>&s_type=1" target="_blank"><{$keyword1.keyword}></a> | 
+					<{/foreach}> 
+				<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=1&s_type=1">更多+</a></span><span class="title">国内游</span><span class="english">DOMESTIC TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+						<{foreach from=$linelist_gn item=line_gn}>
+						<li><span class="price">￥<{$line_gn.p_price}>起</span><div class="title"><a href="<{$line_gn.p_url}>" class="title1" target="_blank"><{$line_gn.p_title}></a> <a href="<{$line_gn.p_url}>" class="title2" target="_blank"><{$line_gn.p_short_title2}></a></div></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+				<{foreach from=$splinelist02 item=sp_linelist02}>
+					<p><a href="<{$sp_linelist02.p_url}>" target="_blank"><img src="<{$sp_linelist02.smallpic}>" class="img"></a></p>
+					<p class="title"><a href="<{$sp_linelist02.p_url}>" target="_blank"><{$sp_linelist02.p_short_title}> <{$sp_linelist02.p_short_title2}></a></p>
+					<p class="price01"><span class="fr">折扣：<{$sp_linelist02.zhekou}>折</span>原价：￥<{$sp_linelist02.p_market_price}>起</p>
+					<p class="price02">
+						<a href="<{$sp_linelist02.p_url}>" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥<{$sp_linelist02.p_price}>起</span>
+					</p>
+				<{/foreach}>
+			</div>
+		</div>
+		<div class="commonbox2 mt10 clearfix">
+			<div class="leftbox">
+				<h3><span class="more">
+					<{foreach item=keyword2 from=$common_cache.keywords.2.keyword}> <a href="<{$weburl}>/index.php?mod=search&ac=search&keywords=<{$keyword2.keywords}>&s_type=1" target="_blank"><{$keyword2.keyword}></a> | 
+					<{/foreach}>
+				<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=1&s_type=1">更多+</a></span><span class="title">自由行</span><span class="english">SEFL-GUIDED TOUR</span></h3>
+				<div class="box">
+					<ul class="travellist">
+						<{foreach from=$linelist_zyx item=line_zyx}>
+						<li><span class="price">￥<{$line_zyx.p_price}>起</span><div class="title"><a href="<{$line_zyx.p_url}>" class="title1" target="_blank"><{$line_zyx.p_title}></a> <a href="<{$line_zyx.p_url}>" class="title2" target="_blank"><{$line_zyx.p_short_title2}></a></div></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<div class="rightbox">
+				<{foreach from=$splinelist03 item=sp_linelist03}>
+					<p><a href="<{$sp_linelist03.p_url}>" target="_blank"><img src="<{$sp_linelist03.smallpic}>" class="img"></a></p>
+					<p class="title"><a href="<{$sp_linelist03.p_url}>" target="_blank"><{$sp_linelist03.p_short_title}> <{$sp_linelist03.p_short_title2}></a></p>
+					<p class="price01"><span class="fr">折扣：<{$sp_linelist03.zhekou}>折</span>原价：￥<{$sp_linelist03.p_market_price}>起</p>
+					<p class="price02">
+						<a href="<{$sp_linelist03.p_url}>" class="moredetail fr">去抢购</a><span class="f16 fb orange01">￥<{$sp_linelist03.p_price}>起</span>
+					</p>
+				<{/foreach}>
+			</div>
+		</div>
+	</div>
+</div>
+<!--友情链接-->
+<div class="main mt10">
+	<div class="flinkbox">
+		<h3>友情链接</h3>
+		<div class="box">
+			<ul class="flinklist clearfix">
+				<{foreach from=$flinklist item=flink}>
+				<li><a href="<{$flink.l_address}>" target="_blank"><{$flink.l_name}></a></li>
+				<{/foreach}>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--友情链接-->
+<{include file="default/`$setting.templates`/block_service.html" }>
+<{include file="default/`$setting.templates`/foot.html" }>
+</body>
+</html>

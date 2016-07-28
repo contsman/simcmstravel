@@ -9,7 +9,8 @@
 <script type="text/javascript">
 	$(function() {
 		var items_array = [
-			{ name:"name",type:"",simple:"地区名称",focusMsg:'请填写地区名称'}
+			{ name:"name",type:"",simple:"地区名称",focusMsg:'请填写地区名称'},
+			{ name:"id",type:"",simple:"地区代码",focusMsg:'请填写地区代码'}
 		];
 		$("#areaform").skygqCheckAjaxForm({
 			items			: items_array
@@ -28,6 +29,10 @@
 <td><input name="name" type="text"  size="30" value="<{$area.name}>" /></td>
 </tr>
 <tr>
+<th>代码：</th>
+<td><input name="id" type="text"  size="30" <{if $ac == 'edit'}> readonly <{/if}> value="<{$area.id}>" /></td>
+</tr>
+<tr>
 <th>排序：</th>
 <td>
 	<input type="text" name="orderid" size="5" value="<{$area.l_orderid}>">
@@ -38,7 +43,6 @@
 <td>
 	<div class="buttons"><input type="submit" name="thevaluesubmit" value="提交保存" class="submit">
 	<input type="hidden" name="ac" value="<{$ac}>">
-	<input type="hidden" name="id" value="<{$area.id}>">
 	<input type="hidden" name="parentid" value="<{$area.parentid}>">
 	<input type="reset" name="thevaluereset" value="重置">
 </div>
