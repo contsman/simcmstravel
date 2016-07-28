@@ -1,13 +1,4 @@
 <?php
-/*
- 本软件版权归作者所有,在投入使用之前注意获取许可
- 作者：北京市普艾斯科技有限公司
- 项目：simcms_锐游1.0
- 电话：010-58480317
- 网址：http://www.simcms.net
- simcms.net保留全部权力，受相关法律和国际		  		
- 公约保护，请勿非法修改、转载、散播，或用于其他赢利行为，并请勿删除版权声明。
-*/
 /**
  * 后台管理函数库
  */
@@ -195,7 +186,14 @@ function arr_province() {
 	global $db;
 	$data = $db -> row_select('area', "parentid=-1", 'id,name', 0, 'orderid asc');
 	return get_array($data, 'id', 'name');
-} 
+}
+
+//线路分类 add by contsman
+function arr_category(){
+    global $db;
+    $data = $db -> row_select('products_category', "parentid = 0 and isshow = 1", 'catid,catname', 0, 'listorder asc');
+    return get_array($data, 'catid', 'catname');
+}
 // 地区数组
 function arr_city() {
 	global $db;
@@ -308,7 +306,26 @@ function get_home_comline($where) {
 	} 
 	$list = get_line($cwhere, '1');
 	return $list;
-} 
+}
+
+function get_all_line(){
+    global $db;
+    $cwhere = "ishot = 1";
+//    if (!empty($where)) {
+//        $cwhere .= " and " . $where;
+//    }
+    $list = $db -> row_select('products', $cwhere, '*', '4', 'p_addtime desc');
+    foreach($list as $key => $value) {
+        if (!empty($value['p_pics'])) {
+            $pic = explode('.', $value['p_pics']);
+            $list[$key]['smallpic'] = str_replace('upload/upload','upload/small',$pic[0]) . ".jpg";
+        }
+        $list[$key]['p_title'] = _substr($value['p_title'], 0, 26);
+        $list[$key]['p_detail'] = _substr(strip_tags($value['p_detail']), 0, 130);
+        $time_dir = date('Ym', $value['p_addtime']);
+        $list[$key]['p_url'] = WEB_URL . "/" . HTML_DIR . "line/" . $time_dir . "/" . $value['p_page'];
+    }
+}
 
 // 当季热卖
 function get_hotline($where) {

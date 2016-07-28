@@ -22,29 +22,33 @@ function html_index() {
 	//国外城市数组
 	$tpl->assign( 'citylist_en', arr_country());
 	
-	//首页推荐出境游
-	$cj_linelist = get_line("is_show=1 and catid=2 and recommend_home=1",'7');
-	$tpl->assign( 'linelist_cj', $cj_linelist);
+//	//首页推荐出境游
+//	$cj_linelist = get_line("is_show=1 and catid=2 and recommend_home=1",'7');
+//	$tpl->assign( 'linelist_cj', $cj_linelist);
+//
+//	//出境游特别推荐
+//	$sp_linelist01 = get_home_comline("catid=2");
+//	$tpl->assign( 'splinelist01', $sp_linelist01);
+//
+//	//首页推荐国内游
+//	$gn_linelist = get_line("is_show=1 and catid=1 and recommend_home=1",'7');
+//	$tpl->assign( 'linelist_gn', $gn_linelist);
+//
+//	//国内游特别推荐
+//	$sp_linelist02 = get_home_comline("catid=1");
+//	$tpl->assign( 'splinelist02', $sp_linelist02);
+//
+//	//首页推荐自由行
+//	$zyx_linelist = get_line("is_show=1 and p_extension like '%自由行%'",'7');
+//	$tpl->assign( 'linelist_zyx', $zyx_linelist);
+//
+//	//自由行特别推荐
+//	$sp_linelist03 = get_home_comline("p_extension like '%自由行%'");
+//	$tpl->assign( 'splinelist03', $sp_linelist03);
 
-	//出境游特别推荐
-	$sp_linelist01 = get_home_comline("catid=2");
-	$tpl->assign( 'splinelist01', $sp_linelist01);
-
-	//首页推荐国内游
-	$gn_linelist = get_line("is_show=1 and catid=1 and recommend_home=1",'7');
-	$tpl->assign( 'linelist_gn', $gn_linelist);
-
-	//国内游特别推荐
-	$sp_linelist02 = get_home_comline("catid=1");
-	$tpl->assign( 'splinelist02', $sp_linelist02);
-
-	//首页推荐自由行
-	$zyx_linelist = get_line("is_show=1 and p_extension like '%自由行%'",'7');
-	$tpl->assign( 'linelist_zyx', $zyx_linelist);
-
-	//自由行特别推荐
-	$sp_linelist03 = get_home_comline("p_extension like '%自由行%'");
-	$tpl->assign( 'splinelist03', $sp_linelist03);
+    //首页所有线路
+    $allline = get_all_line();
+	$tpl->assign( 'allline', $allline);
 	
 	//首页推荐签证
 	$tpl->assign( 'comvisalist', recom_visa());

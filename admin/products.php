@@ -17,6 +17,7 @@ $tree -> init($commoncache['products_category']);
 $childs = $tree -> get_allchild(6);
 
 $array_province = arr_province();
+$array_category = arr_category();//add by contsman
 $array_city = arr_city();
 $array_continent = arr_continent();
 $array_country = arr_country();
@@ -340,7 +341,8 @@ elseif ($ac == 'add' || $ac == 'edit')
 			$tpl->assign( 'arrivallist', $arrival_list );
 		}
 		
-		$select_category = select_make($data['catid'], array('1'=>'国内游','2'=>'出境游'), '-全部分类-');
+//		$select_category = select_make($data['catid'], array('1'=>'国内游','2'=>'出境游'), '-全部分类-');
+        $select_category = select_make($data['catid'], $array_category, '-请选择分类-');//change by contsman
 		$select_province = select_make($data['p_departure_province'],$array_province,"请选择省份");
 		$select_city = select_make($data['p_departure_city'],$array_city,"请选择城市");
 
