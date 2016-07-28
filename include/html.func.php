@@ -127,7 +127,7 @@ function html_channel($catid) {
 		fclose($fp);
 	}
 	elseif($catid==3){
-		$tpl->assign( 'menustate', '5');
+		$tpl->assign( 'menustate', '4');
 		$tpl->assign( 'catname', '游轮旅游');
 		$tpl->assign( 'morekeywords', urlencode("游轮"));
 		//当季热卖
@@ -175,7 +175,7 @@ function html_channel($catid) {
 		fclose($fp);
 	}
 	elseif($catid==5){
-		$tpl->assign( 'menustate', '7');
+		$tpl->assign( 'menustate', '5');
 		$tpl->assign( 'catname', '学生专题');
 		$tpl->assign( 'morekeywords', urlencode("学生"));
 		//当季热卖
@@ -199,7 +199,7 @@ function html_channel($catid) {
 		fclose($fp);
 	}
 	elseif($catid==6){
-		$tpl->assign( 'menustate', '4');
+		$tpl->assign( 'menustate', '6');
 		$tpl->assign( 'catname', '各国签证');
 		
 		$array_country = arr_country();

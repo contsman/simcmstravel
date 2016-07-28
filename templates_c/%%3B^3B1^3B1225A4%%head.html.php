@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-24 11:56:57
+<?php /* Smarty version 2.6.18, created on 2016-07-28 13:59:14
          compiled from default/default/head.html */ ?>
 <script language="JavaScript">
 $(function() {
