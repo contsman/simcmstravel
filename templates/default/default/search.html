@@ -7,6 +7,7 @@
 		<meta content="<{$setting.description}>" name="description" />
 		<link href="<{$weburl}>/templates/default/<{$setting.templates}>/css/page_search.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="<{$weburl}>/static/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.lazyload-1.9.3.min.js"></script>
 		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.cookie.min.js"></script>
 		<script type="text/javascript" src="<{$weburl}>/static/js/jquery.timers.js"></script>
 		<script type="text/javascript" src="<{$weburl}>/static/js/productCompare.js"></script>
@@ -27,6 +28,12 @@
 						$("#arrival_city").show(); 
 						$("#arrival_city").html(data); // 把返回的数据添加到页面上
 					});
+				});
+				$("img.lazy").lazyload({
+					effect : "fadeIn",
+					threshold : 0,
+					placeholder : "<{$weburl}>/static/pic/loading_def.jpg"
+
 				});
 			})
 		</script>
@@ -123,7 +130,7 @@
 							<p class="mt5"><a link="<{$weburl}>/index.php?mod=compare" name="<{$linelist.p_short_title}>" value="<{$linelist.p_id}>" id="<{$linelist.p_id}>" class="addCompare but02">加入对比</a></p>
 						</div>
 						<dt><span class="price">￥<{$linelist.p_price}>元起</span><a href="<{$linelist.p_url}>" target="_blank" class="title"><{$linelist.p_title}></a> <a href="<{$linelist.p_url}>" target="_blank" class="title2"><{$linelist.p_short_title2}></a></dt>
-						<dd class="img"><a href="<{$linelist.p_url}>" target="_blank"><{if $linelist.p_pics<>""}><img src="<{$linelist.smallpic}>" /><{else}><img src="<{$weburl}>/static/pic/snopic.jpg" /><{/if}></a></dd>
+						<dd class="img"><a href="<{$linelist.p_url}>" target="_blank"><{if $linelist.p_pics<>""}><img class="lazy" data-original="<{$linelist.smallpic}>" /><{else}><img src="<{$weburl}>/static/pic/snopic.jpg" /><{/if}></a></dd>
 						<dd class="info">
 							<p>特色：<{$linelist.p_detail}></p>
 							<p><span class="orange01">编号：<{$linelist.p_no}></span> &nbsp;&nbsp;&nbsp;出发城市：<{$linelist.city}>&nbsp;&nbsp;&nbsp;天数：<{$linelist.p_travel_days}>天</p>

@@ -1,7 +1,4 @@
-<?php 
-/*
-锦尚中国站长分享圈子 bbs.52jscn.com
-*/
+<?php
     include_once "smarty/Smarty.class.php";
     $tpl =new Smarty;
     $tpl->template_dir = WEB_ROOT.TPL_DIR;
