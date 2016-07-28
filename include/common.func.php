@@ -184,7 +184,7 @@ function arr_area_desc() {
 // 省份数组
 function arr_province() {
 	global $db;
-	$data = $db -> row_select('area', "parentid=-1", 'id,name', 0, 'orderid asc');
+	$data = $db -> row_select('area', "parentid=0", 'id,name', 0, 'orderid asc');
 	return get_array($data, 'id', 'name');
 }
 
