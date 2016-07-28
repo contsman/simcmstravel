@@ -308,24 +308,6 @@ function get_home_comline($where) {
 	return $list;
 }
 
-function get_all_line(){
-    global $db;
-    $cwhere = "ishot = 1";
-//    if (!empty($where)) {
-//        $cwhere .= " and " . $where;
-//    }
-    $list = $db -> row_select('products', $cwhere, '*', '4', 'p_addtime desc');
-    foreach($list as $key => $value) {
-        if (!empty($value['p_pics'])) {
-            $pic = explode('.', $value['p_pics']);
-            $list[$key]['smallpic'] = str_replace('upload/upload','upload/small',$pic[0]) . ".jpg";
-        }
-        $list[$key]['p_title'] = _substr($value['p_title'], 0, 26);
-        $list[$key]['p_detail'] = _substr(strip_tags($value['p_detail']), 0, 130);
-        $time_dir = date('Ym', $value['p_addtime']);
-        $list[$key]['p_url'] = WEB_URL . "/" . HTML_DIR . "line/" . $time_dir . "/" . $value['p_page'];
-    }
-}
 
 // 当季热卖
 function get_hotline($where) {
