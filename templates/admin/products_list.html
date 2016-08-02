@@ -53,7 +53,7 @@
 		<td align="center"><input type="checkbox" name="bulkid[]" value="<{$products.p_id}>"></td>
 		<td align="center" width="50"><{$products.p_id}></td>
 		<td><a href="<{$products.p_url}>" target="_blank"/><{$products.p_title}></a> <{if $products.p_pics<>""}>[图]<{/if}>  <{if $products.recommend==1}><span class="red">推荐</span><{/if}> <{if $products.recommend_home==1}><span class="red">首页推荐</span><{/if}> <{if $products.sp_recommend_home==1}><span class="red">首页特别推荐</span><{/if}> <{if $products.promotions==1}><span class="red">促销线路</span><{/if}> <{if $products.ishot==1}><span class="red">当季热卖</span><{/if}></td>
-		<td align="center"><{if $products.catid==1}>国内游<{else}>出境游<{/if}></td>
+		<td align="center"><{$products.catname}></td>
 		<td align="center"><{$products.p_addtime}></td>
 		<td align="center"><{if $products.is_show==1}>是<{else}><span class="orange01">否</span><{/if}></td>
 		<td align="center"> <a href="<{$adminpage}>?mod=products&ac=show&isshow=<{if $products.is_show==1}>2<{else}>1<{/if}>&id=<{$products.p_id}>"><{if $products.is_show==1}>不显示<{else}>显示<{/if}></a> | <a href="<{$adminpage}>?mod=products&ac=html&id=<{$products.p_id}>">生成静态</a> | <a href="<{$adminpage}>?mod=departure_time&ac=list&pid=<{$products.p_id}>">出发日期</a> <br/> <a href="<{$adminpage}>?mod=trip&ac=list&pid=<{$products.p_id}>">行程列表</a> | <a href="<{$adminpage}>?mod=products&ac=edit&id=<{$products.p_id}>">编辑</a> | <a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=products&ac=del&id=<{$products.p_id}>'">删除</a>

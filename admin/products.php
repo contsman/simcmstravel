@@ -74,7 +74,7 @@ if ($ac == 'list')
 	$select_category = select_category('products_category',$catid, 'name="catid" id="catid"', '-选择分类-', $catid);
 
     include(INC_DIR.'Page.class.php');
-	$Page = new Page($db->tb_prefix.'products',$where,'*','20','p_id desc');
+	$Page = new Page($db->tb_prefix.'products a',$where,'a.*,(select catname from travel_products_category b where b.catid = a.catid) catname','20','p_id desc');
     $list = $Page->get_data();
 	foreach($list as $key => $value){
 		$list[$key]['p_addtime'] = date('Y-m-d H:i:s',$value['p_addtime']);
