@@ -56,14 +56,47 @@ if (!empty($_GET['ajax']) && isset($_GET['zcid']))
 if (!empty($_GET['ajax']) && isset($_GET['china_cid']))
 {	header('Content-Type:text/plain; charset=utf-8');
 	$citylist = "<option value='' selected>请选择城市</option>";
-	$list = $db->row_select('area',"parentid='".$_GET['china_cid']."'");
-	if($list){
-		foreach($list as $key => $value){
-			$citylist .= "<option value='".$value['id']."' name='cid'>".$value['name']."</option>";
-		}
-	}
+    if(!empty($_GET['china_cid'])){
+        $list = $db->row_select('area',"parentid='".$_GET['china_cid']."'");
+        if($list){
+            foreach($list as $key => $value){
+                $citylist .= "<option value='".$value['id']."' name='cid'>".$value['name']."</option>";
+            }
+        }
+    }else{
+        $list = $db -> row_select('area', " parentid in(110000,120000,310000) or id like '__0100' ", 'id,name', 0, 'orderid asc');//and name like '%市'
+        if($list){
+            foreach($list as $key => $value){
+                $citylist .= "<option value='".$value['id']."' name='cid'>".$value['name']."</option>";
+            }
+        }
+    }
+
 	echo $citylist;
 	exit;
+}
+
+//分类选择
+if (!empty($_GET['ajax']) && isset($_GET['p_catid']))
+{	header('Content-Type:text/plain; charset=utf-8');
+    $citylist = "<option value='' selected>-请选择分类-</option>";
+    if(!empty($_GET['p_catid'])){
+        $list = $db->row_select('products_category',"parentid='".$_GET['p_catid']."'");
+        if($list){
+            foreach($list as $key => $value){
+                $citylist .= "<option value='".$value['catid']."'>".$value['catname']."</option>";
+            }
+        }
+    }else{//control line sub category
+        $list = $db -> row_select('products_category', "parentid != 0 and isshow = 1 and parentid in(select catid from travel_products_category where parentid = 0 and isshow = 1)", 'catid,catname', 0, 'listorder asc');
+        if($list){
+            foreach($list as $key => $value){
+                $citylist .= "<option value='".$value['catid']."'>".$value['catname']."</option>";
+            }
+        }
+    }
+    echo $citylist;
+    exit;
 }
 
 //国内城市选择(多选)

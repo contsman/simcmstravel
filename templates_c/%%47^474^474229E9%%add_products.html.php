@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-07-26 14:33:16
+<?php /* Smarty version 2.6.18, created on 2016-08-01 17:30:26
          compiled from admin/add_products.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="static/js/uploadify/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="static/js/uploadify/swfobject.js"></script>
 	<script type="text/javascript" src="static/js/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+	<script type="text/javascript" src="<?php echo $this->_tpl_vars['weburl']; ?>
+/static/js/lhgcalendar/lhgcalendar.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$('#file_upload').uploadify({
@@ -45,23 +47,38 @@
 			});
 
 			//分类选择
-			$("#catid").change(function(){
-				if( $("#catid").val() == 2 ){
+			$("#p_catid").change(function(){
+				if( $("#p_catid").val() == 55 ){
 					$("#china").hide().siblings().show();
 				}
 				else{
 					$("#china").show().siblings().hide();
 				}
+				$.get("index.php?mod=ajax&ajax=1", {
+							p_catid :  $("#p_catid").val()
+						}, function (data, textStatus){
+							$("#catid").html(data); // 把返回的数据添加到页面上
+						}
+				);
 			});
 
 			//国内城市选择
 			$("#chinaprovince").change(function(){
-				$.get("index.php?mod=ajax&ajax=1", {
-							china_cid :  $("#chinaprovince").val()
-						}, function (data, textStatus){
-							$("#chinacity").html(data); // 把返回的数据添加到页面上
-						}
-				);
+//				//110000,120000,310000
+//				if(){
+//
+//				}else if(){
+//
+//				}else if(){
+//
+//				}else{
+					$.get("index.php?mod=ajax&ajax=1", {
+								china_cid :  $("#chinaprovince").val()
+							}, function (data, textStatus){
+								$("#chinacity").html(data); // 把返回的数据添加到页面上
+							}
+					);
+//				}
 			});
 
 			//国内城市选择(多选)
@@ -123,6 +140,11 @@
 						}
 					}
 			);
+			//截止日期
+			$('#p_enddate').calendar();
+
+			//发团时间
+			$('#p_departure_time').calendar();
 		});
 	</script>
 </head>
@@ -150,8 +172,12 @@
 			<tr>
 				<th>分类：</th>
 				<td>
-					<select name="catid" id="catid">
+					<select name="p_catid" id="p_catid">
 						<?php echo $this->_tpl_vars['selectcategory']; ?>
+
+					</select>
+					<select name="catid" id="catid">
+						<?php echo $this->_tpl_vars['subselectcategory']; ?>
 
 					</select>
 				</td>
@@ -256,12 +282,12 @@
 			</tr>
 			<tr>
 				<th>截止日期：</th>
-				<td><input name="p_enddate" type="text" size="30" value="<?php echo $this->_tpl_vars['products']['p_enddate']; ?>
+				<td><input id="p_enddate" name="p_enddate" type="text" size="30" class="inp02 remindAuto" value="<?php echo $this->_tpl_vars['products']['p_enddate']; ?>
 " /></td>
 			</tr>
 			<tr>
 				<th>发团时间：</th>
-				<td><input name="p_departure_time" type="text" size="30" value="<?php echo $this->_tpl_vars['products']['p_departure_time']; ?>
+				<td><input id="p_departure_time" name="p_departure_time" type="text" class="inp02 remindAuto" size="30" value="<?php echo $this->_tpl_vars['products']['p_departure_time']; ?>
 " /></td>
 			</tr>
 			<tr>

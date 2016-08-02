@@ -14,7 +14,7 @@ $ac_arr = array('list'=>'关键字列表','add'=>'添加关键字','edit'=>'编�
 //当前操作
 $ac = isset($_REQUEST['ac']) && isset($ac_arr[$_REQUEST['ac']]) ? $_REQUEST['ac'] : 'default';
 //类型
-$k_type = array('0'=>'出境游','1'=>'国内游','2'=>'自由行');
+$k_type = arr_category();
 
 $tpl->assign( 'k_type',$k_type);
 $tpl->assign( 'mod_name', $mod_name );

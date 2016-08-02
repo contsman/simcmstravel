@@ -1,13 +1,4 @@
 <?php
-/*
- 本软件版权归作者所有,在投入使用之前注意获取许可
- 作者：北京市普艾斯科技有限公司
- 项目：simcms_锐游1.0
- 电话：010-58480317
- 网址：http://www.simcms.net
- simcms.net保留全部权力，受相关法律和国际		  		
- 公约保护，请勿非法修改、转载、散播，或用于其他赢利行为，并请勿删除版权声明。
-*/
 /**
  * ------------------------------
  * 分页类
@@ -39,6 +30,7 @@ class Page
      */
     function Page($tbname,$where='1=1',$field='*',$page_size=20,$order_by='',$group_by='')
     {
+
         !mysql_ping() && exit('mysql can not connect!');
         
         if (!empty($page_size)) $this->page_size = $page_size;

@@ -208,6 +208,13 @@ class Mysql
         return $sql;
     }
 
+    //edit product query sql
+    function sql_select_one_product($tbname, $where='', $fields='*', $limit=0, $order_by='', $group_by='')
+    {
+        $sql = "SELECT $fields FROM ".$this->tb_prefix.$tbname.($where ? ' WHERE '.$where : '').($group_by ? " GROUP BY $group_by" : '').($order_by ? " ORDER BY $order_by" : '').($limit ? ' LIMIT '.$limit : '');
+        return $sql;
+    }
+
     //插入一条数据sql
     function sql_insert($tbname, $row, $replace=0)
     {
@@ -295,7 +302,7 @@ class Mysql
     //查找
     function row_select($tbname, $where='', $fields='*', $limit=0, $order_by='', $group_by='')
     {
-        $sql = $this->sql_select($tbname, $where, $fields, $limit, $order_by, $group_by);       
+        $sql = $this->sql_select($tbname, $where, $fields, $limit, $order_by, $group_by);
         return $this->row_query($sql);
     }
 
@@ -303,6 +310,13 @@ class Mysql
     function row_select_one($tbname, $where='', $fields='*', $order_by='', $group_by='')
     {
         $sql = $this->sql_select($tbname, $where, $fields, 1, $order_by, $group_by);
+        return $this->row_query_one($sql);
+    }
+
+    //查找一行
+    function row_select_one_product($tbname, $where='', $fields='*', $order_by='', $group_by='')
+    {
+        $sql = $this->sql_select_one_product($tbname, $where, $fields, 1, $order_by, $group_by);
         return $this->row_query_one($sql);
     }
 

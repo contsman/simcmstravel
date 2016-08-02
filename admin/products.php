@@ -17,7 +17,9 @@ $tree -> init($commoncache['products_category']);
 $childs = $tree -> get_allchild(6);
 
 $array_province = arr_province();
-$array_city = arr_city();
+$array_category = arr_category();
+$array_sub_category = arr_sub_category($_GET['id']);
+$array_city = arr_sub_city($_GET['id']);
 $array_continent = arr_continent();
 $array_country = arr_country();
 
@@ -195,10 +197,11 @@ elseif ($ac == 'add' || $ac == 'edit')
 		//图片
 		if (isset($_POST['p_pics'])) {
 			$post['p_pics'] = implode("|", $_POST['p_pics']);
+            $post['p_smallpic'] = str_replace('upload/upload', 'upload/small', $post['p_pics']);
 		} else {
 			$post['p_pics'] = "";
-		} 
-		
+		}
+
         if ($ac == 'add')
         {
 			$post['p_addtime'] = time();
@@ -226,7 +229,7 @@ elseif ($ac == 'add' || $ac == 'edit')
 			$data = array('p_id'=>'','p_title'=>'','p_title2'=>'','p_no'=>'','p_detail'=>'','p_aid'=>'','p_departure_province'=>'','p_departure_city'=>'','p_enddate'=>'','p_departure_time'=>'','p_tel'=>'','p_travel_days'=>'','p_market_price'=>'','p_price'=>'','p_hot'=>'','p_signup'=>'','p_stay'=>'','p_transport'=>'','p_characteristic'=>'','p_visa'=>'','p_fees'=>'','p_tips'=>'','p_keywords'=>'','p_smallpic'=>'','p_pics'=>'','catid'=>'','p_type'=>'','p_page'=>'','p_tpl'=>'products.html','is_show'=>'','recommend'=>'','recommend_home'=>'','sp_recommend_home'=>'','promotions'=>'','ishot'=>'','p_extension'=>'');
 		}
         else {
-			$data = $db->row_select_one('products',"p_id=".intval($_GET['id']));
+			$data = $db->row_select_one_product('products b',"b.p_id=".intval($_GET['id']),"*,(SELECT parentid FROM travel_products_category a where a.catid = b.catid) p_catid,(select parentid from travel_products_category where catid = b.catid) rootcatid");
 			if (!empty($data['p_pics'])) {
 				$pic_list = explode('|', $data['p_pics']);
 				$piclist = array();
@@ -240,7 +243,7 @@ elseif ($ac == 'add' || $ac == 'edit')
 				$tpl -> assign('pic_list', $piclist);
 			} 
 			$arrival_list = "";
-			if($data['catid']==1){
+			if($data['rootcatid']!=55){
 				$arrival_list = "<div id='china'>";
 				$arrival_one = explode("|",$data['p_arrival_one']);
 				$arrival_two = explode("|",$data['p_arrival_two']);
@@ -339,13 +342,14 @@ elseif ($ac == 'add' || $ac == 'edit')
 			}
 			$tpl->assign( 'arrivallist', $arrival_list );
 		}
-		
-		$select_category = select_make($data['catid'], array('1'=>'国内游','2'=>'出境游'), '-全部分类-');
+		$select_category = select_make($data['p_catid'], $array_category, '-请选择分类-');
+        $sub_select_category = select_make($data['catid'], $array_sub_category, '-请选择分类-');
 		$select_province = select_make($data['p_departure_province'],$array_province,"请选择省份");
 		$select_city = select_make($data['p_departure_city'],$array_city,"请选择城市");
 
 		$select_productstype = select_make($data['p_type'],array('普通线路','推荐线路'));
 		$tpl->assign( 'selectcategory', $select_category );
+		$tpl->assign( 'subselectcategory', $sub_select_category );
 		$tpl->assign( 'select_productstype', $select_productstype );
 		$tpl->assign( 'selectprovince', $select_province );
 		$tpl->assign( 'selectcity', $select_city );

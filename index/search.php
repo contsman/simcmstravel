@@ -61,7 +61,7 @@ if (isset($_GET['keywords']) and $_GET['keywords'] != "" and $_GET['keywords'] !
 	setMyCookie("keywords", '', time() - COOKIETIME);
 } 
 if (!empty($_COOKIE['keywords'])){
-	$where .= " AND (`p_keywords` like '%" . $_COOKIE['keywords'] . "%' or p_title like '%" . $_COOKIE['keywords'] . "%')";
+	$where .= " AND (`p_keywords` like '%" . $_COOKIE['keywords'] . "%' or p_title like '%" . $_COOKIE['keywords'] . "%' or catid = (select catid from travel_products_category where catname like '%".$_COOKIE['keywords']."%') or p_detail like'%".$_COOKIE['keywords']."%')";
 } 
 // 价格
 if (isset($_GET['price']) and $_GET['price'] != "" and $_GET['price'] != "价格区间"){

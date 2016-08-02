@@ -97,8 +97,9 @@ body{font-weight:normal;font-family:"宋体",verdana,lucida,helvetica,arial,sans
 
 .products .head {
     height: 60px;
-    line-height: 60px;
+    /*line-height: 60px;*/
     border-bottom: 1px dotted #c1c1c2;
+    margin-top: 10px;
 }
 .products .head .title {
     margin-left: 10px;

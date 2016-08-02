@@ -48,6 +48,9 @@ input.date, input.endDate {background: url("../../img/admin/input_date.png") no-
 .maintable{width:100%;background:#fff;}
 .maintable th,.maintable td{padding:5px 10px;font-size:12px;border-bottom:1px solid #f5f5f5;}
 .maintable th{width:160px;text-align:right;color:#666;border-bottom:1px solid #f5f5f5;}
+.maintable .inp02{border:1px solid #d8d8d8;padding:3px 5px;width:240px;font-family:"宋体";background:#fff url(/templates/default/default/img/calendar.gif) no-repeat 230px 5px}
+
+
 .listtable input[type=text],.listtable textarea,.maintable input[type=text],.maintable textarea{border: 1px solid #D0D0D0;font-family: Verdana,Geneva,sans-serif,"宋体";font-size: 12px;margin: 0 5px 0 0;padding:4px;}
 
 .htmlmenu{border:1px solid #eee;border-bottom:none;}

@@ -193,15 +193,56 @@ function arr_area_desc() {
 // 省份数组
 function arr_province() {
 	global $db;
-	$data = $db -> row_select('area', "parentid=-1", 'id,name', 0, 'orderid asc');
+	$data = $db -> row_select('area', "parentid = 0", 'id,name', 0, 'orderid asc');
 	return get_array($data, 'id', 'name');
-} 
+}
+
+//线路分类
+function arr_category(){
+    global $db;
+    $data = $db -> row_select('products_category', "parentid = 0 and isshow = 1", 'catid,catname', 0, 'listorder asc');
+    return get_array($data, 'catid', 'catname');
+}
+//子分类
+function arr_sub_category($subcatid){
+    global $db;
+    $where = " 1=1 ";
+    $data = array();
+    if(!empty($subcatid)){
+        $parentid_data = $db->row_select_one_product('products b',"b.p_id=".intval($subcatid),"*,(SELECT parentid FROM travel_products_category a where a.catid = b.catid) p_catid");
+        $where.="and parentid = ".intval($parentid_data['p_catid']);
+        $data = $db -> row_select('products_category', $where." and parentid != 0 and isshow = 1 and parentid in(select catid from travel_products_category where parentid = 0 and isshow = 1)", 'catid,catname', 0, 'listorder asc');
+    }else{
+        $data = $db -> row_select('products_category', $where." and parentid != 0 and isshow = 1 and parentid in(select catid from travel_products_category where parentid = 0 and isshow = 1)", 'catid,catname', 0, 'listorder asc');
+    }
+    return get_array($data, 'catid', 'catname');
+}
 // 地区数组
 function arr_city() {
 	global $db;
-	$data = $db -> row_select('area', "id in(110000,120000,310000) or id like '__0100' and name like '%市'", 'id,name', 0, 'orderid asc');
+	$data = $db -> row_select('area', "parentid in(110000,120000,310000) or id like '__0100' ", 'id,name', 0, 'orderid asc');//and name like '%市'
 	return get_array($data, 'id', 'name');
-} 
+}
+
+function arr_city_home(){
+    global $db;
+    $data = $db -> row_select('area', "id in(110000,120000,310000) or id like '__0100' and name like '%市' ", 'id,name', 0, 'orderid asc');//and name like '%市'
+    return get_array($data, 'id', 'name');
+}
+
+// arrival_city
+function arr_sub_city($subcatid) {
+    global $db;
+    $data = array();
+    if(!empty($subcatid)){
+        $one_product = $db -> row_select_one("products","p_id=".intval($subcatid));
+        $data = $db -> row_select('area', " parentid=".intval($one_product['p_departure_province']), 'id,name', 0, 'orderid asc');//and name like '%市'
+    }else{
+        $data = $db -> row_select('area', " parentid in(110000,120000,310000) or id like '__0100' ", 'id,name', 0, 'orderid asc');//and name like '%市'
+    }
+
+    return get_array($data, 'id', 'name');
+}
 // 签证分类数组
 function arr_visa_category() {
 	global $db;
@@ -277,7 +318,65 @@ function get_line($where, $num) {
 		$list[$key]['p_url'] = WEB_URL . "/" . HTML_DIR . "line/" . $time_dir . "/" . $value['p_page'];
 	} 
 	return $list;
-} 
+}
+//get line by catid
+function warea_line($catid){
+    global $db;
+    $world_area_list = $db -> row_select('products_category', '1=1 and parentid = '.$catid.' and isshow  = 1 ', 'catid,parentid,catname', '0', 'listorder asc');
+    $keywordrslist = array();
+    $list = array();
+    foreach($world_area_list as $key => $value) {
+        if(!empty($value['catid']) && !empty($value['parentid']) && !empty($value['catname'])) {
+            $keywordrslist['catid'] = $value['catid'];
+            $keywordrslist['parentid'] = $value['parentid'];
+            $keywordrslist['catname'] = $value['catname'];
+            array_push($list,$keywordrslist);
+        }
+    }
+    return $list;
+}
+//首页所有线路数据组装
+function get_all_line() {
+    global $db;
+    $commonwhere = "1 = 1";
+
+    $where = $commonwhere." and parentid = 0 and isshow = 1";
+
+    $list = array();
+
+    $all_category_list = $db -> row_select('products_category', $where, 'catid,catname', 0, 'listorder asc');
+    foreach ($all_category_list as $key=>$value){
+        $area_list = array();
+        $where = $commonwhere." and parentid = ".$value['catid'];
+        $sub_category_list = $db -> row_select('products_category', $where, 'catid,catname', 0, 'listorder asc');
+        foreach($sub_category_list as $sub_key => $sub_value){
+            $warea_list = get_world_area($value['catid']);
+            array_push($area_list,$warea_list);
+        }
+        $arr = array('id' => $value['catid'], 'catname' => $value['catname'],'warea' => $warea_list/*,'area_hot_country' =>$area_hot_country,'area_hot_city' =>$area_hot_city*/);
+        array_push($list,$arr);
+    }
+//    echo json_encode($list);
+
+//    if (!empty($where)) {
+//        $where = $commonwhere . " and " . $where;
+//    }
+//    $list = $db -> row_select('products', $where, 'p_id,p_no,p_title,p_title2,p_market_price,p_price,p_travel_days,p_addtime,p_page,p_pics', $num, 'p_addtime desc');
+//    foreach($list as $key => $value) {
+//        if (!empty($value['p_pics'])) {
+//            $pic = explode('.', $value['p_pics']);
+//            $list[$key]['smallpic'] = str_replace('upload/upload','upload/small',$pic[0]) . ".jpg";
+//        }
+//        if(!empty($value['p_market_price']) and !empty($value['p_price'])){
+//            $list[$key]['zhekou'] = sprintf('%.1f',($value['p_price']/$value['p_market_price'])*10);
+//        }
+//        $list[$key]['p_short_title'] = _substr($value['p_title'], 0, 44);
+//        $list[$key]['p_short_title2'] = _substr($value['p_title2'], 0, 44);
+//        $time_dir = date('Ym', $value['p_addtime']);
+//        $list[$key]['p_url'] = WEB_URL . "/" . HTML_DIR . "line/" . $time_dir . "/" . $value['p_page'];
+//    }
+    return $list;
+}
 
 /**
  * 热门线路TOP10
@@ -308,7 +407,7 @@ function get_home_comline($where) {
 	} 
 	$list = get_line($cwhere, '1');
 	return $list;
-} 
+}
 
 // 当季热卖
 function get_hotline($where) {
@@ -396,7 +495,50 @@ function get_keywords()
 		} 
 	} 
 	return $keywordrslist;
-} 
+}
+// 关键字
+function get_keywordsbycatid($catid)
+{
+    global $db;//travel_products_category where parentid = 55 and isshow  = 1 order by listorder asc
+    $keywordrs = $db -> row_select('travel_products_category', '1=1 and parentid = '.$catid.' and isshow  = 1 ', 'catid,parentid,catname', '0', 'listorder asc');
+    $keywordrslist = array();
+    foreach($keywordrs as $key => $value) {
+        if(!empty($value['k_keyword'])) {
+            $k_keyword = explode('|', $value['k_keyword']);
+            foreach($k_keyword as $k => $v) {
+                $keywordrslist[$key]['keyword'][$k]['keyword'] = $v;
+                $keywordrslist[$key]['keyword'][$k]['keywords'] = urlencode($v);
+            }
+        }
+    }
+    return $keywordrslist;
+}
+
+// 关键字
+function get_world_area($catid)
+{
+    global $db;
+    $world_area_list = $db -> row_select('products_category', '1=1 and parentid = '.$catid.' and isshow  = 1 ', 'catid,parentid,catname', '0', 'listorder asc');
+    $area_line_data_list = array();
+    $list = array();
+    foreach($world_area_list as $key => $value) {
+        if(!empty($value['catid']) && !empty($value['parentid']) && !empty($value['catname'])) {
+            $area_line_data_list['catid'] = $value['catid'];
+            $area_line_data_list['parentid'] = $value['parentid'];
+            $area_line_data_list['catname'] = $value['catname'];
+            $area_line_list = $db -> row_select('products', '1=1 and catid = '.$value['catid'].' and is_show  = 1 ', '*,concat(\'/line/\',FROM_UNIXTIME(p_addtime,\'%Y%m\')) p_url,(select name from travel_area where id = p_departure_province) departure_province_name', '10', 'recommend_home,recommend desc');
+            foreach($area_line_list as $pic_key => $pic_value) {
+                if (!empty($pic_value['p_pics'])) {
+                    $pic = explode('|', $pic_value['p_pics']);
+                    $area_line_list[$pic_key]['p_smallpic'] = str_replace('upload/upload', 'upload/small', $pic[0]);
+                }
+            }
+            $area_line_data_list['area_line'] = $area_line_list;
+            array_push($list,$area_line_data_list);
+        }
+    }
+    return $list;
+}
 
 //搜索页目的地
 function get_arrival($catid) {
@@ -413,8 +555,8 @@ function display_common_cache() {
 	$commoncache['products_category'] = get_category('products_category');
 	$commoncache['newslist01'] = get_comnews(53, 10);
 	$commoncache['newslist02'] = get_comnews(55, 10);
-	$commoncache['hotline01'] = get_comline(1);
-	$commoncache['hotline02'] = get_comline(2);
+	$commoncache['hotline01'] = get_comline(55);
+	$commoncache['hotline02'] = get_comline(58);
 	$commoncache['bottom_service'] = bottom_service();
 	$commoncache['keywords'] = get_keywords();
 	$commoncache['continent'] = arr_continent();

@@ -330,7 +330,7 @@ function select_make($id, $arr, $default_str = '', $default_val = '') {
 		$selected = '';
 		if ($k == $id) $selected = 'selected';
 		$option .= "<option value='{$k}' $selected>{$v}</option>\r\n";
-	} 
+	}
 	return $option;
 } 
 // 占用空间大小格式化
