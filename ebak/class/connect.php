@@ -9,146 +9,146 @@ $editor=0;
 require_once EBAK_PATH.'lang/dbchar.php';
 require_once EBAK_PATH.'class/config.php';
 
-//³¬Ê±ÉèÖÃ
+//è¶…æ—¶è®¾ç½®
 if($php_outtime)
 {
-	$php_outtime=(int)$php_outtime;
-	@set_time_limit($php_outtime);
+    $php_outtime=(int)$php_outtime;
+    @set_time_limit($php_outtime);
 }
 
 function db_connect(){
-	global $phome_db_server,$phome_db_username,$phome_db_password,$phome_db_dbname,$phome_db_port,$phome_db_char,$phome_db_ver,$editor,$fun_r;
-	$dblocalhost=$phome_db_server;
-	//¶Ë¿Ú
-	if($phome_db_port)
-	{
-		$dblocalhost.=":".$phome_db_port;
+    global $phome_db_server,$phome_db_username,$phome_db_password,$phome_db_dbname,$phome_db_port,$phome_db_char,$phome_db_ver,$editor,$fun_r;
+    $dblocalhost=$phome_db_server;
+    //ç«¯å£
+    if($phome_db_port)
+    {
+        $dblocalhost.=":".$phome_db_port;
     }
-	$link=@mysql_connect($dblocalhost,$phome_db_username,$phome_db_password);
-	//mysql_select_db($phome_db_dbname);
-	if(empty($link))
-	{
-		if(empty($fun_r['ConntConnectDb']))
-		{
-			if($editor==1){$a="../";}
-			elseif($editor==2){$a="../../";}
-			elseif($editor==3){$a="../../../";}
-			else{$a="";}
-			@include_once $a.LoadLang('f.php');
-		}
-		echo $fun_r['ConntConnectDb'];
-		exit();
-	}
-	//±àÂë
-	DoSetDbChar($phome_db_char);
-	if($phome_db_ver>='5.0')
-	{
-		@mysql_query("SET sql_mode=''");
-	}
-	return $link;
+    $link=@mysql_connect($dblocalhost,$phome_db_username,$phome_db_password);
+    //mysql_select_db($phome_db_dbname);
+    if(empty($link))
+    {
+        if(empty($fun_r['ConntConnectDb']))
+        {
+            if($editor==1){$a="../";}
+            elseif($editor==2){$a="../../";}
+            elseif($editor==3){$a="../../../";}
+            else{$a="";}
+            @include_once $a.LoadLang('f.php');
+        }
+        echo $fun_r['ConntConnectDb'];
+        exit();
+    }
+    //ç¼–ç 
+    DoSetDbChar($phome_db_char);
+    if($phome_db_ver>='5.0')
+    {
+        @mysql_query("SET sql_mode=''");
+    }
+    return $link;
 }
 
-//ÉèÖÃ±àÂë
+//è®¾ç½®ç¼–ç 
 function DoSetDbChar($dbchar){
-	if($dbchar&&$dbchar!='auto')
-	{
-		//@mysql_query("set names '".$dbchar."';");
-		@mysql_query('set character_set_connection='.$dbchar.',character_set_results='.$dbchar.',character_set_client=binary;');
-	}
+    if($dbchar&&$dbchar!='auto')
+    {
+        //@mysql_query("set names '".$dbchar."';");
+        @mysql_query('set character_set_connection='.$dbchar.',character_set_results='.$dbchar.',character_set_client=binary;');
+    }
 }
 
 function db_close(){
-	global $link;
-	@mysql_close($link);
+    global $link;
+    @mysql_close($link);
 }
 
-//È¡µÃmysql°æ±¾(Êý¾Ý¿â)
+//å–å¾—mysqlç‰ˆæœ¬(æ•°æ®åº“)
 function Ebak_GetMysqlVerForDb(){
-	$sql=mysql_query("select version() as version");
-	$r=mysql_fetch_array($sql);
-	return Ebak_ReturnMysqlVer($r['version']);
+    $sql=mysql_query("select version() as version");
+    $r=mysql_fetch_array($sql);
+    return Ebak_ReturnMysqlVer($r['version']);
 }
 
-//·µ»Ømysql°æ±¾
+//è¿”å›žmysqlç‰ˆæœ¬
 function Ebak_ReturnMysqlVer($dbver){
-	if(empty($dbver))
-	{
-		return '';
-	}
-	if($dbver>='6.0')
-	{
-		$dbver='6.0';
-	}
-	elseif($dbver>='5.0')
-	{
-		$dbver='5.0';
-	}
-	elseif($dbver>='4.1')
-	{
-		$dbver='4.1';
-	}
-	else
-	{
-		$dbver='4.0';
-	}
-	return $dbver;
+    if(empty($dbver))
+    {
+        return '';
+    }
+    if($dbver>='6.0')
+    {
+        $dbver='6.0';
+    }
+    elseif($dbver>='5.0')
+    {
+        $dbver='5.0';
+    }
+    elseif($dbver>='4.1')
+    {
+        $dbver='4.1';
+    }
+    else
+    {
+        $dbver='4.0';
+    }
+    return $dbver;
 }
 
-//ÉèÖÃCOOKIE
+//è®¾ç½®COOKIE
 function esetcookie($var,$val,$life=0){
-	global $phome_cookiedomain,$phome_cookiepath,$phome_cookievarpre;
-	return setcookie($phome_cookievarpre.$var,$val,$life,$phome_cookiepath,$phome_cookiedomain);
+    global $phome_cookiedomain,$phome_cookiepath,$phome_cookievarpre;
+    return setcookie($phome_cookievarpre.$var,$val,$life,$phome_cookiepath,$phome_cookiedomain);
 }
 
-//·µ»Øcookie
+//è¿”å›žcookie
 function getcvar($var){
-	global $phome_cookievarpre;
-	$tvar=$phome_cookievarpre.$var;
-	return $_COOKIE[$tvar];
+    global $phome_cookievarpre;
+    $tvar=$phome_cookievarpre.$var;
+    return $_COOKIE[$tvar];
 }
 
-//µ¼ÈëÓïÑÔ°ü
+//å¯¼å…¥è¯­è¨€åŒ…
 function LoadLang($file){
-	global $ebaklang;
-	return "lang/".$ebaklang."/pub/".$file;
+    global $ebaklang;
+    return "lang/".$ebaklang."/pub/".$file;
 }
 
-//²ÎÊý´¦Àíº¯Êý
+//å‚æ•°å¤„ç†å‡½æ•°
 function RepPostVar($val){
-	$val=str_replace(" ","",$val);
-	$val=str_replace("'","",$val);
-	$val=str_replace("\"","",$val);
-	$val=addslashes(stripSlashes($val));
-	return $val;
+    $val=str_replace(" ","",$val);
+    $val=str_replace("'","",$val);
+    $val=str_replace("\"","",$val);
+    $val=addslashes(stripSlashes($val));
+    return $val;
 }
 
-//µ¼ÈëÄ£°å
+//å¯¼å…¥æ¨¡æ¿
 function LoadAdminTemp($file){
-	global $ebaklang;
-	return "lang/".$ebaklang."/temp/".$file;
+    global $ebaklang;
+    return "lang/".$ebaklang."/temp/".$file;
 }
 
-//Ê¹ÓÃ±àÂë
+//ä½¿ç”¨ç¼–ç 
 function HeaderIeChar(){
-	global $ebaklangchar;
-	@header('Content-Type: text/html; charset='.$ebaklangchar);
+    global $ebaklangchar;
+    @header('Content-Type: text/html; charset='.$ebaklangchar);
 }
 
-//·µ»ØÓïÑÔ
+//è¿”å›žè¯­è¨€
 function ReturnUseEbakLang(){
-	global $langcharr;
-	$loginlangid=(int)getcvar('loginlangid');
-	if($langcharr[$loginlangid])
-	{
-		$lr=explode(',',$langcharr[$loginlangid]);
-		$r['lang']=$lr[0];
-		$r['langchar']=$lr[1];
-	}
-	else
-	{
-		$r['lang']='gb';
-		$r['langchar']='gbk';
-	}
-	return $r;
+    global $langcharr;
+    $loginlangid=(int)getcvar('loginlangid');
+    if($langcharr[$loginlangid])
+    {
+        $lr=explode(',',$langcharr[$loginlangid]);
+        $r['lang']=$lr[0];
+        $r['langchar']=$lr[1];
+    }
+    else
+    {
+        $r['lang']='gb';
+        $r['langchar']='gbk';
+    }
+    return $r;
 }
 ?>
