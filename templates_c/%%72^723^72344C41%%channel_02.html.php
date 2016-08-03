@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-04 21:17:22
+<?php /* Smarty version 2.6.18, created on 2016-08-03 14:33:52
          compiled from default/default/channel_02.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -58,9 +58,9 @@ unset($_smarty_tpl_vars);
 						<h4>类型</h4>
 						<div>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=1">国内游</a>
+/index.php?mod=search&ac=search&catid=58">国内游</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=2">出境游</a>
+/index.php?mod=search&ac=search&catid=55">出境游</a>
 						</div>
 					</li>
 					<li>
@@ -139,7 +139,7 @@ unset($_smarty_tpl_vars);
 			<div class="leftbox">
 				<h3><span class="more"><a href="<?php echo $this->_tpl_vars['weburl']; ?>
 /index.php?mod=search&ac=search&keywords=<?php echo $this->_tpl_vars['morekeywords']; ?>
-" target="_blank">更多+</a></span><span class="title"><?php echo $this->_tpl_vars['sortlist']['catname']; ?>
+&s_type=1" target="_blank">更多+</a></span><span class="title"><?php echo $this->_tpl_vars['sortlist']['catname']; ?>
 </span></h3>
 				<table class="linetable">
 					<tr>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-07-27 13:10:19
+<?php /* Smarty version 2.6.18, created on 2016-08-03 14:44:22
          compiled from default/default/search.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -90,8 +90,8 @@ unset($_smarty_tpl_vars);
 		<div class="searchbox">
 			<h3 class="clearfix">
 				<span class="title fl pr10">当前搜索条件</span>
-				<?php if ($_COOKIE['catid'] == 1): ?><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>国内游</a></span><?php endif; ?>
-				<?php if ($_COOKIE['catid'] == 2): ?><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>出境游
+				<?php if ($_COOKIE['catid'] == 58): ?><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>国内游</a></span><?php endif; ?>
+				<?php if ($_COOKIE['catid'] == 55): ?><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>出境游
 				</a></span><?php endif; ?>
 				<?php if ($_COOKIE['departure_city'] <> ''): ?><span><a href="index.php?mod=search&ac=search&departure_city=" class="notice"><span>出发地</span><?php echo $_COOKIE['departure_city']; ?>
 </a></span><?php endif; ?>
@@ -114,9 +114,9 @@ unset($_smarty_tpl_vars);
 						<a href="<?php echo $this->_tpl_vars['weburl']; ?>
 /index.php?mod=search&ac=search&catid=0" <?php if ($_COOKIE['catid'] == 0): ?>class="here"<?php endif; ?>>不限</a>
 						<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=1"  <?php if ($_COOKIE['catid'] == 1): ?>class="here"<?php endif; ?>>国内游</a>
+/index.php?mod=search&ac=search&catid=58"  <?php if ($_COOKIE['catid'] == 58): ?>class="here"<?php endif; ?>>国内游</a>
 						<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=2"  <?php if ($_COOKIE['catid'] == 2): ?>class="here"<?php endif; ?>>出境游</a>
+/index.php?mod=search&ac=search&catid=55"  <?php if ($_COOKIE['catid'] == 55): ?>class="here"<?php endif; ?>>出境游</a>
 					</li>
 					<li class="clearfix">
 						<span>天&nbsp;&nbsp;&nbsp;数：</span>

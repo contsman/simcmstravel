@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-04 21:17:22
+<?php /* Smarty version 2.6.18, created on 2016-08-03 14:42:00
          compiled from default/default/channel_01.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -58,37 +58,46 @@ unset($_smarty_tpl_vars);
 						<h4>类型</h4>
 						<div>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=1">国内游</a>
+/index.php?mod=search&ac=search&catid=58">国内游</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&catid=2">出境游</a>
+/index.php?mod=search&ac=search&catid=55">出境游</a>
 						</div>
 					</li>
 					<li>
 						<h4>天数</h4>
 						<div>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startday=0&endday=5">5天以内</a>
+/index.php?mod=search&ac=search&startday=0&endday=5&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">5天以内</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startday=6&endday=8">6-8天</a>
+/index.php?mod=search&ac=search&startday=6&endday=8&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">6-8天</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startday=9&endday=10">9-10天</a>
+/index.php?mod=search&ac=search&startday=9&endday=10&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">9-10天</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startday=10&endday=100">10天以上</a>
+/index.php?mod=search&ac=search&startday=10&endday=100&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">10天以上</a>
 						</div>
 					</li>
 					<li>
 						<h4>价格</h4>
 						<div>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startprice=0&endprice=2000">2000以内</a>
+/index.php?mod=search&ac=search&startprice=0&endprice=2000&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">2000以内</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startprice=2001&endprice=5000">2001-5000</a>
+/index.php?mod=search&ac=search&startprice=2001&endprice=5000&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">2001-5000</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startprice=5001&endprice=9999">5001-9999</a>
+/index.php?mod=search&ac=search&startprice=5001&endprice=9999&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">5001-9999</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startprice=10000&endprice=20000">10000-20000</a>
+/index.php?mod=search&ac=search&startprice=10000&endprice=20000&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">10000-20000</a>
 							<a href="<?php echo $this->_tpl_vars['weburl']; ?>
-/index.php?mod=search&ac=search&startprice=20000&endprice=1000000">20000以上</a>
+/index.php?mod=search&ac=search&startprice=20000&endprice=1000000&catid=<?php echo $this->_tpl_vars['search_catid']; ?>
+">20000以上</a>
 						</div>
 					</li>
 					<li>
@@ -142,7 +151,7 @@ unset($_smarty_tpl_vars);
 			<div class="leftbox">
 				<h3><span class="more"><a href="<?php echo $this->_tpl_vars['weburl']; ?>
 /index.php?mod=search&ac=search&keywords=<?php echo $this->_tpl_vars['sortlist']['keywords']; ?>
-" target="_blank">更多+</a></span><span class="title"><?php echo $this->_tpl_vars['sortlist']['catname']; ?>
+&s_type=1" target="_blank">更多+</a></span><span class="title"><?php echo $this->_tpl_vars['sortlist']['catname']; ?>
 </span></h3>
 				<table class="linetable">
 					<tr>

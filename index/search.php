@@ -51,7 +51,8 @@ if (isset($_GET['arrival_city_en']) and $_GET['arrival_city_en'] != "" and $_GET
 	setMyCookie("arrival_city", '', time() - COOKIETIME);
 } 
 if (!empty($_COOKIE['arrival_city'])) {
-	$where .= " AND (`p_keywords` like '%" . $_COOKIE['arrival_city'] . "%')";
+//	$where .= " AND (`p_keywords` like '%" . $_COOKIE['arrival_city'] . "%')";
+    $where .= " AND (`p_keywords` like '%" . $_COOKIE['arrival_city'] . "%' or p_title like '%" . $_COOKIE['arrival_city'] . "%' or catid in (select catid from travel_products_category where catname like '%".$_COOKIE['arrival_city']."%') or p_detail like'%".$_COOKIE['arrival_city']."%')";
 } 
 
 // 关键字
@@ -61,7 +62,7 @@ if (isset($_GET['keywords']) and $_GET['keywords'] != "" and $_GET['keywords'] !
 	setMyCookie("keywords", '', time() - COOKIETIME);
 } 
 if (!empty($_COOKIE['keywords'])){
-	$where .= " AND (`p_keywords` like '%" . $_COOKIE['keywords'] . "%' or p_title like '%" . $_COOKIE['keywords'] . "%' or catid = (select catid from travel_products_category where catname like '%".$_COOKIE['keywords']."%') or p_detail like'%".$_COOKIE['keywords']."%')";
+	$where .= " AND (`p_keywords` like '%" . $_COOKIE['keywords'] . "%' or p_title like '%" . $_COOKIE['keywords'] . "%' or catid in (select catid from travel_products_category where catname like '%".$_COOKIE['keywords']."%') or p_detail like'%".$_COOKIE['keywords']."%')";
 } 
 // 价格
 if (isset($_GET['price']) and $_GET['price'] != "" and $_GET['price'] != "价格区间"){
@@ -118,7 +119,7 @@ if (isset($_COOKIE['startprice']) and $_COOKIE['startprice'] == 0 and isset($_CO
 } 
 
 if (isset($_COOKIE['startprice']) and isset($_COOKIE['endprice']) and ($_COOKIE['startprice'] + $_COOKIE['endprice'] != 0)) {
-	$where .= " and p_price > " . $_COOKIE['startprice'] . " and p_price <= " . $_COOKIE['endprice'];
+	$where .= " and p_price >= " . $_COOKIE['startprice'] . " and p_price <= " . $_COOKIE['endprice'];
 } 
 // 天数
 if (isset($_GET['startday'])) {
@@ -133,7 +134,7 @@ if (isset($_COOKIE['startday']) and $_COOKIE['startday'] == 0 and isset($_COOKIE
 } 
 
 if (isset($_COOKIE['startday']) and isset($_COOKIE['endday']) and ($_COOKIE['startday'] + $_COOKIE['endday'] != 0)) {
-	$where .= " and p_travel_days > " . $_COOKIE['startday'] . " and p_travel_days <= " . $_COOKIE['endday'];
+	$where .= " and p_travel_days >= " . $_COOKIE['startday'] . " and p_travel_days <= " . $_COOKIE['endday'];
 } 
 // 排序
 if (isset($_GET['order'])) {

@@ -58,8 +58,8 @@
 		<div class="searchbox">
 			<h3 class="clearfix">
 				<span class="title fl pr10">当前搜索条件</span>
-				<{if $smarty.cookies.catid==1}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>国内游</a></span><{/if}>
-				<{if $smarty.cookies.catid==2}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>出境游
+				<{if $smarty.cookies.catid==58}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>国内游</a></span><{/if}>
+				<{if $smarty.cookies.catid==55}><span><a href="index.php?mod=search&ac=search&catid=0" class="notice"><span>类型</span>出境游
 				</a></span><{/if}>
 				<{if $smarty.cookies.departure_city<>''}><span><a href="index.php?mod=search&ac=search&departure_city=" class="notice"><span>出发地</span><{$smarty.cookies.departure_city}></a></span><{/if}>
 				<{if $smarty.cookies.arrival_city<>''}><span><a href="index.php?mod=search&ac=search&arrival_city=" class="notice"><span>目的地</span><{$smarty.cookies.arrival_city}></a></span><{/if}>
@@ -73,8 +73,8 @@
 					<li class="clearfix">
 						<span>类&nbsp;&nbsp;&nbsp;型：</span> 
 						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=0" <{if $smarty.cookies.catid==0}>class="here"<{/if}>>不限</a>
-						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=1"  <{if $smarty.cookies.catid==1}>class="here"<{/if}>>国内游</a>
-						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=2"  <{if $smarty.cookies.catid==2}>class="here"<{/if}>>出境游</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=58"  <{if $smarty.cookies.catid==58}>class="here"<{/if}>>国内游</a>
+						<a href="<{$weburl}>/index.php?mod=search&ac=search&catid=55"  <{if $smarty.cookies.catid==55}>class="here"<{/if}>>出境游</a>
 					</li>
 					<li class="clearfix">
 						<span>天&nbsp;&nbsp;&nbsp;数：</span>
