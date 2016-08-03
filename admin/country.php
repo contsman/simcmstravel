@@ -4,7 +4,7 @@ if (!defined('APP_IN')) exit('Access Denied');
 //当前模块
 $mod_name = '出境游目的地管理';
 //允许操作
-$ac_arr = array('list'=>'目的地列表','add'=>'添加目的地','edit'=>'编辑目的地','del'=>'删除目的地','bulkdel'=>'批量删除','bulksort'=>'更新排序');
+$ac_arr = array('list'=>'目的地列表','add'=>'添加目的地','edit'=>'编辑目的地','show'=>'改变状态','del'=>'删除目的地','bulkdel'=>'批量删除','bulksort'=>'更新排序');
 //当前操作
 $ac = isset($_REQUEST['ac']) && isset($ac_arr[$_REQUEST['ac']]) ? $_REQUEST['ac'] : 'default';
 
@@ -20,9 +20,9 @@ if ($ac == 'list')
     $Page = new Page($db->tb_prefix.'country','parentid=-1','*','20','orderid');
     $list = $Page->get_data();
 	foreach($list as $key => $value ){
-		$countrylist = $db -> row_select('country', "parentid=".$value['id'], 'id,name', 0, 'orderid asc');
+		$countrylist = $db -> row_select('country', "parentid=".$value['id'], 'id,name,actived,ishot', 0, 'orderid asc');
 		foreach($countrylist as $k => $v){
-			$citylist = $db -> row_select('country', "parentid=".$v['id'], 'id,name', 0, 'orderid asc');
+			$citylist = $db -> row_select('country', "parentid=".$v['id'], 'id,name,actived,ishot', 0, 'orderid asc');
 			$countrylist[$k]['city'] = $citylist;
 		}
 		$list[$key]['country'] = $countrylist;
@@ -34,6 +34,13 @@ if ($ac == 'list')
     $tpl->assign( 'button_select', $button_select );
     $tpl->display( 'admin/country_list.html' );
     exit;
+}
+//显示
+elseif ($ac == 'show')
+{
+    $id = isset($_GET['id']) ? intval($_GET['id']) : showmsg('缺少ID',-1);
+    $status = intval($_GET['actived']);
+    $rs = $db->row_update('country',array('actived'=>$status),"id=".$id);
 }
 //单条删除
 elseif ($ac == 'del')
@@ -65,7 +72,7 @@ elseif ($ac == 'add' || $ac == 'edit')
     {
         $arr_not_empty = array('name'=>'名称不可为空');
         can_not_be_empty($arr_not_empty,$_POST);
-        $post = post('id','name','orderid','parentid');
+        $post = post('id','name','orderid','parentid','ishot');
         if ($ac == 'add')
         {
 			$post['orderid'] = 0;

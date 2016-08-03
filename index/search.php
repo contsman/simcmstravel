@@ -18,7 +18,9 @@ if (isset($_GET['s_type']) and $_GET['s_type'] == 1) {
 	setMyCookie("departure_city", '', time() - COOKIETIME);
 	setMyCookie("departure_date", '', time() - COOKIETIME);
 	setMyCookie("arrival_city", '', time() - COOKIETIME);
-} 
+	setMyCookie("hotcountry", '', time() - COOKIETIME);
+	setMyCookie("hotcity", '', time() - COOKIETIME);
+}
 // 出发地
 if (isset($_GET['departure_city']) and $_GET['departure_city'] != "" and $_GET['departure_city'] != "出发地") {
 	$array_city = arr_city();
@@ -102,7 +104,34 @@ if (isset($_GET['catid']) and $_GET['catid'] != 0) {
 	setMyCookie("catid", intval($_GET['catid']), time() + COOKIETIME);
 } elseif (isset($_GET['catid']) and $_GET['catid'] == 0) {
 	setMyCookie("catid", '', time() - COOKIETIME);
-} 
+}
+
+// 热门国家
+if (isset($_GET['hotcountry']) and $_GET['hotcountry'] != 0) {
+    setMyCookie("hotcountry", intval($_GET['hotcountry']), time() + COOKIETIME);
+} elseif (isset($_GET['hotcountry']) and $_GET['hotcountry'] == 0) {
+    setMyCookie("hotcountry", '', time() - COOKIETIME);
+}
+
+if (isset($_GET['hotcountry']) and isset($_GET['hotcountry']) and ($_COOKIE['hotcountry'] + $_COOKIE['hotcountry'] != 0)) {
+    $where .= " and p_arrival_two like '%" . $_COOKIE['hotcountry']."%'";
+}
+
+// 热门城市
+if (isset($_GET['hotcity']) and $_GET['hotcity'] != 0) {
+    setMyCookie("hotcity", intval($_GET['hotcity']), time() + COOKIETIME);
+} elseif (isset($_GET['hotcity']) and $_GET['hotcity'] == 0) {
+    setMyCookie("hotcity", '', time() - COOKIETIME);
+}
+
+if (isset($_GET['hotcity']) and isset($_GET['hotcity']) and ($_COOKIE['hotcity'] + $_COOKIE['hotcity'] != 0)) {
+    if (!empty($_COOKIE['catid']) &&$_COOKIE['catid'] ==55) {
+        $where .= " and p_arrival_three like '%" . $_COOKIE['hotcity']."%'";
+    }else{
+        $where .= " and p_arrival_two like '%" . $_COOKIE['hotcity']."%'";
+    }
+}
+
 if (!empty($_COOKIE['catid'])) {
 	$where .= " and catid in (select catid from travel_products_category where parentid = ". $_COOKIE['catid'].") ";
 } 

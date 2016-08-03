@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-08-03 09:43:04
+<?php /* Smarty version 2.6.18, created on 2016-08-03 16:50:53
          compiled from default/default/index.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -294,43 +294,37 @@ unset($_smarty_tpl_vars);
                                     </span>
 	</div>
 	<div id="recommendLocations" class="product_sugest_dest j_dest">
-		<div class="j_group">
-			<div class="title j_title" data-cate="出境游">热门国家</div>
-			<div class="content">
-				<a target="_blank" href="http://www.cct.cn/bourne/taiguo/all/">泰国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/hanguo/all/">韩国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/riben/all/">日本</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/meiguo/all/">美国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/xinjiapo/all/">新加坡</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/faguo/all/">法国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/ruishi/all/">瑞士</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/maerdaifu/all/">马尔代夫</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/deguo/all/">德国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/eluosi/all/">俄罗斯</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/yidali/all/">意大利</a>
+		<!--对于出境游，才展示热门国家-->
+		<?php if ($this->_tpl_vars['area']['catid'] == 55): ?>
+			<div class="j_group">
+				<div class="title j_title" data-cate="<?php echo $this->_tpl_vars['area']['catname']; ?>
+">热门国家</div>
+				<div class="content">
+					<?php $_from = $this->_tpl_vars['area']['area_hot_country']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['hotcountry']):
+?>
+						<a target="_blank" href="<?php echo $this->_tpl_vars['weburl']; ?>
+/index.php?mod=search&ac=search&catid=<?php echo $this->_tpl_vars['area']['catid']; ?>
+&hotcountry=<?php echo $this->_tpl_vars['hotcountry']['id']; ?>
+&s_type=1"><?php echo $this->_tpl_vars['hotcountry']['name']; ?>
+</a>
+					<?php endforeach; endif; unset($_from); ?>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 		<div class="j_group">
-			<div class="title j_title" data-cate="出境游">热门城市</div>
+			<div class="title j_title" data-cate="<?php echo $this->_tpl_vars['area']['catname']; ?>
+">热门城市</div>
 			<div class="content">
-				<a target="_blank" href="http://www.cct.cn/bourne/xianggang/all/">香港</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/dongjing/all/">东京</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/shouer/all/">首尔</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/luoma/all/">罗马</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/pujidao/all/">普吉岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/okinawa-nahachongsheng-naba/all/">冲绳</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/shaba/all/">沙巴</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/taibei/all/">台北</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/balidao/all/">巴厘岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/da/all/">大阪</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/sumeidao/all/">苏梅岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/jingdu/all/">京都</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/jizhoudao/all/">济州岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/qingmai/all/">清迈</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/basailuona/all/">巴塞罗那</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/changtandao/all/">长滩岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/saibandao/all/">塞班</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/xini/all/">悉尼</a>
+				<?php $_from = $this->_tpl_vars['area']['area_hot_city']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['hotcity']):
+?>
+					<a target="_blank" href="<?php echo $this->_tpl_vars['weburl']; ?>
+/index.php?mod=search&ac=search&catid=<?php echo $this->_tpl_vars['area']['catid']; ?>
+&hotcity=<?php echo $this->_tpl_vars['hotcity']['id']; ?>
+&s_type=1"><?php echo $this->_tpl_vars['hotcity']['name']; ?>
+</a>
+				<?php endforeach; endif; unset($_from); ?>
 			</div>
 		</div>
 	</div>

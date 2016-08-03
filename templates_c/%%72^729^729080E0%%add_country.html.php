@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-07-28 17:58:37
+<?php /* Smarty version 2.6.18, created on 2016-08-03 16:30:37
          compiled from admin/add_country.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,6 +32,10 @@
 <th>名称：</th>
 <td><input name="name" type="text"  size="30" value="<?php echo $this->_tpl_vars['country']['name']; ?>
 " /></td>
+</tr>
+<tr>
+<th>热门：</th>
+<td><input type="radio" name="ishot" value="1" <?php if ($this->_tpl_vars['country']['ishot'] == 1): ?>checked<?php endif; ?>/> 是 &nbsp;&nbsp;<input type="radio" name="ishot" value="0" <?php if ($this->_tpl_vars['country']['ishot'] == 0): ?>checked<?php endif; ?>/> 否</td>
 </tr>
 <tr>
 <th>排序：</th>

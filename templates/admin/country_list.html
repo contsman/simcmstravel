@@ -16,29 +16,32 @@
 </div>
 <form action="friendlink.php" method="post" name="form">
 <table cellspacing="0" cellpadding="0" width="100%"  class="listtable">
-<tr><th>选择</th><th>排序</th><th align="left">名称</th><th>操作</th></tr>
+<tr><th>选择</th><th>排序</th><th align="left">名称</th><th>是否显示</th><th>操作</th></tr>
 <{foreach from=$list item=cclist}>
 <tr>
 <td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$cclist.id}>"></td>
 <td align="center" width="50"><input type="text" size="5" name="orderid[<{$cclist.id}>]" value="<{$cclist.orderid}>" class="ip01"/></td>
-<td align="left" class="fb"><{$cclist.name}></td>
-<td align="right" width="130">[<a href="<{$adminpage}>?mod=country&ac=add&parentid=<{$cclist.id}>">添加国家</a>] [<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$cclist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$cclist.id}>'">删除</a>]
+<td align="left" class="fb"><{$cclist.name}> <{if $cclist.ishot==1}><span class="red"> 热门</span><{/if}></td>
+<td align="center"><{if $cclist.actived==1}>是<{else}><span class="orange01">否</span><{/if}></td>
+<td align="right" width="130">[<a href="<{$adminpage}>?mod=country&ac=show&actived=<{if $cclist.actived==1}>0<{else}>1<{/if}>&id=<{$cclist.id}>"><{if $cclist.actived==0}>不显示<{else}>显示<{/if}></a>] [<a href="<{$adminpage}>?mod=country&ac=add&parentid=<{$cclist.id}>">添加国家</a>] [<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$cclist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$cclist.id}>'">删除</a>]
 </td>
 </tr>
 <{foreach from=$cclist.country item=countrylist}>
 	<tr>
 	<td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$countrylist.id}>"></td>
 	<td align="center" width="50"><input type="text" size="5" name="orderid[<{$countrylist.id}>]" value="<{$countrylist.orderid}>" class="ip01"/></td>
-	<td align="left">—— <{$countrylist.name}></td>
-	<td align="right" width="80">[<a href="<{$adminpage}>?mod=country&ac=add&parentid=<{$countrylist.id}>">添加城市</a>] [<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$countrylist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$countrylist.id}>'">删除</a>]
+	<td align="left">—— <{$countrylist.name}> <{if $countrylist.ishot==1}><span class="red"> 热门</span><{/if}></td>
+	<td align="center"><{if $countrylist.actived==1}>是<{else}><span class="orange01">否</span><{/if}></td>
+	<td align="right" width="80">[<a href="<{$adminpage}>?mod=country&ac=show&actived=<{if $countrylist.actived==1}>0<{else}>1<{/if}>&id=<{$countrylist.id}>"><{if $countrylist.actived==0}>不显示<{else}>显示<{/if}></a>] [<a href="<{$adminpage}>?mod=country&ac=add&parentid=<{$countrylist.id}>">添加城市</a>] [<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$countrylist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$countrylist.id}>'">删除</a>]
 	</td>
 	</tr>
 	<{foreach from=$countrylist.city item=citylist}>
 	<tr>
 	<td align="center" width="30"><input type="checkbox" name="bulkid[]" value="<{$citylist.id}>"></td>
 	<td align="center" width="50"><input type="text" size="5" name="orderid[<{$citylist.id}>]" value="<{$citylist.orderid}>" class="ip01"/></td>
-	<td align="left">—————— <{$citylist.name}></td>
-	<td align="right" width="80">[<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$citylist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$citylist.id}>'">删除</a>]
+	<td align="left">—————— <{$citylist.name}> <{if $citylist.ishot==1}><span class="red"> 热门</span><{/if}></td>
+		<td align="center"><{if $citylist.actived==1}>是<{else}><span class="orange01">否</span><{/if}></td>
+	<td align="right" width="80">[<a href="<{$adminpage}>?mod=country&ac=show&actived=<{if $citylist.actived==1}>0<{else}>1<{/if}>&id=<{$citylist.id}>"><{if $citylist.actived==0}>不显示<{else}>显示<{/if}></a>] [<a href="<{$adminpage}>?mod=country&ac=edit&id=<{$citylist.id}>">编辑</a>] [<a href="javascript:if(confirm('确实要删除吗?'))location='<{$adminpage}>?mod=country&ac=del&id=<{$citylist.id}>'">删除</a>]
 	</td>
 	</tr>
 <{/foreach}>

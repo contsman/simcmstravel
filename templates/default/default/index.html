@@ -241,43 +241,23 @@
 											<{$area.catname}>                                    </span>
 	</div>
 	<div id="recommendLocations" class="product_sugest_dest j_dest">
-		<div class="j_group">
-			<div class="title j_title" data-cate="出境游">热门国家</div>
-			<div class="content">
-				<a target="_blank" href="http://www.cct.cn/bourne/taiguo/all/">泰国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/hanguo/all/">韩国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/riben/all/">日本</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/meiguo/all/">美国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/xinjiapo/all/">新加坡</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/faguo/all/">法国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/ruishi/all/">瑞士</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/maerdaifu/all/">马尔代夫</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/deguo/all/">德国</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/eluosi/all/">俄罗斯</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/yidali/all/">意大利</a>
+		<!--对于出境游，才展示热门国家-->
+		<{if $area.catid==55}>
+			<div class="j_group">
+				<div class="title j_title" data-cate="<{$area.catname}>">热门国家</div>
+				<div class="content">
+					<{foreach from=$area.area_hot_country item=hotcountry}>
+						<a target="_blank" href="<{$weburl}>/index.php?mod=search&ac=search&catid=<{$area.catid}>&hotcountry=<{$hotcountry.id}>&s_type=1"><{$hotcountry.name}></a>
+					<{/foreach}>
+				</div>
 			</div>
-		</div>
+		<{/if}>
 		<div class="j_group">
-			<div class="title j_title" data-cate="出境游">热门城市</div>
+			<div class="title j_title" data-cate="<{$area.catname}>">热门城市</div>
 			<div class="content">
-				<a target="_blank" href="http://www.cct.cn/bourne/xianggang/all/">香港</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/dongjing/all/">东京</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/shouer/all/">首尔</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/luoma/all/">罗马</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/pujidao/all/">普吉岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/okinawa-nahachongsheng-naba/all/">冲绳</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/shaba/all/">沙巴</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/taibei/all/">台北</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/balidao/all/">巴厘岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/da/all/">大阪</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/sumeidao/all/">苏梅岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/jingdu/all/">京都</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/jizhoudao/all/">济州岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/qingmai/all/">清迈</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/basailuona/all/">巴塞罗那</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/changtandao/all/">长滩岛</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/saibandao/all/">塞班</a>
-				<a target="_blank" href="http://www.cct.cn/bourne/xini/all/">悉尼</a>
+				<{foreach from=$area.area_hot_city item=hotcity}>
+					<a target="_blank" href="<{$weburl}>/index.php?mod=search&ac=search&catid=<{$area.catid}>&hotcity=<{$hotcity.id}>&s_type=1"><{$hotcity.name}></a>
+				<{/foreach}>
 			</div>
 		</div>
 	</div>

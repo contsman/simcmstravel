@@ -9,9 +9,10 @@ E_C("CREATE TABLE `travel_area` (
   `name` varchar(32) character set utf8 NOT NULL,
   `orderid` int(11) NOT NULL,
   `parentid` int(11) NOT NULL,
+  `actived` int(11) NOT NULL default '1' COMMENT '0--cant use,1--can use',
+  `ishot` int(11) NOT NULL default '0' COMMENT '0--dont hot,1--hot',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=163 DEFAULT CHARSET=utf8");
-E_D("replace into `travel_area` values('162','北京','0','-1');");
 
 require("../../inc/footer.php");
 ?>

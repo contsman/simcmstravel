@@ -335,6 +335,30 @@ function warea_line($catid){
     }
     return $list;
 }
+
+//出境游热门国家
+function get_chujing_hotcountry(){
+    global $db;
+    $where = " ishot = 1 and parentid in (select id from travel_country where parentid = -1 ) ";
+    $china_hot_city = $db -> row_select('country', $where, 'id,name', 0);
+    return $china_hot_city;
+}
+
+//出境游热门城市
+function get_chujing_hotcity(){
+    global $db;
+    $where = " ishot = 1 and parentid in (select id from travel_country where parentid in(select id from travel_country where parentid = -1 )) ";
+    $china_hot_city = $db -> row_select('country', $where, 'id,name', 0);
+    return $china_hot_city;
+}
+
+//国内游热门城市
+function get_china_hotcity(){
+    global $db;
+    $where = " ishot = 1 ";
+    $china_hot_city = $db -> row_select('area', $where, 'id,name', 0);
+    return $china_hot_city;
+}
 //首页所有线路数据组装
 function get_all_line() {
     global $db;
@@ -353,7 +377,7 @@ function get_all_line() {
             $warea_list = get_world_area($value['catid']);
             array_push($area_list,$warea_list);
         }
-        $arr = array('catid' => $value['catid'], 'catname' => $value['catname'],'warea' => $warea_list/*,'area_hot_country' =>$area_hot_country,'area_hot_city' =>$area_hot_city*/);
+        $arr = array('catid' => $value['catid'], 'catname' => $value['catname'],'warea' => $warea_list,'area_hot_country' =>$value['catid']==55?get_chujing_hotcountry():'','area_hot_city' =>$value['catid']==55?get_chujing_hotcity():get_china_hotcity());
         array_push($list,$arr);
     }
 //    echo json_encode($list);

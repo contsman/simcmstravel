@@ -28,6 +28,10 @@
 <td><input name="name" type="text"  size="30" value="<{$country.name}>" /></td>
 </tr>
 <tr>
+<th>热门：</th>
+<td><input type="radio" name="ishot" value="1" <{if $country.ishot==1}>checked<{/if}>/> 是 &nbsp;&nbsp;<input type="radio" name="ishot" value="0" <{if $country.ishot==0}>checked<{/if}>/> 否</td>
+</tr>
+<tr>
 <th>排序：</th>
 <td>
 	<input type="text" name="orderid" size="5" value="<{$country.l_orderid}>">
