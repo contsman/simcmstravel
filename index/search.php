@@ -103,7 +103,7 @@ if (isset($_GET['catid']) and $_GET['catid'] != 0) {
 	setMyCookie("catid", '', time() - COOKIETIME);
 } 
 if (!empty($_COOKIE['catid'])) {
-	$where .= " and catid = " . $_COOKIE['catid'];
+	$where .= " and catid in (select catid from travel_products_category where parentid = ". $_COOKIE['catid'].") ";
 } 
 // 价格
 if (isset($_GET['startprice'])) {

@@ -353,7 +353,7 @@ function get_all_line() {
             $warea_list = get_world_area($value['catid']);
             array_push($area_list,$warea_list);
         }
-        $arr = array('id' => $value['catid'], 'catname' => $value['catname'],'warea' => $warea_list/*,'area_hot_country' =>$area_hot_country,'area_hot_city' =>$area_hot_city*/);
+        $arr = array('catid' => $value['catid'], 'catname' => $value['catname'],'warea' => $warea_list/*,'area_hot_country' =>$area_hot_country,'area_hot_city' =>$area_hot_city*/);
         array_push($list,$arr);
     }
 //    echo json_encode($list);

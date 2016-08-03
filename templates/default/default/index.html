@@ -288,7 +288,7 @@
 			<li <{if $skey==0 }>class="on"<{/if}> ><a href="javascript:void(0);"><{$worldarea.catname}></a></li>
 			<{/foreach}>
 		</ul>
-		<a target="_blank" href="<{$weburl}>/index.php?mod=search&ac=search&catid=55&s_type=1" class="product_more">全部出境游线路</a>
+		<a target="_blank" href="<{$weburl}>/index.php?mod=search&ac=search&catid=<{$area.catid}>&s_type=1" class="product_more">全部<{$area.catname}>线路</a>
 	</div>
 	<div class="product_area j_product_list">
 		<{foreach key=ckey item=countryarea from=$area.warea}>
