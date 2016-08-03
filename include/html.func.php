@@ -75,7 +75,7 @@ function html_channel($catid) {
 	$tpl->assign( 'catid', $catid);
 
 	if($catid==1){
-		$tpl->assign( 'menustate', '2');
+		$tpl->assign( 'menustate', '4');
 		$tpl->assign( 'catname', '出境游');
 		//当季热卖
 		$tpl->assign( 'hotlist', get_hotline('catid=2'));
@@ -103,7 +103,7 @@ function html_channel($catid) {
 		fclose($fp);
 	}
 	elseif($catid==2){
-		$tpl->assign( 'menustate', '3');
+		$tpl->assign( 'menustate', '2');
 		$tpl->assign( 'catname', '国内游');
 		//当季热卖
 		$tpl->assign( 'hotlist', get_hotline('catid=1'));
@@ -131,7 +131,7 @@ function html_channel($catid) {
 		fclose($fp);
 	}
 	elseif($catid==3){
-		$tpl->assign( 'menustate', '4');
+		$tpl->assign( 'menustate', '3');
 		$tpl->assign( 'catname', '游轮旅游');
 		$tpl->assign( 'morekeywords', urlencode("游轮"));
 		//当季热卖
@@ -154,30 +154,30 @@ function html_channel($catid) {
 		fwrite($fp, $indexhtml);
 		fclose($fp);
 	}
-	elseif($catid==4){
-		$tpl->assign( 'menustate', '6');
-		$tpl->assign( 'catname', '夕阳红');
-		$tpl->assign( 'morekeywords', urlencode("夕阳红"));
-		//当季热卖
-		$tpl->assign( 'hotlist', get_hotline("p_extension like '%夕阳红%'"));
-		//线路列表
-		$linelist = get_line("is_show=1 and p_extension like '%夕阳红%'",0);
-		foreach($linelist as $key => $value){
-			$linelist[$key]['keywords'] = urlencode("夕阳红");
-			// 出发日期
-			$datelist = $db -> row_select('departure_time', "pid=" . $value['p_id'], 'id,departure_time');
-			foreach($datelist as $sk => $sv) {
-				$datelist[$sk]['departure_time'] = date('Y-m-d', $sv['departure_time']);
-			} 
-			$linelist[$key]['datelist'] = $datelist;
-		}
-		$tpl->assign( 'line_list', $linelist);
-		$indexhtml = $tpl -> fetch('default/'.$settings['templates'].'/channel_02.html');
-		if (!is_dir(HTML_DIR."sunset")) createFolder(HTML_DIR.'sunset');
-		$fp = fopen("sunset/index.html", "w");
-		fwrite($fp, $indexhtml);
-		fclose($fp);
-	}
+//	elseif($catid==4){
+//		$tpl->assign( 'menustate', '6');
+//		$tpl->assign( 'catname', '夕阳红');
+//		$tpl->assign( 'morekeywords', urlencode("夕阳红"));
+//		//当季热卖
+//		$tpl->assign( 'hotlist', get_hotline("p_extension like '%夕阳红%'"));
+//		//线路列表
+//		$linelist = get_line("is_show=1 and p_extension like '%夕阳红%'",0);
+//		foreach($linelist as $key => $value){
+//			$linelist[$key]['keywords'] = urlencode("夕阳红");
+//			// 出发日期
+//			$datelist = $db -> row_select('departure_time', "pid=" . $value['p_id'], 'id,departure_time');
+//			foreach($datelist as $sk => $sv) {
+//				$datelist[$sk]['departure_time'] = date('Y-m-d', $sv['departure_time']);
+//			}
+//			$linelist[$key]['datelist'] = $datelist;
+//		}
+//		$tpl->assign( 'line_list', $linelist);
+//		$indexhtml = $tpl -> fetch('default/'.$settings['templates'].'/channel_02.html');
+//		if (!is_dir(HTML_DIR."sunset")) createFolder(HTML_DIR.'sunset');
+//		$fp = fopen("sunset/index.html", "w");
+//		fwrite($fp, $indexhtml);
+//		fclose($fp);
+//	}
 	elseif($catid==5){
 		$tpl->assign( 'menustate', '5');
 		$tpl->assign( 'catname', '学生专题');

@@ -1,7 +1,4 @@
 <?php
-/*
- wtc0913@163.com
-*/
 
 include('../common.inc.php');
 

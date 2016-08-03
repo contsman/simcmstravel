@@ -1,8 +1,4 @@
 <?php
-/**
- * 
- * wtc0193@163.com
- */
 
 include('common.inc.php');
 include(INC_DIR . 'html.func.php');

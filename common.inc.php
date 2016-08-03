@@ -1,7 +1,4 @@
 <?php
-/*
-锦尚中国站长分享圈子 bbs.52jscn.com
-*/
 session_start();
 define('APP_IN', true);
 //error_reporting(E_ALL);

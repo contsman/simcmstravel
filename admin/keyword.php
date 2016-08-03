@@ -1,10 +1,4 @@
 <?php
-/**
- * @copyright littlemao
- * @author littlemao
- * @邮箱:littlemao2007@126.com
- * @qq:61815441
- */
 if (!defined('APP_IN')) exit('Access Denied');
 
 //当前模块
