@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-07-27 10:28:33
+<?php /* Smarty version 2.6.18, created on 2016-08-03 15:08:19
          compiled from admin/add_area.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,6 +38,10 @@
 <th>代码：</th>
 <td><input name="id" type="text"  size="30" <?php if ($this->_tpl_vars['ac'] == 'edit'): ?> readonly <?php endif; ?> value="<?php echo $this->_tpl_vars['area']['id']; ?>
 " /></td>
+</tr>
+<tr>
+<th>热门：</th>
+	<td><input type="radio" name="ishot" value="1" <?php if ($this->_tpl_vars['area']['ishot'] == 1): ?>checked<?php endif; ?>/> 是 &nbsp;&nbsp;<input type="radio" name="ishot" value="0" <?php if ($this->_tpl_vars['area']['ishot'] == 0): ?>checked<?php endif; ?>/> 否</td>
 </tr>
 <tr>
 <th>排序：</th>

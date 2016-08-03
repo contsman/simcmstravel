@@ -33,6 +33,10 @@
 <td><input name="id" type="text"  size="30" <{if $ac == 'edit'}> readonly <{/if}> value="<{$area.id}>" /></td>
 </tr>
 <tr>
+<th>热门：</th>
+	<td><input type="radio" name="ishot" value="1" <{if $area.ishot==1}>checked<{/if}>/> 是 &nbsp;&nbsp;<input type="radio" name="ishot" value="0" <{if $area.ishot==0}>checked<{/if}>/> 否</td>
+</tr>
+<tr>
 <th>排序：</th>
 <td>
 	<input type="text" name="orderid" size="5" value="<{$area.l_orderid}>">

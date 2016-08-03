@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-08-03 12:43:52
+<?php /* Smarty version 2.6.18, created on 2016-08-03 15:00:51
          compiled from admin/add_products.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -328,7 +328,7 @@
 			<tr>
 				<th>往返交通：</th>
 				<td><input name="p_transport" type="text" size="30" value="<?php echo $this->_tpl_vars['products']['p_transport']; ?>
-" /></td>
+" />(游轮写在这里,包含"游轮"关键字)</td>
 			</tr>
 			<tr>
 				<th>摘要：</th>
