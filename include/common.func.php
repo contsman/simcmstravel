@@ -339,7 +339,7 @@ function warea_line($catid){
 //出境游热门国家
 function get_chujing_hotcountry(){
     global $db;
-    $where = " ishot = 1 and parentid in (select id from travel_country where parentid = -1 ) ";
+    $where = " ishot = 1 and actived = 1  and parentid in (select id from travel_country where parentid = -1 ) ";
     $china_hot_city = $db -> row_select('country', $where, 'id,name', 0);
     return $china_hot_city;
 }
@@ -347,7 +347,7 @@ function get_chujing_hotcountry(){
 //出境游热门城市
 function get_chujing_hotcity(){
     global $db;
-    $where = " ishot = 1 and parentid in (select id from travel_country where parentid in(select id from travel_country where parentid = -1 )) ";
+    $where = " ishot = 1 and actived = 1  and parentid in (select id from travel_country where parentid in(select id from travel_country where parentid = -1 )) ";
     $china_hot_city = $db -> row_select('country', $where, 'id,name', 0);
     return $china_hot_city;
 }
@@ -355,7 +355,7 @@ function get_chujing_hotcity(){
 //国内游热门城市
 function get_china_hotcity(){
     global $db;
-    $where = " ishot = 1 ";
+    $where = " ishot = 1 and actived = 1 ";
     $china_hot_city = $db -> row_select('area', $where, 'id,name', 0);
     return $china_hot_city;
 }
