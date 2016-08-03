@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2016-08-03 11:59:22
+<?php /* Smarty version 2.6.18, created on 2016-08-03 12:43:52
          compiled from admin/add_products.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -276,9 +276,9 @@
 				</td>
 			</tr>
 			<tr>
-				<th>扩展属性(学生专题在这写包含学生俩字的关键词)：</th>
+				<th>扩展属性：</th>
 				<td><input name="p_extension" type="text" size="50" value="<?php echo $this->_tpl_vars['products']['p_extension']; ?>
-" /></td>
+" />(学生专题在这写包含学生俩字的关键词)</td>
 			</tr>
 			<tr>
 				<th>截止日期：</th>
