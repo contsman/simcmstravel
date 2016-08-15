@@ -8,17 +8,17 @@ E_C("CREATE TABLE `travel_settings` (
   `v` text NOT NULL,
   PRIMARY KEY  (`k`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
-E_D("replace into `travel_settings` values('title','北京旅游网');");
-E_D("replace into `travel_settings` values('keywords','北京旅游网');");
+E_D("replace into `travel_settings` values('title','北京首都国旅');");
+E_D("replace into `travel_settings` values('keywords','北京首都国旅');");
 E_D("replace into `travel_settings` values('description','');");
-E_D("replace into `travel_settings` values('sitename','北京旅游网');");
+E_D("replace into `travel_settings` values('sitename','北京首都国旅');");
 E_D("replace into `travel_settings` values('website','http://localhost/tiaoji');");
 E_D("replace into `travel_settings` values('copyright','');");
 E_D("replace into `travel_settings` values('icp','travelcms');");
 E_D("replace into `travel_settings` values('address','北京市');");
 E_D("replace into `travel_settings` values('postcode','315171');");
-E_D("replace into `travel_settings` values('fax','010-58480317');");
-E_D("replace into `travel_settings` values('tel','010-58480317');");
+E_D("replace into `travel_settings` values('fax','010-56159892');");
+E_D("replace into `travel_settings` values('tel','010-56159892');");
 E_D("replace into `travel_settings` values('email','123456@qq.com');");
 E_D("replace into `travel_settings` values('pic_width','300');");
 E_D("replace into `travel_settings` values('pic_height','300');");

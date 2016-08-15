@@ -13,8 +13,8 @@ E_C("CREATE TABLE `travel_consultant` (
   `orderid` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8");
-E_D("replace into `travel_consultant` values('13','洪艳楠','云南，四川','资深旅游顾问','1381154961.jpg','0');");
-E_D("replace into `travel_consultant` values('14','张燕','青岛，大连','资深旅游顾问','1381934825.png','0');");
+E_D("replace into `travel_consultant` values('13','洪艳楠','云南，四川','资深旅游顾问','1368626684.jpg','0');");
+E_D("replace into `travel_consultant` values('14','张燕','青岛，大连','资深旅游顾问','1368626684.png','0');");
 E_D("replace into `travel_consultant` values('15','王乐乐','北京周边','资深旅游顾问','1368626684.jpg','0');");
 
 require("../../inc/footer.php");
